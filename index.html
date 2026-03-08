@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prime Kenya | Clothing, Branding & Custom Printing</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #111, #1f1f1f, #3a3a3a);
+      color: white;
+      padding: 20px 8%;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .logo {
+      font-size: 1.7rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+        url('https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1200&q=80') center/cover;
+      color: white;
+      text-align: center;
+      padding: 90px 8% 80px;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      max-width: 800px;
+      margin: 0 auto 25px;
+      font-size: 1.05rem;
+    }
+
+    .btn-group {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 22px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s ease;
+    }
+
+    .btn-primary {
+      background: #d4af37;
+      color: #111;
+    }
+
+    .btn-primary:hover {
+      background: #c39d26;
+    }
+
+    .btn-secondary {
+      background: white;
+      color: #111;
+    }
+
+    .btn-secondary:hover {
+      background: #eaeaea;
+    }
+
+    section {
+      padding: 60px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 15px;
+      color: #111;
+    }
+
+    .section-text {
+      text-align: center;
+      max-width: 850px;
+      margin: 0 auto 35px;
+      color: #555;
+    }
+
+    .features,
+    .products,
+    .services,
+    .gallery,
+    .steps,
+    .support-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 22px;
+      border-radius: 14px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      color: #111;
+    }
+
+    .card p {
+      color: #555;
+      font-size: 0.95rem;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    }
+
+    .product-image {
+      height: 220px;
+      background: #ddd center/cover no-repeat;
+    }
+
+    .product-info {
+      padding: 20px;
+    }
+
+    .price {
+      color: #0a7a35;
+      font-weight: bold;
+      font-size: 1.1rem;
+      margin: 10px 0 15px;
+    }
+
+    .gallery-box {
+      background: white;
+      border: 2px dashed #bbb;
+      border-radius: 12px;
+      min-height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      color: #666;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+    }
+
+    .highlight {
+      background: #111;
+      color: white;
+      border-radius: 18px;
+      padding: 35px;
+      text-align: center;
+    }
+
+    .highlight h2 {
+      margin-bottom: 15px;
+      font-size: 2rem;
+    }
+
+    .payment-box {
+      background: #fff8e1;
+      border-left: 6px solid #d4af37;
+      padding: 25px;
+      border-radius: 10px;
+      max-width: 900px;
+      margin: 0 auto;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+    }
+
+    .payment-box p {
+      margin: 8px 0;
+    }
+
+    footer {
+      background: #111;
+      color: white;
+      padding: 35px 8%;
+      text-align: center;
+    }
+
+    footer p {
+      margin: 8px 0;
+      color: #ddd;
+    }
+
+    .small {
+      font-size: 0.92rem;
+      color: #ddd;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .section-title {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <div class="logo">Prime Kenya</div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#shop">Shop</a>
+        <a href="#printing">Printing</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#order">How to Order</a>
+        <a href="#support">Support</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Classy Kenyan Wear, Branding & Custom Printing</h1>
+    <p>
+      Prime Kenya creates and sells quality printed clothes inspired by the spirit of Kenya.
+      We also handle custom branding and printing for T-shirts, kids’ wear, caps, cups, mugs,
+      and other personalized items for individuals, events, businesses, and brands.
+    </p>
+    <div class="btn-group">
+      <a class="btn btn-primary" href="#shop">Shop Now</a>
+      <a class="btn btn-secondary" href="https://wa.me/254724325936" target="_blank">Order on WhatsApp</a>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2 class="section-title">About Prime Kenya</h2>
+    <p class="section-text">
+      Prime Kenya is a modern Kenyan brand focused on clothing, branding, and custom printing.
+      Our printed clothes reflect local identity, culture, style, and connection with the Kenyan market.
+      We make it easy for customers to buy ready designs or request customized items quickly and professionally.
+    </p>
+
+    <div class="features">
+      <div class="card">
+        <h3>Kenyan-Inspired Designs</h3>
+        <p>Our clothes are made to connect with local tastes, identity, creativity, and everyday Kenyan expression.</p>
+      </div>
+      <div class="card">
+        <h3>Custom Orders</h3>
+        <p>Need a personal design, business logo, event print, or special branding? We make it for you.</p>
+      </div>
+      <div class="card">
+        <h3>Fast Ordering</h3>
+        <p>Choose your item, contact us on WhatsApp, pay via M-Pesa, and we arrange delivery with simple steps.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="shop">
+    <h2 class="section-title">Shop Our Featured Items</h2>
+    <p class="section-text">
+      Browse some of our featured products. More designs and collections can be shared directly through WhatsApp.
+    </p>
+
+    <div class="products">
+      <div class="product-card">
+        <div class="product-image" style="background-image:url('https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=900&q=80');"></div>
+        <div class="product-info">
+          <h3>Printed T-Shirts</h3>
+          <p>Stylish Kenyan-themed and branded T-shirts made for everyday wear, gifting, events, and identity expression.</p>
+          <div class="price">KSh 1,000</div>
+          <a class="btn btn-primary" href="https://wa.me/254724325936?text=Hello%20Prime%20Kenya,%20I%20want%20to%20order%20a%20printed%20T-shirt." target="_blank">Order This</a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image" style="background-image:url('https://images.unsplash.com/photo-1519238360530-48c4454f9e67?auto=format&fit=crop&w=900&q=80');"></div>
+        <div class="product-info">
+          <h3>Kids’ Printed T-Shirts</h3>
+          <p>Affordable and attractive printed T-shirts for kids with quality finishing and custom options available.</p>
+          <div class="price">KSh 650</div>
+          <a class="btn btn-primary" href="https://wa.me/254724325936?text=Hello%20Prime%20Kenya,%20I%20want%20to%20order%20a%20kids'%20printed%20T-shirt." target="_blank">Order This</a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image" style="background-image:url('https://images.unsplash.com/photo-1521369909029-2afed882baee?auto=format&fit=crop&w=900&q=80');"></div>
+        <div class="product-info">
+          <h3>Custom Printed Items</h3>
+          <p>T-shirts, caps, cups, mugs and more. Send your preferred branding or design and we produce it for you.</p>
+          <div class="price">Price on Request</div>
+          <a class="btn btn-primary" href="https://wa.me/254724325936?text=Hello%20Prime%20Kenya,%20I%20want%20a%20custom%20printed%20item." target="_blank">Request Custom Item</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="printing">
+    <div class="highlight">
+      <h2>All-Type Printing & Branding</h2>
+      <p>
+        We handle all kinds of custom branding and printing including clothes, caps, cups, mugs,
+        promotional items, event wear, business branding, and personalized products.
+      </p>
+      <br />
+      <a class="btn btn-primary" href="https://wa.me/254724325936?text=Hello%20Prime%20Kenya,%20I%20want%20printing%20and%20branding%20services." target="_blank">Talk to Us on WhatsApp</a>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Send Us Your Design</h2>
+    <p class="section-text">
+      Already have a logo, artwork, slogan, or sample design? Send it to us on WhatsApp and we will guide you on printing, pricing, and delivery.
+    </p>
+
+    <div class="services">
+      <div class="card">
+        <h3>Upload Through WhatsApp</h3>
+        <p>Send your image, logo, sketch, or design sample directly to our WhatsApp for faster assistance.</p>
+      </div>
+      <div class="card">
+        <h3>Describe Your Idea</h3>
+        <p>If you do not have a finished design, simply explain the concept you want and we will help you bring it to life.</p>
+      </div>
+      <div class="card">
+        <h3>Get a Quick Response</h3>
+        <p>We help you confirm item type, branding style, quantity, payment, and delivery details in a fast and simple way.</p>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top:30px;">
+      <a class="btn btn-primary" href="https://wa.me/254724325936?text=Hello%20Prime%20Kenya,%20I%20want%20to%20send%20my%20design%20for%20printing." target="_blank">Send Design on WhatsApp</a>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <h2 class="section-title">Gallery</h2>
+    <p class="section-text">
+      This section will display samples of your clothes, custom prints, and branded items.
+      Send your product photos later and we will place them here professionally.
+    </p>
+
+    <div class="gallery">
+      <div class="gallery-box">Clothing Sample 1<br />Your image can go here</div>
+      <div class="gallery-box">Clothing Sample 2<br />Your image can go here</div>
+      <div class="gallery-box">Custom Print Sample 3<br />Your image can go here</div>
+      <div class="gallery-box">Branded Item Sample 4<br />Your image can go here</div>
+    </div>
+  </section>
+
+  <section id="order">
+    <h2 class="section-title">How to Order</h2>
+    <p class="section-text">
+      We keep everything simple, fast, and easy.
+    </p>
+
+    <div class="steps">
+      <div class="card">
+        <h3>1. Choose Product or Service</h3>
+        <p>Select a ready-made item or tell us the custom printing or branding service you want.</p>
+      </div>
+      <div class="card">
+        <h3>2. Contact on WhatsApp</h3>
+        <p>Send your order details, quantity, size, preferred design, or upload your own artwork through WhatsApp.</p>
+      </div>
+      <div class="card">
+        <h3>3. Pay via M-Pesa</h3>
+        <p>After confirming your order, make payment through M-Pesa using our provided number.</p>
+      </div>
+      <div class="card">
+        <h3>4. Receive Delivery</h3>
+        <p>We process your order and arrange delivery to your location as quickly as possible.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Payment & Delivery</h2>
+    <div class="payment-box">
+      <p><strong>M-Pesa Number:</strong> 0724325936</p>
+      <p><strong>Payment Method:</strong> M-Pesa after order confirmation</p>
+      <p><strong>Delivery:</strong> Available upon arrangement after payment confirmation</p>
+      <p><strong>Process:</strong> Confirm order → Pay → We prepare → We deliver</p>
+    </div>
+  </section>
+
+  <section id="support">
+    <h2 class="section-title">Support System</h2>
+    <p class="section-text">
+      We support you before, during, and after ordering.
+    </p>
+
+    <div class="support-grid">
+      <div class="card">
+        <h3>Ordering Help</h3>
+        <p>Need help choosing a product, size, design, or quantity? We guide you quickly.</p>
+      </div>
+      <div class="card">
+        <h3>Custom Design Assistance</h3>
+        <p>Not sure how your idea should look? Tell us your concept and we help shape the final product.</p>
+      </div>
+      <div class="card">
+        <h3>Delivery Updates</h3>
+        <p>We communicate with you clearly about your order progress and delivery arrangements.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2 class="section-title">Contact Prime Kenya</h2>
+    <p class="section-text">
+      Ready to order, print, brand, or customize your item? Reach us directly.
+    </p>
+
+    <div class="features">
+      <div class="card">
+        <h3>WhatsApp</h3>
+        <p>0724325936</p>
+        <a class="btn btn-primary" href="https://wa.me/254724325936" target="_blank">Chat on WhatsApp</a>
+      </div>
+      <div class="card">
+        <h3>M-Pesa</h3>
+        <p>0724325936</p>
+        <p>Use this number after confirming your order details.</p>
+      </div>
+      <div class="card">
+        <h3>Prime Kenya</h3>
+        <p>Clothing, custom printing, branding, and personalized products made simple.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <h3>Prime Kenya</h3>
+    <p>Clothes • Branding • Custom Printing • Delivery</p>
+    <p>WhatsApp / M-Pesa: 0724325936</p>
+    <p class="small">© 2026 Prime Kenya. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

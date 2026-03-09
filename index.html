@@ -940,6 +940,23 @@ nav {
       </div>
     </div>
   </section>
+  <div class="cart-panel" id="cartPanel">
+
+<h3>Your Cart</h3>
+
+<div id="cartItems"></div>
+
+<div class="cart-total">
+Total: KSh <span id="cartTotal">0</span>
+</div>
+
+<a class="btn btn-primary cart-checkout"
+href="https://wa.me/254724325936"
+target="_blank">
+Checkout on WhatsApp
+</a>
+
+  </div>
 
   <footer>
   <h3>Prime Kenya</h3>
@@ -1057,6 +1074,17 @@ window.addEventListener('click', function(e) {
   <script>
 function toggleCart(){
   const cart = document.getElementById("cartPanel");
+  if(cart.style.display === "block"){
+    cart.style.display = "none";
+  } else {
+    cart.style.display = "block";
+  }
+}
+  </script>
+  <script>
+function toggleCart(){
+  const cart = document.getElementById("cartPanel");
+
   if(cart.style.display === "block"){
     cart.style.display = "none";
   } else {

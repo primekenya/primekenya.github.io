@@ -543,6 +543,34 @@ nav {
   width: 100%;
   text-align: center;
 }
+    .cart-item {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  border-bottom: 1px solid #eee;
+  padding: 10px 0;
+}
+
+.cart-thumb {
+  width: 55px;
+  height: 55px;
+  border-radius: 8px;
+  background-size: cover;
+  background-position: center;
+  background-color: #f3f3f3;
+  flex-shrink: 0;
+}
+
+.cart-item-details {
+  flex: 1;
+}
+
+.cart-item-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
   </style>
 </head>
 <body>
@@ -1164,16 +1192,21 @@ function updateCart() {
     message += `${item.name} x${item.qty} = KSh ${lineTotal}%0A`;
 
     cartItems.innerHTML += `
-      <div class="cart-item">
-        <div class="cart-item-title">${item.name}</div>
-        <div>KSh ${item.price}</div>
-        <div class="cart-item-controls">
-          <button class="qty-btn" onclick="changeQty(${index}, -1)">-</button>
-          <span>${item.qty}</span>
-          <button class="qty-btn" onclick="changeQty(${index}, 1)">+</button>
-        </div>
+  <div class="cart-item">
+    <div class="cart-thumb" style="background-image:${item.image};"></div>
+
+    <div class="cart-item-details">
+      <div class="cart-item-title">${item.name}</div>
+      <div>KSh ${item.price}</div>
+
+      <div class="cart-item-controls">
+        <button class="qty-btn" onclick="changeQty(${index}, -1)">-</button>
+        <span>${item.qty}</span>
+        <button class="qty-btn" onclick="changeQty(${index}, 1)">+</button>
       </div>
-    `;
+    </div>
+  </div>
+`;
   });
 
   cartTotal.innerText = "Total: KSh " + total;
@@ -1199,8 +1232,11 @@ document.addEventListener("click", function(e) {
   const info = e.target.closest(".product-info");
   if (!info) return;
 
-  const nameEl = info.querySelector("h3");
-  const priceEl = info.querySelector(".price");
+  const card = e.target.closest(".product-card");
+const nameEl = info.querySelector("h3");
+const priceEl = info.querySelector(".price");
+const imageEl = card.querySelector(".product-image");
+const image = imageEl ? imageEl.style.backgroundImage : "";
 
   const card = e.target.closest(".product-card");
 
@@ -1217,11 +1253,10 @@ if (nameEl) {
   const existing = cart.find(item => item.name === name);
 
   if (existing) {
-    existing.qty += 1;
-  } else {
-    cart.push({ name, price, qty: 1 });
-  }
-
+  existing.qty += 1;
+} else {
+  cart.push({ name, price, qty: 1, image });
+    }
   updateCart();
 
   const panel = document.getElementById("cartPanel");

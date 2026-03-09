@@ -973,84 +973,8 @@ Checkout on WhatsApp
 </div>
 
 <script>
-  <script>
-let cart = [];
 
-function toggleCart() {
-  const panel = document.getElementById("cartPanel");
-  panel.style.display = panel.style.display === "block" ? "none" : "block";
-}
-
-function updateCart() {
-  const cartItems = document.getElementById("cartItems");
-  const cartTotal = document.getElementById("cartTotal");
-  const cartCount = document.getElementById("cartCount");
-  const checkoutBtn = document.querySelector(".cart-checkout");
-
-  cartItems.innerHTML = "";
-
-  let total = 0;
-  let count = 0;
-  let message = "Hello Prime Kenya, I want to order:%0A";
-
-  cart.forEach((item, index) => {
-    total += item.price * item.qty;
-    count += item.qty;
-    message += `${item.name} x${item.qty} = KSh ${item.price * item.qty}%0A`;
-
-    cartItems.innerHTML += `
-      <div class="cart-item">
-        <div class="cart-item-title">${item.name}</div>
-        <div>KSh ${item.price}</div>
-        <div class="cart-item-controls">
-          <button class="qty-btn" onclick="changeQty(${index}, -1)">-</button>
-          <span>${item.qty}</span>
-          <button class="qty-btn" onclick="changeQty(${index}, 1)">+</button>
-        </div>
-      </div>
-    `;
-  });
-
-  cartTotal.innerText = "Total: KSh " + total;
-  cartCount.innerText = count;
-  checkoutBtn.href = "https://wa.me/254724325936?text=" + message + "%0ATotal = KSh " + total;
-}
-
-function changeQty(index, change) {
-  cart[index].qty += change;
-
-  if (cart[index].qty <= 0) {
-    cart.splice(index, 1);
-  }
-
-  updateCart();
-}
-
-document.addEventListener("click", function(e) {
-  if (e.target.classList.contains("add-cart")) {
-    const info = e.target.closest(".product-info");
-    const card = e.target.closest(".product-card");
-
-    const nameEl = info.querySelector("h3");
-    const priceEl = info.querySelector(".price");
-
-    const name = nameEl ? nameEl.innerText : "Prime Kenya product";
-    const rawPrice = priceEl ? priceEl.innerText.replace(/[^0-9]/g, "") : "0";
-    const price = parseInt(rawPrice || "0", 10);
-
-    const existing = cart.find(item => item.name === name);
-
-    if (existing) {
-      existing.qty += 1;
-    } else {
-      cart.push({ name, price, qty: 1 });
-    }
-
-    updateCart();
-    document.getElementById("cartPanel").style.display = "block";
-  }
-});
-</script>
+</script
 document.querySelectorAll('.like-btn').forEach(function(btn) {
   btn.addEventListener('click', function() {
     this.classList.toggle('liked');
@@ -1167,17 +1091,7 @@ window.addEventListener('click', function(e) {
     closePreview();
   }
 });
-  </script>
-  <script>
-function toggleCart(){
-  const cart = document.getElementById("cartPanel");
-  if(cart.style.display === "block"){
-    cart.style.display = "none";
-  } else {
-    cart.style.display = "block";
-  }
-}
-  </script>
+  </script>  
   <script>
 function toggleCart(){
   const cart = document.getElementById("cartPanel");
@@ -1189,6 +1103,17 @@ function toggleCart(){
   }
 }
   </script>
+  <script>
+document.querySelectorAll('.product-info').forEach(function(info) {
+  const price = info.querySelector('.price');
+  if (price && !info.querySelector('.add-cart')) {
+    const btn = document.createElement("button");
+    btn.innerText = "Add to Cart";
+    btn.className = "btn btn-secondary add-cart";
+    price.after(btn);
+  }
+});
+  </script>
   <section id="about">
 <h2>About Prime Kenya</h2>
 <p>
@@ -1196,5 +1121,91 @@ Prime Kenya creates stylish printed clothing inspired by Kenyan culture and mode
 We also provide custom printing and branding for businesses, events, and individuals.
 </p>
 </section>
+  <script>
+let cart = [];
+
+function toggleCart() {
+  const panel = document.getElementById("cartPanel");
+  if (!panel) return;
+  panel.style.display = panel.style.display === "block" ? "none" : "block";
+}
+
+function updateCart() {
+  const cartItems = document.getElementById("cartItems");
+  const cartTotal = document.getElementById("cartTotal");
+  const cartCount = document.getElementById("cartCount");
+  const checkoutBtn = document.querySelector(".cart-checkout");
+
+  if (!cartItems || !cartTotal || !cartCount || !checkoutBtn) return;
+
+  cartItems.innerHTML = "";
+
+  let total = 0;
+  let totalQty = 0;
+  let message = "Hello Prime Kenya, I want to order:%0A";
+
+  cart.forEach((item, index) => {
+    const lineTotal = item.price * item.qty;
+    total += lineTotal;
+    totalQty += item.qty;
+    message += `${item.name} x${item.qty} = KSh ${lineTotal}%0A`;
+
+    cartItems.innerHTML += `
+      <div class="cart-item">
+        <div class="cart-item-title">${item.name}</div>
+        <div>KSh ${item.price}</div>
+        <div class="cart-item-controls">
+          <button class="qty-btn" onclick="changeQty(${index}, -1)">-</button>
+          <span>${item.qty}</span>
+          <button class="qty-btn" onclick="changeQty(${index}, 1)">+</button>
+        </div>
+      </div>
+    `;
+  });
+
+  cartTotal.innerText = "Total: KSh " + total;
+  cartCount.innerText = totalQty;
+  checkoutBtn.href = "https://wa.me/254724325936?text=" + message + "%0ATotal = KSh " + total;
+}
+
+function changeQty(index, change) {
+  if (!cart[index]) return;
+
+  cart[index].qty += change;
+
+  if (cart[index].qty <= 0) {
+    cart.splice(index, 1);
+  }
+
+  updateCart();
+}
+
+document.addEventListener("click", function(e) {
+  if (!e.target.classList.contains("add-cart")) return;
+
+  const info = e.target.closest(".product-info");
+  if (!info) return;
+
+  const nameEl = info.querySelector("h3");
+  const priceEl = info.querySelector(".price");
+
+  const name = nameEl ? nameEl.innerText.trim() : "Prime Kenya product";
+  const priceText = priceEl ? priceEl.innerText : "0";
+  const price = parseInt(priceText.replace(/[^0-9]/g, ""), 10) || 0;
+
+  const existing = cart.find(item => item.name === name);
+
+  if (existing) {
+    existing.qty += 1;
+  } else {
+    cart.push({ name, price, qty: 1 });
+  }
+
+  updateCart();
+
+  const panel = document.getElementById("cartPanel");
+  if (panel) panel.style.display = "block";
+});
+  </script>
 </body>
 </html>

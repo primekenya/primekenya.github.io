@@ -862,23 +862,46 @@ document.querySelectorAll('.like-btn').forEach(function(btn) {
 document.querySelectorAll('.share-btn').forEach(function(btn) {
   btn.addEventListener('click', function() {
     const card = this.closest('.product-card');
-    const title = card.querySelector('h3') ? card.querySelector('h3').innerText : 'Prime Kenya product';
-    const text = 'Check out this product on Prime Kenya: ' + title;
-    const url = window.location.href;
+    const id = card.id;
+    const titleEl = card.querySelector('h3');
+    const title = titleEl ? titleEl.innerText : 'Prime Kenya product';
+    const url = window.location.origin + window.location.pathname + '#' + id;
 
     if (navigator.share) {
       navigator.share({
         title: title,
-        text: text,
+        text: 'Check out this product on Prime Kenya',
         url: url
       });
     } else {
       navigator.clipboard.writeText(url);
-      alert('Link copied');
+      alert('Product link copied');
     }
   });
 });
   </script>
+  
+  <script>
+window.addEventListener('load', function() {
+  if (window.location.hash) {
+    const target = document.querySelector(window.location.hash);
+    if (target) {
+      target.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+        inline: "center"
+      });
+
+      target.style.boxShadow = "0 0 0 3px gold";
+
+      setTimeout(function() {
+        target.style.boxShadow = "";
+      }, 2000);
+    }
+  }
+});
+  </script>
+  
   <script>
 function toggleMenu() {
   document.getElementById('mobileMenu').classList.toggle('show');

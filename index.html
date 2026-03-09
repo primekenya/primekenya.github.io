@@ -1189,7 +1189,15 @@ document.addEventListener("click", function(e) {
   const nameEl = info.querySelector("h3");
   const priceEl = info.querySelector(".price");
 
-  const name = nameEl ? nameEl.innerText.trim() : "Prime Kenya product";
+  const card = e.target.closest(".product-card");
+
+let name;
+
+if (nameEl) {
+  name = nameEl.innerText.trim();
+} else {
+  name = "Product " + card.id.replace("cloth", "#");
+}
   const priceText = priceEl ? priceEl.innerText : "0";
   const price = parseInt(priceText.replace(/[^0-9]/g, ""), 10) || 0;
 

@@ -338,23 +338,68 @@
   background: #ffe3e3;
   color: #c62828;
 }
+    .menu-toggle {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.6rem;
+  cursor: pointer;
+  display: block;
+}
+
+.nav-links {
+  display: none;
+  flex-direction: column;
+  gap: 12px;
+  background: #111;
+  position: absolute;
+  top: 60px;
+  right: 8%;
+  padding: 15px;
+  border-radius: 10px;
+  width: 220px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+}
+
+.nav-links.show {
+  display: flex;
+}
+
+nav {
+  position: relative;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.logo {
+  font-size: 1.2rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
   </style>
 </head>
 <body>
 
   <header>
     <nav>
-      <div class="logo">Prime Kenya</div>
-      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#shop">Shop</a>
-        <a href="#printing">Printing</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#order">How to Order</a>
-        <a href="#support">Support</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </nav>
+  <div class="logo">Prime Kenya</div>
+
+  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+  <div class="nav-links" id="mobileMenu">
+    <a href="#about" onclick="toggleMenu()">About</a>
+    <a href="#shop" onclick="toggleMenu()">Shop</a>
+    <a href="#printing" onclick="toggleMenu()">Printing</a>
+    <a href="#gallery" onclick="toggleMenu()">Gallery</a>
+    <a href="#order" onclick="toggleMenu()">How to Order</a>
+    <a href="#support" onclick="toggleMenu()">Support</a>
+    <a href="#contact" onclick="toggleMenu()">Contact</a>
+  </div>
+</nav>
   </header>
 
   <section class="hero">
@@ -808,6 +853,11 @@ document.querySelectorAll('.share-btn').forEach(function(btn) {
     }
   });
 });
+  </script>
+  <script>
+function toggleMenu() {
+  document.getElementById('mobileMenu').classList.toggle('show');
+}
   </script>
 </body>
 </html>

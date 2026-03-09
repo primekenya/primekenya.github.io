@@ -286,7 +286,12 @@
   margin-bottom: 8px;
   line-height: 1.4;
 }
-
+.product-desc {
+  display: none;
+  font-size: 0.85rem;
+  margin-top: 6px;
+  color: #555;
+}
 .price {
   color: #0a7a35;
   font-weight: bold;
@@ -551,6 +556,15 @@
     <p>WhatsApp / M-Pesa: 0724325936</p>
     <p class="small">© 2026 Prime Kenya. All rights reserved.</p>
   </footer>
-
+<script>
+document.querySelectorAll('.product-image').forEach(function(img){
+  img.addEventListener('click', function(){
+    const desc = this.parentElement.querySelector('.product-desc');
+    if(desc){
+      desc.style.display = desc.style.display === 'block' ? 'none' : 'block';
+    }
+  });
+});
+</script>
 </body>
 </html>

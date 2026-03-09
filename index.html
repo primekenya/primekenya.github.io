@@ -457,13 +457,30 @@ nav {
   text-align:center;
   margin:40px 0;
 }
+    .cart-toggle{
+  background:#0A7A35;
+  color:white;
+  border:none;
+  padding:6px 10px;
+  border-radius:6px;
+  font-size:0.9rem;
+  cursor:pointer;
+  margin-left:auto;
+  margin-right:10px;
+}
+
+.cart-toggle span{
+  font-weight:bold;
+}
   </style>
 </head>
 <body>
 
   <header>
-    <nav>
+  <nav>
   <div class="logo">Prime Kenya</div>
+
+  <button class="cart-toggle" onclick="toggleCart()">🛒 <span id="cartCount">0</span></button>
 
   <button class="menu-toggle" onclick="toggleMenu()">☰</button>
 

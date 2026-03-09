@@ -946,8 +946,21 @@ nav {
 
 <div id="cartItems"></div>
 
+<div id="cartItems"></div>
+
+<label for="deliveryTown"><strong>Delivery Town</strong></label>
+<select id="deliveryTown" onchange="updateCart()">
+  <option value="">Select town</option>
+  <option value="Kisii Town">Kisii Town</option>
+  <option value="Nyamira Town">Nyamira Town</option>
+</select>
+
+<div class="cart-total" id="deliveryFee">
+  Delivery: KSh 0
+</div>
+
 <div class="cart-total">
-Total: KSh <span id="cartTotal">0</span>
+  Total: KSh <span id="cartTotal">0</span>
 </div>
 
 <a class="btn btn-primary cart-checkout"

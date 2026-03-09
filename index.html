@@ -1220,6 +1220,231 @@ function changeQty(index, change) {
   cart[index].qty += change;
 
   if (cart[index].qty <= 0) {
+<section id="about">
+  <h2 class="section-title">About Prime Kenya</h2>
+  <p class="section-text">
+    Prime Kenya creates stylish printed clothing inspired by Kenyan culture and modern fashion.
+    We also provide custom printing and branding for businesses, events, and individuals.
+  </p>
+</section>
+
+<footer>
+  <h3>Prime Kenya</h3>
+  <p>Clothes • Branding • Custom Printing • Delivery</p>
+  <p>WhatsApp / M-Pesa: 0724325936</p>
+  <p class="small">© 2026 Prime Kenya. All rights reserved.</p>
+</footer>
+
+<div class="cart-panel" id="cartPanel">
+  <h3>Your Cart</h3>
+
+  <div id="cartItems"></div>
+
+  <label for="deliveryTown"><strong>Delivery Town</strong></label>
+  <select id="deliveryTown" onchange="updateCart()">
+    <option value="">Select town</option>
+    <option value="Kisii Town">Kisii Town</option>
+    <option value="Nyamira Town">Nyamira Town</option>
+  </select>
+
+  <div class="cart-total" id="deliveryFee">Delivery: KSh 0</div>
+  <div class="cart-total">Total: KSh <span id="cartTotal">0</span></div>
+
+  <a class="btn btn-primary cart-checkout" id="cartCheckoutBtn" href="#" target="_blank">
+    Checkout on WhatsApp
+  </a>
+</div>
+
+<div class="preview-modal" id="previewModal">
+  <button class="close-preview" onclick="closePreview()">×</button>
+  <div class="preview-box">
+    <div class="preview-image" id="previewImage"></div>
+    <div class="preview-content">
+      <h3 id="previewTitle"></h3>
+      <p id="previewDesc"></p>
+      <div class="preview-price" id="previewPrice"></div>
+      <a class="btn btn-primary" id="previewOrderBtn" href="#" target="_blank">Order This</a>
+    </div>
+  </div>
+</div>
+
+<script>
+document.querySelectorAll('.like-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    this.classList.toggle('liked');
+    this.textContent = this.classList.contains('liked') ? '♥ Favorite' : '♡ Favorite';
+  });
+});
+
+document.querySelectorAll('.share-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    const card = this.closest('.product-card');
+    const id = card.id;
+    const titleEl = card.querySelector('h3');
+    const title = titleEl ? titleEl.innerText : 'Prime Kenya product';
+    const url = window.location.origin + window.location.pathname + '#' + id;
+
+    if (navigator.share) {
+      navigator.share({
+        title: title,
+        text: 'Check out this product on Prime Kenya',
+        url: url
+      });
+    } else {
+      navigator.clipboard.writeText(url);
+      alert('Product link copied');
+    }
+  });
+});
+</script>
+
+<script>
+document.querySelectorAll('.product-info').forEach(function(info) {
+  const price = info.querySelector('.price');
+  if (price && !info.querySelector('.add-cart')) {
+    const btn = document.createElement("button");
+    btn.innerText = "Add to Cart";
+    btn.className = "btn btn-secondary add-cart";
+    price.after(btn);
+  }
+});
+</script>
+
+<script>
+window.addEventListener('load', function() {
+  if (window.location.hash) {
+    const target = document.querySelector(window.location.hash);
+    if (target) {
+      target.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+        inline: "center"
+      });
+
+      target.style.boxShadow = "0 0 0 3px gold";
+
+      setTimeout(function() {
+        target.style.boxShadow = "";
+      }, 2000);
+    }
+  }
+});
+</script>
+
+<script>
+function toggleMenu() {
+  document.getElementById('mobileMenu').classList.toggle('show');
+}
+</script>
+
+<script>
+document.querySelectorAll('.product-image').forEach(function(img) {
+  img.addEventListener('click', function() {
+    const card = this.closest('.product-card');
+    const title = card.querySelector('h3') ? card.querySelector('h3').innerText : 'Prime Kenya Product';
+    const desc = card.querySelector('.product-desc') ? card.querySelector('.product-desc').innerText : '';
+    const price = card.querySelector('.price') ? card.querySelector('.price').innerText : '';
+    const orderBtn = card.querySelector('.btn.btn-primary');
+    const bg = this.style.backgroundImage;
+
+    document.getElementById('previewTitle').innerText = title;
+    document.getElementById('previewDesc').innerText = desc;
+    document.getElementById('previewPrice').innerText = price;
+    document.getElementById('previewImage').style.backgroundImage = bg;
+    document.getElementById('previewOrderBtn').href = orderBtn ? orderBtn.href : '#';
+
+    document.getElementById('previewModal').style.display = 'block';
+  });
+});
+
+function closePreview() {
+  document.getElementById('previewModal').style.display = 'none';
+}
+
+window.addEventListener('click', function(e) {
+  const modal = document.getElementById('previewModal');
+  if (e.target === modal) {
+    closePreview();
+  }
+});
+</script>
+
+<script>
+let cart = [];
+
+function toggleCart() {
+  const panel = document.getElementById("cartPanel");
+  if (!panel) return;
+  panel.style.display = panel.style.display === "block" ? "none" : "block";
+}
+
+function updateCart() {
+  const cartItems = document.getElementById("cartItems");
+  const cartTotal = document.getElementById("cartTotal");
+  const cartCount = document.getElementById("cartCount");
+  const checkoutBtn = document.getElementById("cartCheckoutBtn");
+  const deliveryTown = document.getElementById("deliveryTown");
+  const deliveryFeeEl = document.getElementById("deliveryFee");
+
+  if (!cartItems || !cartTotal || !cartCount || !checkoutBtn) return;
+
+  cartItems.innerHTML = "";
+
+  let total = 0;
+  let totalQty = 0;
+  let message = "Hello Prime Kenya, I want to order:%0A";
+
+  cart.forEach((item, index) => {
+    const lineTotal = item.price * item.qty;
+    total += lineTotal;
+    totalQty += item.qty;
+    message += `${item.name} x${item.qty} = KSh ${lineTotal}%0A`;
+
+    cartItems.innerHTML += `
+      <div class="cart-item">
+        <div class="cart-thumb" style="background-image:${item.image || "none"};"></div>
+        <div class="cart-item-details">
+          <div class="cart-item-title">${item.name}</div>
+          <div>KSh ${item.price}</div>
+          <div class="cart-item-controls">
+            <button class="qty-btn" onclick="changeQty(${index}, -1)">-</button>
+            <span>${item.qty}</span>
+            <button class="qty-btn" onclick="changeQty(${index}, 1)">+</button>
+          </div>
+        </div>
+      </div>
+    `;
+  });
+
+  const town = deliveryTown ? deliveryTown.value : "";
+  let delivery = 0;
+
+  if (town === "Kisii Town" || town === "Nyamira Town") {
+    delivery = 0;
+  }
+
+  const grandTotal = total + delivery;
+
+  if (deliveryFeeEl) {
+    deliveryFeeEl.innerText = "Delivery: KSh " + delivery;
+  }
+
+  cartTotal.innerText = grandTotal;
+  cartCount.innerText = totalQty;
+
+  message += `%0ADelivery Town: ${town || "Not selected"}`;
+  message += `%0ADelivery Fee: KSh ${delivery}`;
+  message += `%0ATotal: KSh ${grandTotal}`;
+
+  checkoutBtn.href = "https://wa.me/254724325936?text=" + message;
+}
+
+function changeQty(index, change) {
+  if (!cart[index]) return;
+
+  cart[index].qty += change;
+
+  if (cart[index].qty <= 0) {
     cart.splice(index, 1);
   }
 
@@ -1230,38 +1455,37 @@ document.addEventListener("click", function(e) {
   if (!e.target.classList.contains("add-cart")) return;
 
   const info = e.target.closest(".product-info");
-  if (!info) return;
-
   const card = e.target.closest(".product-card");
-const nameEl = info.querySelector("h3");
-const priceEl = info.querySelector(".price");
-const imageEl = card.querySelector(".product-image");
-const image = imageEl ? imageEl.style.backgroundImage : "";
+  if (!info || !card) return;
 
-  const card = e.target.closest(".product-card");
+  const nameEl = info.querySelector("h3");
+  const priceEl = info.querySelector(".price");
+  const imageEl = card.querySelector(".product-image");
+  const image = imageEl ? imageEl.style.backgroundImage : "";
 
-let name;
+  let name;
+  if (nameEl) {
+    name = nameEl.innerText.trim();
+  } else {
+    name = "Product " + card.id.replace("cloth", "#");
+  }
 
-if (nameEl) {
-  name = nameEl.innerText.trim();
-} else {
-  name = "Product " + card.id.replace("cloth", "#");
-}
   const priceText = priceEl ? priceEl.innerText : "0";
   const price = parseInt(priceText.replace(/[^0-9]/g, ""), 10) || 0;
 
   const existing = cart.find(item => item.name === name);
 
   if (existing) {
-  existing.qty += 1;
-} else {
-  cart.push({ name, price, qty: 1, image });
-    }
+    existing.qty += 1;
+  } else {
+    cart.push({ name, price, qty: 1, image });
+  }
+
   updateCart();
 
   const panel = document.getElementById("cartPanel");
   if (panel) panel.style.display = "block";
 });
-  </script>
+</script>
 </body>
 </html>

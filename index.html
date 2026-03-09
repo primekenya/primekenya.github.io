@@ -380,6 +380,70 @@ nav {
   font-weight: bold;
   letter-spacing: 1px;
 }
+    .preview-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  z-index: 3000;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.preview-box {
+  background: #fff;
+  max-width: 420px;
+  margin: 40px auto;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+.preview-image {
+  width: 100%;
+  height: 320px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #f7f7f7;
+}
+
+.preview-content {
+  padding: 18px;
+}
+
+.preview-content h3 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  color: #111;
+}
+
+.preview-content p {
+  font-size: 0.92rem;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.preview-price {
+  color: #0a7a35;
+  font-weight: bold;
+  font-size: 1rem;
+  margin-bottom: 14px;
+}
+
+.close-preview {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  background: white;
+  border: none;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
   </style>
 </head>
 <body>
@@ -817,16 +881,6 @@ nav {
     <p>WhatsApp / M-Pesa: 0724325936</p>
     <p class="small">© 2026 Prime Kenya. All rights reserved.</p>
   </footer>
-<script>
-document.querySelectorAll('.product-image').forEach(function(img){
-  img.addEventListener('click', function(){
-    const desc = this.parentElement.querySelector('.product-desc');
-    if(desc){
-      desc.style.display = desc.style.display === 'block' ? 'none' : 'block';
-    }
-  });
-});
-</script>
   <script>
 document.querySelectorAll('.like-btn').forEach(function(btn) {
   btn.addEventListener('click', function() {
@@ -859,6 +913,49 @@ document.querySelectorAll('.share-btn').forEach(function(btn) {
 function toggleMenu() {
   document.getElementById('mobileMenu').classList.toggle('show');
 }
+  </script>
+  <div class="preview-modal" id="previewModal">
+  <button class="close-preview" onclick="closePreview()">×</button>
+  <div class="preview-box">
+    <div class="preview-image" id="previewImage"></div>
+    <div class="preview-content">
+      <h3 id="previewTitle"></h3>
+      <p id="previewDesc"></p>
+      <div class="preview-price" id="previewPrice"></div>
+      <a class="btn btn-primary" id="previewOrderBtn" href="#" target="_blank">Order This</a>
+    </div>
+  </div>
+  </div>
+  <script>
+document.querySelectorAll('.product-image').forEach(function(img) {
+  img.addEventListener('click', function() {
+    const card = this.closest('.product-card');
+    const title = card.querySelector('h3') ? card.querySelector('h3').innerText : 'Prime Kenya Product';
+    const desc = card.querySelector('.product-desc') ? card.querySelector('.product-desc').innerText : '';
+    const price = card.querySelector('.price') ? card.querySelector('.price').innerText : '';
+    const orderBtn = card.querySelector('.btn.btn-primary');
+    const bg = this.style.backgroundImage;
+
+    document.getElementById('previewTitle').innerText = title;
+    document.getElementById('previewDesc').innerText = desc;
+    document.getElementById('previewPrice').innerText = price;
+    document.getElementById('previewImage').style.backgroundImage = bg;
+    document.getElementById('previewOrderBtn').href = orderBtn ? orderBtn.href : '#';
+
+    document.getElementById('previewModal').style.display = 'block';
+  });
+});
+
+function closePreview() {
+  document.getElementById('previewModal').style.display = 'none';
+}
+
+window.addEventListener('click', function(e) {
+  const modal = document.getElementById('previewModal');
+  if (e.target === modal) {
+    closePreview();
+  }
+});
   </script>
 </body>
 </html>

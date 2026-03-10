@@ -673,24 +673,19 @@ nav {
   overflow: hidden;
 }
 
-.promo-marquee {
+.promo-text {
   flex: 1;
   overflow: hidden;
   white-space: nowrap;
+  min-width: 0;
 }
 
-.promo-track {
-  display: inline-flex;
-  align-items: center;
-  gap: 35px;
+.promo-move {
+  display: inline-block;
   white-space: nowrap;
-  animation: promoMove 20s linear infinite;
-}
-
-.promo-track span {
   font-size: 0.85rem;
   color: #f5f5f5;
-  white-space: nowrap;
+  animation: promoMove 22s linear infinite;
 }
 
 .promo-btn {
@@ -703,15 +698,14 @@ nav {
   font-weight: 600;
   white-space: nowrap;
   flex-shrink: 0;
-  display: inline-block;
 }
 
 @keyframes promoMove {
   0% {
-    transform: translateX(0);
+    transform: translateX(100%);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(-100%);
   }
 }
   </style>
@@ -737,22 +731,25 @@ nav {
   </div>
 </nav>
   </header>
- <div class="promo-bar">
-  <div class="promo-marquee">
-    <div class="promo-track">
-      <span>🔥 New arrivals available now</span>
-      <span>🚚 Free delivery in Kisii Town & Nyamira Town</span>
-      <span>👕 Custom printing and branding available</span>
-      <span>💛 Couple sets now in stock</span>
-      <span>🎉 Special offers on selected clothes</span>
-
-      <span>🔥 New arrivals available now</span>
-      <span>🚚 Free delivery in Kisii Town & Nyamira Town</span>
-      <span>👕 Custom printing and branding available</span>
-      <span>💛 Couple sets now in stock</span>
-      <span>🎉 Special offers on selected clothes</span>
+  <div class="promo-bar">
+  <div class="promo-text">
+    <div class="promo-move">
+      🔥 New arrivals available now &nbsp;&nbsp;&nbsp;
+      🚚 Free delivery in Kisii Town & Nyamira Town &nbsp;&nbsp;&nbsp;
+      👕 Custom printing and branding available &nbsp;&nbsp;&nbsp;
+      💛 Couple sets now in stock &nbsp;&nbsp;&nbsp;
+      🎉 Special offers on selected clothes &nbsp;&nbsp;&nbsp;
+      🔥 New arrivals available now &nbsp;&nbsp;&nbsp;
+      🚚 Free delivery in Kisii Town & Nyamira Town &nbsp;&nbsp;&nbsp;
+      👕 Custom printing and branding available &nbsp;&nbsp;&nbsp;
+      💛 Couple sets now in stock &nbsp;&nbsp;&nbsp;
+      🎉 Special offers on selected clothes
     </div>
   </div>
+
+  <a href="#shop" class="promo-btn">Shop Now</a>
+  </div>
+ </div>
 
   <a href="#shop" class="promo-btn">Shop Now</a>
 </div>

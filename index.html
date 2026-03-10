@@ -671,21 +671,26 @@ nav {
   color: white;
   padding: 8px 8%;
   overflow: hidden;
-  position: relative;
+}
+
+.promo-marquee {
+  flex: 1;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .promo-track {
-  display: flex;
-  gap: 40px;
+  display: inline-flex;
+  align-items: center;
+  gap: 35px;
   white-space: nowrap;
-  animation: promoMove 18s linear infinite;
-  flex: 1;
-  min-width: 0;
+  animation: promoMove 20s linear infinite;
 }
 
 .promo-track span {
   font-size: 0.85rem;
   color: #f5f5f5;
+  white-space: nowrap;
 }
 
 .promo-btn {
@@ -698,6 +703,7 @@ nav {
   font-weight: 600;
   white-space: nowrap;
   flex-shrink: 0;
+  display: inline-block;
 }
 
 @keyframes promoMove {
@@ -731,30 +737,25 @@ nav {
   </div>
 </nav>
   </header>
-  <div class="promo-bar">
-  <div class="promo-track">
-    <span>🔥 New arrivals available now</span>
-    <span>🚚 Free delivery in Kisii Town & Nyamira Town</span>
-    <span>👕 Custom printing and branding available</span>
-    <span>💛 Couple sets now in stock</span>
-    <span>🎉 Special offers on selected clothes</span>
+ <div class="promo-bar">
+  <div class="promo-marquee">
+    <div class="promo-track">
+      <span>🔥 New arrivals available now</span>
+      <span>🚚 Free delivery in Kisii Town & Nyamira Town</span>
+      <span>👕 Custom printing and branding available</span>
+      <span>💛 Couple sets now in stock</span>
+      <span>🎉 Special offers on selected clothes</span>
 
-    <span>🔥 New arrivals available now</span>
-    <span>🚚 Free delivery in Kisii Town & Nyamira Town</span>
-    <span>👕 Custom printing and branding available</span>
-    <span>💛 Couple sets now in stock</span>
-    <span>🎉 Special offers on selected clothes</span>
+      <span>🔥 New arrivals available now</span>
+      <span>🚚 Free delivery in Kisii Town & Nyamira Town</span>
+      <span>👕 Custom printing and branding available</span>
+      <span>💛 Couple sets now in stock</span>
+      <span>🎉 Special offers on selected clothes</span>
+    </div>
   </div>
 
   <a href="#shop" class="promo-btn">Shop Now</a>
-  </div>
-  <section class="search-section">
-  <div class="search-box">
-    <input type="text" id="siteSearch" placeholder="Search clothes or services...">
-    <button onclick="runSearch()">Search</button>
-  </div>
-  <div id="searchResults" class="search-results"></div>
-  </section>
+</div>
   
 <section id="shop">
 

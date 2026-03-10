@@ -664,54 +664,79 @@ nav {
   border-radius: 8px;
   color: #666;
 }
-.promo-bar {
-.promo-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  padding: 10px 8%;
-  background: linear-gradient(135deg, #111, #1c1c1c);
-  transition: background 0.6s ease;
+.luxury-banner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:12px 8%;
+  background: linear-gradient(135deg, #111, #1a1a1a, #2b2b2b);
+  border-top: 1px solid rgba(212,175,55,0.35);
+  border-bottom: 1px solid rgba(212,175,55,0.35);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.15);
 }
 
-.promo-message {
-  flex: 1;
-  color: white;
-  font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif;
-  font-size: 0.95rem;
-  font-weight: 700;
-  letter-spacing: 0.2px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.45s ease, transform 0.45s ease;
-}
-
-.promo-message.fade-out {
-  opacity: 0;
-  transform: translateY(-8px);
-}
-
-.promo-message.fade-in {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.promo-btn {
-  background: white;
-  color: #111;
+.luxury-shop-btn{
+  background: transparent;
+  color: #d4af37;
   text-decoration: none;
-  padding: 6px 12px;
+  border: 1px solid #d4af37;
+  padding: 7px 14px;
   border-radius: 999px;
   font-size: 0.78rem;
   font-weight: 700;
+  letter-spacing: 0.4px;
   font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif;
   white-space: nowrap;
   flex-shrink: 0;
+  transition: 0.3s ease;
 }
+
+.luxury-shop-btn:hover{
+  background: #d4af37;
+  color: #111;
+}
+
+.luxury-banner-text{
+  flex:1;
+  text-align:center;
+  color:#f5f1e8;
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.luxury-banner-text.fade-out{
+  opacity:0;
+  transform: translateY(-8px);
+}
+
+.luxury-banner-text.fade-in{
+  opacity:1;
+  transform: translateY(0);
+}
+
+@media (max-width: 600px){
+  .luxury-banner{
+    padding:10px 5%;
+    gap:8px;
+  }
+
+  .luxury-shop-btn{
+    font-size:0.72rem;
+    padding:6px 10px;
+  }
+
+  .luxury-banner-text{
+    font-size:0.82rem;
+    letter-spacing:0.8px;
+  }
+      }
   </style>
 </head>
 <body>
@@ -735,11 +760,11 @@ nav {
   </div>
 </nav>
   </header>
-<div class="promo-bar" id="promoBar">
-  <div class="promo-message" id="promoMessage">
-    🔥 New arrivals available now
+<div class="luxury-banner" id="luxuryBanner">
+  <a href="#shop" class="luxury-shop-btn">Shop Now</a>
+  <div class="luxury-banner-text" id="luxuryBannerText">
+    PRIME COLLECTION JUST DROPPED
   </div>
-  <a href="#shop" class="promo-btn">Shop Now</a>
 </div>
   
 <section id="shop">
@@ -2113,44 +2138,55 @@ document.getElementById("siteSearch").addEventListener("keypress", function(e) {
   }
 });
     </script>
-  <script>
-const promoMessages = [
-  "🔥 New arrivals available now",
-  "🚚 Free delivery in Kisii Town & Nyamira Town",
-  "👕 Custom printing and branding available",
-  "💛 Couple sets now in stock",
-  "🎉 Special offers on selected clothes"
+<script>
+
+const luxuryMessages = [
+"PRIME COLLECTION JUST DROPPED",
+"FREE DELIVERY IN KISII & NYAMIRA TOWN",
+"CUSTOM PRINTING WITH A PREMIUM TOUCH",
+"COUPLE SETS NOW AVAILABLE",
+"STYLE. IDENTITY. PRIME KENYA."
 ];
 
-const promoColors = [
-  "linear-gradient(135deg, #111, #1c1c1c)",
-  "linear-gradient(135deg, #0A7A35, #0f9a47)",
-  "linear-gradient(135deg, #d4af37, #b9921e)",
-  "linear-gradient(135deg, #222, #444)",
-  "linear-gradient(135deg, #7a0a2e, #b31245)"
+const luxuryBackgrounds = [
+"linear-gradient(135deg,#111,#1a1a1a,#2b2b2b)",
+"linear-gradient(135deg,#0A7A35,#1f8c4d,#133d24)",
+"linear-gradient(135deg,#111,#3a2b08,#1a1a1a)",
+"linear-gradient(135deg,#181818,#4b1024,#1f1f1f)",
+"linear-gradient(135deg,#111,#222,#111)"
 ];
 
-let promoIndex = 0;
-const promoMessageEl = document.getElementById("promoMessage");
-const promoBarEl = document.getElementById("promoBar");
+let luxuryIndex = 0;
 
-function changePromoMessage() {
-  promoMessageEl.classList.add("fade-out");
+const luxuryText = document.getElementById("luxuryBannerText");
+const luxuryBanner = document.getElementById("luxuryBanner");
 
-  setTimeout(() => {
-    promoIndex = (promoIndex + 1) % promoMessages.length;
-    promoMessageEl.textContent = promoMessages[promoIndex];
-    promoBarEl.style.background = promoColors[promoIndex];
-    promoMessageEl.classList.remove("fade-out");
-    promoMessageEl.classList.add("fade-in");
+function rotateLuxuryBanner(){
 
-    setTimeout(() => {
-      promoMessageEl.classList.remove("fade-in");
-    }, 450);
-  }, 450);
+luxuryText.style.opacity = "0";
+luxuryText.style.transform = "translateY(-6px)";
+
+setTimeout(() => {
+
+luxuryIndex++;
+
+if(luxuryIndex >= luxuryMessages.length){
+luxuryIndex = 0;
 }
 
-setInterval(changePromoMessage, 4000);
-  </script>
+luxuryText.innerText = luxuryMessages[luxuryIndex];
+
+luxuryBanner.style.background = luxuryBackgrounds[luxuryIndex];
+
+luxuryText.style.opacity = "1";
+luxuryText.style.transform = "translateY(0)";
+
+},400);
+
+}
+
+setInterval(rotateLuxuryBanner,5000);
+
+</script>
 </body>
 </html>

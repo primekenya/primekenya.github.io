@@ -665,49 +665,52 @@ nav {
   color: #666;
 }
 .promo-bar {
+.promo-bar {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 10px;
-  background: #111;
-  color: white;
-  padding: 8px 8%;
-  overflow: hidden;
+  padding: 10px 8%;
+  background: linear-gradient(135deg, #111, #1c1c1c);
+  transition: background 0.6s ease;
 }
 
-.promo-text {
+.promo-message {
   flex: 1;
-  overflow: hidden;
+  color: white;
+  font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.2px;
   white-space: nowrap;
-  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.45s ease, transform 0.45s ease;
 }
 
-.promo-move {
-  display: inline-block;
-  white-space: nowrap;
-  font-size: 0.85rem;
-  color: #f5f5f5;
-  animation: promoMove 22s linear infinite;
+.promo-message.fade-out {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+.promo-message.fade-in {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .promo-btn {
-  background: #0A7A35;
-  color: white;
+  background: white;
+  color: #111;
   text-decoration: none;
   padding: 6px 12px;
-  border-radius: 6px;
-  font-size: 0.8rem;
-  font-weight: 600;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif;
   white-space: nowrap;
   flex-shrink: 0;
-}
-
-@keyframes promoMove {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
 }
   </style>
 </head>
@@ -732,22 +735,10 @@ nav {
   </div>
 </nav>
   </header>
-<div class="promo-bar">
-  <div class="promo-text">
-    <div class="promo-move">
-      🔥 New arrivals available now &nbsp;&nbsp;&nbsp;
-      🚚 Free delivery in Kisii Town & Nyamira Town &nbsp;&nbsp;&nbsp;
-      👕 Custom printing and branding available &nbsp;&nbsp;&nbsp;
-      💛 Couple sets now in stock &nbsp;&nbsp;&nbsp;
-      🎉 Special offers on selected clothes &nbsp;&nbsp;&nbsp;
-      🔥 New arrivals available now &nbsp;&nbsp;&nbsp;
-      🚚 Free delivery in Kisii Town & Nyamira Town &nbsp;&nbsp;&nbsp;
-      👕 Custom printing and branding available &nbsp;&nbsp;&nbsp;
-      💛 Couple sets now in stock &nbsp;&nbsp;&nbsp;
-      🎉 Special offers on selected clothes
-    </div>
+<div class="promo-bar" id="promoBar">
+  <div class="promo-message" id="promoMessage">
+    🔥 New arrivals available now
   </div>
-
   <a href="#shop" class="promo-btn">Shop Now</a>
 </div>
   
@@ -2122,5 +2113,44 @@ document.getElementById("siteSearch").addEventListener("keypress", function(e) {
   }
 });
     </script>
+  <script>
+const promoMessages = [
+  "🔥 New arrivals available now",
+  "🚚 Free delivery in Kisii Town & Nyamira Town",
+  "👕 Custom printing and branding available",
+  "💛 Couple sets now in stock",
+  "🎉 Special offers on selected clothes"
+];
+
+const promoColors = [
+  "linear-gradient(135deg, #111, #1c1c1c)",
+  "linear-gradient(135deg, #0A7A35, #0f9a47)",
+  "linear-gradient(135deg, #d4af37, #b9921e)",
+  "linear-gradient(135deg, #222, #444)",
+  "linear-gradient(135deg, #7a0a2e, #b31245)"
+];
+
+let promoIndex = 0;
+const promoMessageEl = document.getElementById("promoMessage");
+const promoBarEl = document.getElementById("promoBar");
+
+function changePromoMessage() {
+  promoMessageEl.classList.add("fade-out");
+
+  setTimeout(() => {
+    promoIndex = (promoIndex + 1) % promoMessages.length;
+    promoMessageEl.textContent = promoMessages[promoIndex];
+    promoBarEl.style.background = promoColors[promoIndex];
+    promoMessageEl.classList.remove("fade-out");
+    promoMessageEl.classList.add("fade-in");
+
+    setTimeout(() => {
+      promoMessageEl.classList.remove("fade-in");
+    }, 450);
+  }, 450);
+}
+
+setInterval(changePromoMessage, 4000);
+  </script>
 </body>
 </html>

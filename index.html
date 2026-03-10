@@ -1992,5 +1992,83 @@ document.addEventListener("click", function(e) {
   if (panel) panel.style.display = "block";
 });
 </script>
+  <script>
+function runSearch() {
+  const input = document.getElementById("siteSearch");
+  const resultsBox = document.getElementById("searchResults");
+  const query = input.value.trim().toLowerCase();
+
+  if (!query) {
+    resultsBox.classList.remove("active");
+    resultsBox.innerHTML = "";
+    return;
+  }
+
+  const productCards = Array.from(document.querySelectorAll(".product-card"));
+  const serviceCards = Array.from(document.querySelectorAll(".service-card"));
+  const allCards = [...productCards, ...serviceCards];
+
+  const matches = allCards.filter(card => {
+    const dataSearch = (card.getAttribute("data-search") || "").toLowerCase();
+    const titleEl = card.querySelector("h3, h4");
+    const titleText = titleEl ? titleEl.innerText.toLowerCase() : "";
+    return dataSearch.includes(query) || titleText.includes(query);
+  });
+
+  if (matches.length === 0) {
+    resultsBox.classList.add("active");
+    resultsBox.innerHTML = `<div class="search-empty">No results found for "${query}".</div>`;
+    return;
+  }
+
+  let html = `<div class="search-results-grid">`;
+
+  matches.forEach(card => {
+    const titleEl = card.querySelector("h3, h4");
+    const title = titleEl ? titleEl.innerText : "Prime Kenya item";
+
+    let desc = "";
+    const descEl = card.querySelector(".product-desc, p");
+    if (descEl) desc = descEl.innerText;
+
+    let image = "";
+    const productImage = card.querySelector(".product-image");
+    if (productImage) {
+      image = productImage.style.backgroundImage.replace(/^url\(["']?/, '').replace(/["']?\)$/, '');
+    }
+
+    if (!image) {
+      html += `
+        <div class="search-card">
+          <div class="search-card-content">
+            <h4>${title}</h4>
+            <p>${desc}</p>
+          </div>
+        </div>
+      `;
+    } else {
+      html += `
+        <div class="search-card">
+          <div class="search-card-image" style="background-image:url('${image}')"></div>
+          <div class="search-card-content">
+            <h4>${title}</h4>
+            <p>${desc}</p>
+          </div>
+        </div>
+      `;
+    }
+  });
+
+  html += `</div>`;
+  resultsBox.classList.add("active");
+  resultsBox.innerHTML = html;
+}
+
+document.getElementById("siteSearch").addEventListener("keypress", function(e) {
+  if (e.key === "Enter") {
+    runSearch();
+  }
+});
+    </script>
 </body>
 </html>

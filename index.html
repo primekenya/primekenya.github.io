@@ -580,6 +580,90 @@ nav {
   font-size: 0.9rem;
   background: white;
     }
+    .search-section {
+  padding: 20px 8% 10px;
+  background: #f7f7f7;
+}
+
+.search-box {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.search-box input {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+.search-box button {
+  background: #0A7A35;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.search-results {
+  display: none;
+  margin-top: 10px;
+}
+
+.search-results.active {
+  display: block;
+}
+
+.search-results-grid {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+.search-card {
+  min-width: 180px;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+  flex: 0 0 auto;
+}
+
+.search-card-image {
+  width: 100%;
+  height: 140px;
+  background-size: cover;
+  background-position: center;
+  background-color: #f3f3f3;
+}
+
+.search-card-content {
+  padding: 10px;
+}
+
+.search-card-content h4 {
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+  color: #111;
+}
+
+.search-card-content p {
+  font-size: 0.8rem;
+  color: #555;
+  margin-bottom: 6px;
+}
+
+.search-empty {
+  background: white;
+  padding: 12px;
+  border-radius: 8px;
+  color: #666;
+}
   </style>
 </head>
 <body>
@@ -603,6 +687,13 @@ nav {
   </div>
 </nav>
   </header>
+  <section class="search-section">
+  <div class="search-box">
+    <input type="text" id="siteSearch" placeholder="Search clothes or services...">
+    <button onclick="runSearch()">Search</button>
+  </div>
+  <div id="searchResults" class="search-results"></div>
+  </section>
   
 <section id="shop">
 
@@ -701,7 +792,7 @@ nav {
   <h3 class="category-title">Prime Collection</h3>
 
   <div class="products">
-    <div class="product-card" id="cloth8">
+<div class="product-card" id="cloth8" data-search="printed t-shirts kenya prime t-shirt clothes fashion">
         <div class="product-image" style="background-image:url('file_00000000aebc71fdaedc5c4f02c41f9c.png');"></div>
         <div class="product-info">
           <h3>Printed T-Shirts</h3>
@@ -716,7 +807,7 @@ nav {
         </div>
       </div>
 
-<div class="product-card" id="cloth9">
+<div class="product-card" id="cloth9" data-search="kids printed t-shirts kids clothes children">
         <div class="product-image" style="background-image:url('file_00000000553c71fdb0a4c8874152372a.png');"></div>
         <div class="product-info">
           <h3>Kids’ Printed T-Shirts</h3>
@@ -730,7 +821,7 @@ nav {
         </div>
       </div>
       
-<div class="product-card" id="cloth10">
+<div class="product-card" id="cloth10" data-search="couple set mr mrs dangote couple shirts matching">
   <div class="product-image" style="background-image:url('file_00000000690871f8b037d35ff0db9e5c (1).png');"></div>
   <div class="product-info">
     <h3>Couple Set</h3>

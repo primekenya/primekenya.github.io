@@ -2076,11 +2076,24 @@ document.addEventListener("click", function(e) {
   } else {
     cart.push({ name, price, qty: 1, image });
   }
+function showCartNotification(){
 
+const note = document.getElementById("cartNotification");
+
+note.classList.add("show");
+
+setTimeout(function(){
+note.classList.remove("show");
+},1000);
+
+}
   updateCart();
+  showCartNotification();
   
 });
+  
 </script>
+  
   <script>
 function runSearch() {
   const input = document.getElementById("siteSearch");

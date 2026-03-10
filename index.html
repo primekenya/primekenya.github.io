@@ -663,6 +663,50 @@ nav {
   padding: 12px;
   border-radius: 8px;
   color: #666;
+  .promo-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #111;
+  color: white;
+  padding: 8px 8%;
+  overflow: hidden;
+  position: relative;
+}
+
+.promo-track {
+  display: flex;
+  gap: 40px;
+  white-space: nowrap;
+  animation: promoMove 18s linear infinite;
+  flex: 1;
+  min-width: 0;
+}
+
+.promo-track span {
+  font-size: 0.85rem;
+  color: #f5f5f5;
+}
+
+.promo-btn {
+  background: #0A7A35;
+  color: white;
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+@keyframes promoMove {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
   </style>
 </head>
@@ -687,6 +731,23 @@ nav {
   </div>
 </nav>
   </header>
+  <div class="promo-bar">
+  <div class="promo-track">
+    <span>🔥 New arrivals available now</span>
+    <span>🚚 Free delivery in Kisii Town & Nyamira Town</span>
+    <span>👕 Custom printing and branding available</span>
+    <span>💛 Couple sets now in stock</span>
+    <span>🎉 Special offers on selected clothes</span>
+
+    <span>🔥 New arrivals available now</span>
+    <span>🚚 Free delivery in Kisii Town & Nyamira Town</span>
+    <span>👕 Custom printing and branding available</span>
+    <span>💛 Couple sets now in stock</span>
+    <span>🎉 Special offers on selected clothes</span>
+  </div>
+
+  <a href="#shop" class="promo-btn">Shop Now</a>
+  </div>
   <section class="search-section">
   <div class="search-box">
     <input type="text" id="siteSearch" placeholder="Search clothes or services...">
@@ -1117,8 +1178,6 @@ target="_blank">
 Checkout on WhatsApp
 </a>
 </div>
-
-<script>
 
 <script>
 document.querySelectorAll('.like-btn').forEach(function(btn) {

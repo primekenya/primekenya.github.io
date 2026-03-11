@@ -1210,9 +1210,9 @@ transform:translateX(-50%) translateY(-6px);
     Total: KSh <span id="cartTotal">0</span>
   </div>
 
-  <button class="btn btn-primary cart-checkout" id="cartCheckoutBtn">
-    Pay Now
-  </button>
+<button class="btn btn-primary cart-checkout" onclick="payNow()">
+  Pay Now
+</button>
   </div>
   
   <footer>
@@ -1363,56 +1363,47 @@ document.querySelectorAll('.product-info').forEach(function(info) {
 });
   </script>
 <script>
-function setupCheckout() {
-  const btn = document.getElementById("cartCheckoutBtn");
-  if (!btn) return;
+async function payNow() {
+  if (!cart || cart.length === 0) {
+    alert("Your cart is empty");
+    return;
+  }
 
-  btn.addEventListener("click", async function(e) {
-    e.preventDefault();
+  const townEl = document.getElementById("deliveryTown");
+  const totalEl = document.getElementById("cartTotal");
 
-    if (!cart || cart.length === 0) {
-      alert("Your cart is empty");
-      return;
-    }
+  const town = townEl ? townEl.value : "";
+  const total = totalEl ? totalEl.innerText : "0";
 
-    const townEl = document.getElementById("deliveryTown");
-    const totalEl = document.getElementById("cartTotal");
+  if (!town) {
+    alert("Please select delivery town");
+    return;
+  }
 
-    const town = townEl ? townEl.value : "";
-    const total = totalEl ? totalEl.innerText : "0";
+  const items = cart.map(item => ({
+    name: item.name,
+    qty: item.qty,
+    price: item.price
+  }));
 
-    if (!town) {
-      alert("Please select delivery town");
-      return;
-    }
+  const messageItems = cart.map(item => item.name + " x" + item.qty).join(", ");
 
-    const items = cart.map(item => ({
-      name: item.name,
-      qty: item.qty,
-      price: item.price
-    }));
+  if (window.saveOrder) {
+    await window.saveOrder({
+      items: items,
+      town: town,
+      total: total
+    });
+  }
 
-    const messageItems = cart.map(item => item.name + " x" + item.qty).join(", ");
+  const message =
+    "Prime Kenya Order:%0A" +
+    "Items: " + messageItems + "%0A" +
+    "Town: " + town + "%0A" +
+    "Total: KSh " + total;
 
-    if (window.saveOrder) {
-      await window.saveOrder({
-        items: items,
-        town: town,
-        total: total
-      });
-    }
-
-    const message =
-      "Prime Kenya Order:%0A" +
-      "Items: " + messageItems + "%0A" +
-      "Town: " + town + "%0A" +
-      "Total: KSh " + total;
-
-    window.open("https://wa.me/254724325936?text=" + message, "_blank");
-  });
+  window.open("https://wa.me/254724325936?text=" + message, "_blank");
 }
-
-window.addEventListener("load", setupCheckout);
 </script>
   <section id="about">
   <h2 class="section-title">About Prime Kenya</h2>

@@ -1383,34 +1383,44 @@ function setupCheckout(){
 
 const btn = document.getElementById("cartCheckoutBtn");
 
-btn.addEventListener("click", function(e){
-
+btn.addEventListener("click", async function(e){
 e.preventDefault();
 
 if(cart.length === 0){
-alert("Your cart is empty");
-return;
+  alert("Your cart is empty");
+  return;
 }
 
 let town = document.getElementById("deliveryTown").value;
 
 if(!town){
-alert("Please select delivery town");
-return;
+  alert("Please select delivery town");
+  return;
 }
 
 let total = document.getElementById("cartTotal").innerText;
 
-let items = cart.map(item => item.name + " x" + item.qty).join(", ");
+let items = cart.map(item => ({
+  name: item.name,
+  qty: item.qty,
+  price: item.price
+}));
+
+let messageItems = cart.map(item => item.name + " x" + item.qty).join(", ");
+
+await window.saveOrder({
+  items: items,
+  town: town,
+  total: total
+});
 
 let message =
 "Prime Kenya Order:%0A" +
-"Items: " + items + "%0A" +
+"Items: " + messageItems + "%0A" +
 "Town: " + town + "%0A" +
 total;
 
 window.open("https://wa.me/254724325936?text=" + message);
-
 });
 
 }

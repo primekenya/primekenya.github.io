@@ -1506,21 +1506,18 @@ function changeQty(index, change) {
     <option value="Nyamira Town">Nyamira Town</option>
   </select>
 
-  <div class="cart-total" id="deliveryFee">Delivery: KSh 0</div>
+  <div class="cart-total" id="deliveryFee">
+    Delivery: KSh 0
+  </div>
 
   <div class="cart-total">
     Total: KSh <span id="cartTotal">0</span>
   </div>
 
-  <a class="btn btn-primary cart-checkout"
-     id="cartCheckoutBtn"
-     href="#"
-     target="_blank">
-    Checkout on WhatsApp
-  </a>
+  <button class="btn btn-primary cart-checkout" onclick="payNow()">
+    Pay Now
+  </button>
 </div>
-</div>
-
 <div class="preview-modal" id="previewModal">
   <button class="close-preview" onclick="closePreview()">×</button>
   <div class="preview-box">
@@ -2086,11 +2083,65 @@ function updateCart() {
   cartTotal.innerText = grandTotal;
   cartCount.innerText = totalQty;
 
-  message += `%0ADelivery Town: ${town || "Not selected"}`;
-  message += `%0ADelivery Fee: KSh ${delivery}`;
-  message += `%0ATotal: KSh ${grandTotal}`;
+<script>
+let cart = [];
 
-  checkoutBtn.href = "https://wa.me/254724325936?text=" + message;
+function toggleCart() {
+  const panel = document.getElementById("cartPanel");
+  if (!panel) return;
+  panel.style.display = panel.style.display === "block" ? "none" : "block";
+}
+
+function updateCart() {
+  const cartItems = document.getElementById("cartItems");
+  const cartTotal = document.getElementById("cartTotal");
+  const cartCount = document.getElementById("cartCount");
+  const deliveryTown = document.getElementById("deliveryTown");
+  const deliveryFeeEl = document.getElementById("deliveryFee");
+
+  if (!cartItems || !cartTotal || !cartCount) return;
+
+  cartItems.innerHTML = "";
+
+  let total = 0;
+  let totalQty = 0;
+
+  cart.forEach((item, index) => {
+    const lineTotal = item.price * item.qty;
+    total += lineTotal;
+    totalQty += item.qty;
+
+    cartItems.innerHTML += `
+      <div class="cart-item">
+        <div class="cart-thumb" style="background-image:${item.image || "none"};"></div>
+        <div class="cart-item-details">
+          <div class="cart-item-title">${item.name}</div>
+          <div>KSh ${item.price}</div>
+          <div class="cart-item-controls">
+            <button class="qty-btn" onclick="changeQty(${index}, -1)">-</button>
+            <span>${item.qty}</span>
+            <button class="qty-btn" onclick="changeQty(${index}, 1)">+</button>
+          </div>
+        </div>
+      </div>
+    `;
+  });
+
+  const town = deliveryTown ? deliveryTown.value : "";
+  let delivery = 0;
+
+  if (town === "Kisii Town" || town === "Nyamira Town") {
+    delivery = 0;
+  }
+
+  const grandTotal = total + delivery;
+
+  if (deliveryFeeEl) {
+    deliveryFeeEl.innerText = "Delivery: KSh " + delivery;
+  }
+
+  cartTotal.innerText = grandTotal;
+  cartCount.innerText = totalQty;
 }
 
 function changeQty(index, change) {
@@ -2103,6 +2154,17 @@ function changeQty(index, change) {
   }
 
   updateCart();
+}
+
+function showCartNotification() {
+  const note = document.getElementById("cartNotification");
+  if (!note) return;
+
+  note.classList.add("show");
+
+  setTimeout(function () {
+    note.classList.remove("show");
+  }, 1000);
 }
 
 document.addEventListener("click", function(e) {
@@ -2134,22 +2196,52 @@ document.addEventListener("click", function(e) {
   } else {
     cart.push({ name, price, qty: 1, image });
   }
-function showCartNotification(){
 
-const note = document.getElementById("cartNotification");
-
-note.classList.add("show");
-
-setTimeout(function(){
-note.classList.remove("show");
-},1000);
-
-}
   updateCart();
   showCartNotification();
-  
 });
-  
+
+async function payNow() {
+  if (!cart || cart.length === 0) {
+    alert("Your cart is empty");
+    return;
+  }
+
+  const townEl = document.getElementById("deliveryTown");
+  const totalEl = document.getElementById("cartTotal");
+
+  const town = townEl ? townEl.value : "";
+  const total = totalEl ? totalEl.innerText : "0";
+
+  if (!town) {
+    alert("Please select delivery town");
+    return;
+  }
+
+  const items = cart.map(item => ({
+    name: item.name,
+    qty: item.qty,
+    price: item.price
+  }));
+
+  const messageItems = cart.map(item => item.name + " x" + item.qty).join(", ");
+
+  if (window.saveOrder) {
+    await window.saveOrder({
+      items: items,
+      town: town,
+      total: total
+    });
+  }
+
+  const message =
+    "Prime Kenya Order:%0A" +
+    "Items: " + messageItems + "%0A" +
+    "Town: " + town + "%0A" +
+    "Total: KSh " + total;
+
+  window.open("https://wa.me/254769574469?text=" + message, "_blank");
+}
 </script>
   
   <script>

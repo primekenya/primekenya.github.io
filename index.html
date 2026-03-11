@@ -1378,6 +1378,45 @@ document.querySelectorAll('.product-info').forEach(function(info) {
   }
 });
   </script>
+  <script>
+function setupCheckout(){
+
+const btn = document.getElementById("cartCheckoutBtn");
+
+btn.addEventListener("click", function(e){
+
+e.preventDefault();
+
+if(cart.length === 0){
+alert("Your cart is empty");
+return;
+}
+
+let town = document.getElementById("deliveryTown").value;
+
+if(!town){
+alert("Please select delivery town");
+return;
+}
+
+let total = document.getElementById("cartTotal").innerText;
+
+let items = cart.map(item => item.name + " x" + item.qty).join(", ");
+
+let message =
+"Prime Kenya Order:%0A" +
+"Items: " + items + "%0A" +
+"Town: " + town + "%0A" +
+total;
+
+window.open("https://wa.me/254724325936?text=" + message);
+
+});
+
+}
+
+setupCheckout();
+  </script>
   <section id="about">
   <h2 class="section-title">About Prime Kenya</h2>
 
@@ -1389,13 +1428,6 @@ document.querySelectorAll('.product-info').forEach(function(info) {
   branding and stylish fashion apparel.
   </p>
   </section>
-  <section id="about">
-<h2>About Prime Kenya</h2>
-<p>
-Prime Kenya creates stylish printed clothing inspired by Kenyan culture and modern fashion.
-We also provide custom printing and branding for businesses, events, and individuals.
-</p>
-</section>
   <script>
 let cart = [];
 

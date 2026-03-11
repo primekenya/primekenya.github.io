@@ -2284,8 +2284,8 @@ setInterval(rotateLuxuryBanner,5000);
 
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-  const analytics = getAnalytics(app);
+const db = getFirestore(app);
+const analytics = getAnalytics(app);
     async function saveOrder(product, price) {
   try {
     await addDoc(collection(db, "orders"), {
@@ -2293,10 +2293,9 @@ setInterval(rotateLuxuryBanner,5000);
       price: price,
       time: new Date()
     });
-
     console.log("Order saved");
   } catch (error) {
-    console.error("Error saving order: ", error);
+    console.error("Error saving order:", error);
   }
     }
 </script>

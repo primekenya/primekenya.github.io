@@ -1212,11 +1212,9 @@ transform:translateX(-50%) translateY(-6px);
   Total: KSh <span id="cartTotal">0</span>
 </div>
 
-<a class="btn btn-primary cart-checkout"
-href="https://wa.me/254724325936"
-target="_blank">
-Checkout on WhatsApp
-</a>
+<button class="btn btn-primary cart-checkout" onclick="payNow()">
+Pay Now
+</button>
 
   </div>
 
@@ -1231,12 +1229,13 @@ Checkout on WhatsApp
   <h3>Your Cart</h3>
   <div id="cartItems"></div>
   <div class="cart-total" id="cartTotal">Total: KSh 0</div>
-<a class="btn btn-primary cart-checkout"
-id="cartCheckoutBtn"
-href="#"
-target="_blank">
-Checkout on WhatsApp
-</a>
+
+  <a class="btn btn-primary cart-checkout"
+     id="cartCheckoutBtn"
+     href="#"
+     target="_blank">
+     Pay Now
+  </a>
 </div>
 
 <script>

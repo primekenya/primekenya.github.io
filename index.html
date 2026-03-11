@@ -2317,18 +2317,22 @@ setInterval(rotateLuxuryBanner,5000);
   const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const analytics = getAnalytics(app);
-    async function saveOrder(product, price) {
+async function saveOrder(orderData) {
   try {
     await addDoc(collection(db, "orders"), {
-      product: product,
-      price: price,
-      time: new Date()
+      items: orderData.items,
+      town: orderData.town,
+      total: orderData.total,
+      status: "pending",
+      createdAt: new Date()
     });
     console.log("Order saved");
   } catch (error) {
     console.error("Error saving order:", error);
   }
-    }
+}
+
+window.saveOrder = saveOrder;
 </script>
 </body>
 </html>

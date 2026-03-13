@@ -309,7 +309,7 @@ branding and printing Kenya
 
 .product-image {
   width: 100%;
-  height: 170px;
+  height: 140px;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -317,7 +317,7 @@ branding and printing Kenya
 }
 
 .product-info {
-  padding: 10px;
+  padding: 6px;
 }
 
 .product-info h3 {
@@ -351,19 +351,18 @@ branding and printing Kenya
   font-size: 0.85rem;
   padding: 8px 14px;
 }
-    .action-row {
+.action-row {
   display: flex;
-  gap: 8px;
-  margin-top: 10px;
-  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 3px;
 }
 
 .action-btn {
   border: none;
   background: #f1f1f1;
-  padding: 8px 12px;
-  border-radius: 8px;
-  font-size: 0.8rem;
+  padding: 5px 8px;
+  border-radius: 6px;
+  font-size: 0.7rem;
   cursor: pointer;
 }
 
@@ -1142,26 +1141,7 @@ document.querySelectorAll('.share-btn').forEach(function(btn) {
   });
 });
   </script>
-  <script>
-
-document.querySelectorAll('.product-info').forEach(function(info){
-
-  const price = info.querySelector('.price');
-
-  if(price){
-
-    const btn = document.createElement("button");
-    btn.innerText = "Add to Cart";
-    btn.className = "btn btn-secondary add-cart";
-
-    price.after(btn);
-
-  }
-
-});
-
-  </script>
-  
+ 
   <script>
 window.addEventListener('load', function() {
   if (window.location.hash) {

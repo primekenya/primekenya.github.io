@@ -636,6 +636,31 @@ nav {
     font-size:0.82rem;
     letter-spacing:0.8px;
   }
+  .badge {
+  position: absolute;
+  top: 10px;
+  left: -5px;
+  background: linear-gradient(45deg, #ff3d00, #ff9800);
+  color: white;
+  font-size: 0.7rem;
+  padding: 5px 12px;
+  font-weight: 700;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transform: rotate(-10deg);
+  letter-spacing: 1px;
+}
+
+/* optional glow animation */
+.badge.hot {
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0px rgba(255, 87, 34, 0.7); }
+  50% { box-shadow: 0 0 12px rgba(255, 87, 34, 1); }
+  100% { box-shadow: 0 0 0px rgba(255, 87, 34, 0.7); }
+}
     
   </style>
 </head>
@@ -681,6 +706,7 @@ nav {
 
   <div class="products">
     <div class="product-card" id="cloth8" data-search="printed t shirts kenya custom t shirt branded t shirt casual wear">
+      <div class="badge hot">HOT</div>
       <div class="product-image" style="background-image:url('image-32 (1).jpg');"></div>
       <div class="product-info">
         <h3>The return of the King T-shirt</h3>

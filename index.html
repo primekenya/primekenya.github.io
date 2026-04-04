@@ -26,6 +26,40 @@ branding and printing Kenya
 <meta name="author" content="Prime Kenya by Vickyoung">
   <meta name="google-site-verification" content="B-e167z6UptSNmQsDg-WPPnSQ9WB3738iKKBHpYnSso" />
   <style>
+    }
+
+    /* WhatsApp Floating Button Style */
+.whatsapp-float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366; /* WhatsApp green */
+  border-radius: 50%;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  z-index: 100;
+  transition: transform 0.3s;
+  animation: float 2s ease-in-out infinite; /* Smooth float */
+}
+
+.whatsapp-float img {
+  width: 35px;
+  height: 35px;
+  margin-top: 12px;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1); /* Slight grow on hover */
+}
+
+/* Floating animation */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0); }
+}
     * {
       margin: 0;
       padding: 0;
@@ -1750,5 +1784,10 @@ async function saveOrder(orderData) {
 
 window.saveOrder = saveOrder;
 </script>
+  <!-- WhatsApp Floating Button -->
+<a href="https://wa.me/254769574469?text=Hello%20I%20want%20to%20know%20more" 
+   class="whatsapp-float" target="_blank" rel="noopener">
+   <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png" alt="WhatsApp" />
+</a>
 </body>
 </html>

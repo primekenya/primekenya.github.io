@@ -613,6 +613,77 @@
         min-width: 120px;
         max-width: 120px;
       }
+      .also-like-section {
+  padding: 0 30px 30px 30px;
+  border-top: 1px solid var(--accent-light);
+  margin-top: 10px;
+}
+
+.also-like-section h3 {
+  margin: 20px 0 15px;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 2px;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+
+.also-like-products {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+.also-like-products::-webkit-scrollbar {
+  height: 4px;
+}
+
+.also-like-products::-webkit-scrollbar-thumb {
+  background: var(--accent-light);
+  border-radius: 10px;
+}
+
+.also-like-card {
+  min-width: 140px;
+  max-width: 140px;
+  background: white;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.2s;
+  border: 1px solid var(--accent-light);
+}
+
+.also-like-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+}
+
+.also-like-card-image {
+  width: 100%;
+  height: 140px;
+  background-size: cover;
+  background-position: center;
+  background-color: #E8E2D8;
+}
+
+.also-like-card-info {
+  padding: 8px;
+}
+
+.also-like-card-info h4 {
+  font-size: 0.75rem;
+  margin-bottom: 4px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.also-like-card-info .also-like-price {
+  font-size: 0.7rem;
+  color: var(--olive);
+}
     }
   </style>
 </head>
@@ -707,7 +778,6 @@
 <a href="https://wa.me/254769574469" class="whatsapp-float" target="_blank">
   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
 </a>
-
 <div id="productModal" class="modal">
   <div class="modal-content">
     <span class="close-modal">&times;</span>
@@ -722,9 +792,11 @@
         <a id="modalWhatsAppBtn" class="btn btn-primary" href="#" target="_blank">Order via WhatsApp</a>
       </div>
     </div>
-    <div class="similar-section">
-      <h3>Similar Items You Might Like</h3>
-      <div class="similar-products" id="similarProducts"></div>
+    
+    <!-- You May Also Like Section - INSIDE modal but visually separate -->
+    <div class="also-like-section">
+      <h3>You may also like</h3>
+      <div class="also-like-products" id="alsoLikeProducts"></div>
     </div>
   </div>
 </div>
@@ -808,33 +880,39 @@
   const closeModal = document.querySelector('.close-modal');
 
   function openModal(productIndex) {
-    const p = products[productIndex];
-    if (!p) return;
-    document.getElementById('modalImg').src = p.image;
-    document.getElementById('modalName').innerText = p.name;
-    document.getElementById('modalDesc').innerText = p.desc;
-    document.getElementById('modalPrice').innerText = p.price;
-    document.getElementById('modalWhatsAppBtn').href = `https://wa.me/254769574469?text=${encodeURIComponent(p.waMsg)}`;
-    
-    // Show similar products
-    const similar = products.filter((item, idx) => item.category === p.category && idx !== productIndex);
-    const similarContainer = document.getElementById('similarProducts');
-    if (similar.length === 0) {
-      similarContainer.innerHTML = '<p style="padding:20px; color:#8B7355;">No similar items found.</p>';
-    } else {
-      similarContainer.innerHTML = similar.map((item, idx) => {
-        const origIdx = products.findIndex(prod => prod.name === item.name);
-        return `
-          <div class="similar-card" onclick="openModal(${origIdx})">
-            <div class="similar-card-image" style="background-image:url('${item.image}');"></div>
-            <div class="similar-card-info">
-              <h4>${item.name.length > 25 ? item.name.substring(0,22)+'...' : item.name}</h4>
-              <div class="similar-price">${item.price}</div>
-            </div>
+  const p = products[productIndex];
+  if (!p) return;
+  
+  document.getElementById('modalImg').src = p.image;
+  document.getElementById('modalName').innerText = p.name;
+  document.getElementById('modalDesc').innerText = p.desc;
+  document.getElementById('modalPrice').innerText = p.price;
+  document.getElementById('modalWhatsAppBtn').href = `https://wa.me/254769574469?text=${encodeURIComponent(p.waMsg)}`;
+  
+  // Show "You may also like" - products from SAME category, excluding current
+  const alsoLike = products.filter((item, idx) => item.category === p.category && idx !== productIndex);
+  const alsoContainer = document.getElementById('alsoLikeProducts');
+  
+  if (alsoLike.length === 0) {
+    alsoContainer.innerHTML = '<p style="padding:15px; color:#8B7355; font-size:0.8rem;">More styles coming soon.</p>';
+  } else {
+    alsoContainer.innerHTML = alsoLike.map((item) => {
+      const origIdx = products.findIndex(prod => prod.name === item.name);
+      return `
+        <div class="also-like-card" onclick="openModal(${origIdx})">
+          <div class="also-like-card-image" style="background-image:url('${item.image}');"></div>
+          <div class="also-like-card-info">
+            <h4>${item.name.length > 22 ? item.name.substring(0,19)+'...' : item.name}</h4>
+            <div class="also-like-price">${item.price}</div>
           </div>
-        `;
-      }).join('');
-    }
+        </div>
+      `;
+    }).join('');
+  }
+  
+  modal.style.display = 'block';
+  document.body.style.overflow = 'hidden';
+}
     
     modal.style.display = 'block';
     document.body.style.overflow = 'hidden';

@@ -505,37 +505,40 @@
       font-weight: 500;
     }
 
-    .similar-section {
+    .also-like-section {
       padding: 0 30px 30px 30px;
       border-top: 1px solid var(--accent-light);
+      margin-top: 10px;
     }
 
-    .similar-section h3 {
-      margin: 20px 0;
-      font-size: 1.2rem;
+    .also-like-section h3 {
+      margin: 20px 0 15px;
+      font-size: 1rem;
       font-weight: 400;
-      letter-spacing: 1px;
+      letter-spacing: 2px;
+      color: var(--accent);
+      text-transform: uppercase;
     }
 
-    .similar-products {
+    .also-like-products {
       display: flex;
       gap: 15px;
       overflow-x: auto;
-      padding-bottom: 15px;
+      padding-bottom: 10px;
     }
 
-    .similar-products::-webkit-scrollbar {
+    .also-like-products::-webkit-scrollbar {
       height: 4px;
     }
 
-    .similar-products::-webkit-scrollbar-thumb {
+    .also-like-products::-webkit-scrollbar-thumb {
       background: var(--accent-light);
       border-radius: 10px;
     }
 
-    .similar-card {
-      min-width: 150px;
-      max-width: 150px;
+    .also-like-card {
+      min-width: 140px;
+      max-width: 140px;
       background: white;
       border-radius: 4px;
       cursor: pointer;
@@ -543,29 +546,33 @@
       border: 1px solid var(--accent-light);
     }
 
-    .similar-card:hover {
+    .also-like-card:hover {
       transform: translateY(-3px);
       border-color: var(--accent);
     }
 
-    .similar-card-image {
+    .also-like-card-image {
       width: 100%;
-      height: 150px;
+      height: 140px;
       background-size: cover;
       background-position: center;
       background-color: #E8E2D8;
     }
 
-    .similar-card-info {
-      padding: 10px;
+    .also-like-card-info {
+      padding: 8px;
     }
 
-    .similar-card-info h4 {
-      font-size: 0.8rem;
+    .also-like-card-info h4 {
+      font-size: 0.75rem;
       margin-bottom: 4px;
+      font-weight: 500;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
-    .similar-card-info .similar-price {
+    .also-like-card-info .also-like-price {
       font-size: 0.7rem;
       color: var(--olive);
     }
@@ -609,86 +616,14 @@
         flex-direction: column;
         padding: 20px;
       }
-      .similar-card {
+      .also-like-card {
         min-width: 120px;
         max-width: 120px;
       }
-      .also-like-section {
-  padding: 0 30px 30px 30px;
-  border-top: 1px solid var(--accent-light);
-  margin-top: 10px;
-}
-
-.also-like-section h3 {
-  margin: 20px 0 15px;
-  font-size: 1rem;
-  font-weight: 400;
-  letter-spacing: 2px;
-  color: var(--accent);
-  text-transform: uppercase;
-}
-
-.also-like-products {
-  display: flex;
-  gap: 15px;
-  overflow-x: auto;
-  padding-bottom: 10px;
-}
-
-.also-like-products::-webkit-scrollbar {
-  height: 4px;
-}
-
-.also-like-products::-webkit-scrollbar-thumb {
-  background: var(--accent-light);
-  border-radius: 10px;
-}
-
-.also-like-card {
-  min-width: 140px;
-  max-width: 140px;
-  background: white;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: transform 0.2s;
-  border: 1px solid var(--accent-light);
-}
-
-.also-like-card:hover {
-  transform: translateY(-3px);
-  border-color: var(--accent);
-}
-
-.also-like-card-image {
-  width: 100%;
-  height: 140px;
-  background-size: cover;
-  background-position: center;
-  background-color: #E8E2D8;
-}
-
-.also-like-card-info {
-  padding: 8px;
-}
-
-.also-like-card-info h4 {
-  font-size: 0.75rem;
-  margin-bottom: 4px;
-  font-weight: 500;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.also-like-card-info .also-like-price {
-  font-size: 0.7rem;
-  color: var(--olive);
-}
     }
   </style>
 </head>
 <body>
-
 <header>
   <nav>
     <div class="logo">PRIME KENYA<span>EARTH + FABRIC</span></div>
@@ -778,6 +713,7 @@
 <a href="https://wa.me/254769574469" class="whatsapp-float" target="_blank">
   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
 </a>
+
 <div id="productModal" class="modal">
   <div class="modal-content">
     <span class="close-modal">&times;</span>
@@ -792,8 +728,6 @@
         <a id="modalWhatsAppBtn" class="btn btn-primary" href="#" target="_blank">Order via WhatsApp</a>
       </div>
     </div>
-    
-    <!-- You May Also Like Section - INSIDE modal but visually separate -->
     <div class="also-like-section">
       <h3>You may also like</h3>
       <div class="also-like-products" id="alsoLikeProducts"></div>
@@ -834,7 +768,7 @@
     `).join('');
   }
 
-    // Search
+// Search
   function runSearch() {
     const term = document.getElementById('siteSearch').value.toLowerCase();
     const cards = document.querySelectorAll('.product-card');
@@ -880,41 +814,35 @@
   const closeModal = document.querySelector('.close-modal');
 
   function openModal(productIndex) {
-  const p = products[productIndex];
-  if (!p) return;
-  
-  document.getElementById('modalImg').src = p.image;
-  document.getElementById('modalName').innerText = p.name;
-  document.getElementById('modalDesc').innerText = p.desc;
-  document.getElementById('modalPrice').innerText = p.price;
-  document.getElementById('modalWhatsAppBtn').href = `https://wa.me/254769574469?text=${encodeURIComponent(p.waMsg)}`;
-  
-  // Show "You may also like" - products from SAME category, excluding current
-  const alsoLike = products.filter((item, idx) => item.category === p.category && idx !== productIndex);
-  const alsoContainer = document.getElementById('alsoLikeProducts');
-  
-  if (alsoLike.length === 0) {
-    alsoContainer.innerHTML = '<p style="padding:15px; color:#8B7355; font-size:0.8rem;">More styles coming soon.</p>';
-  } else {
-    alsoContainer.innerHTML = alsoLike.map((item) => {
-      const origIdx = products.findIndex(prod => prod.name === item.name);
-      return `
-        <div class="also-like-card" onclick="openModal(${origIdx})">
-          <div class="also-like-card-image" style="background-image:url('${item.image}');"></div>
-          <div class="also-like-card-info">
-            <h4>${item.name.length > 22 ? item.name.substring(0,19)+'...' : item.name}</h4>
-            <div class="also-like-price">${item.price}</div>
-          </div>
-        </div>
-      `;
-    }).join('');
-  }
-  
-  modal.style.display = 'block';
-  document.body.style.overflow = 'hidden';
-}
+    const p = products[productIndex];
+    if (!p) return;
     
-    modal.style.display = 'block';
+    document.getElementById('modalImg').src = p.image;
+    document.getElementById('modalName').innerText = p.name;
+    document.getElementById('modalDesc').innerText = p.desc;
+    document.getElementById('modalPrice').innerText = p.price;
+    document.getElementById('modalWhatsAppBtn').href = `https://wa.me/254769574469?text=${encodeURIComponent(p.waMsg)}`;
+    
+    // Show "You may also like" - products from SAME category, excluding current
+    const alsoLike = products.filter((item, idx) => item.category === p.category && idx !== productIndex);
+    const alsoContainer = document.getElementById('alsoLikeProducts');
+    
+    if (alsoLike.length === 0) {
+      alsoContainer.innerHTML = '<p style="padding:15px; color:#8B7355; font-size:0.8rem;">More styles coming soon.</p>';
+    } else {
+      alsoContainer.innerHTML = alsoLike.map((item) => {
+        const origIdx = products.findIndex(prod => prod.name === item.name);
+        return `
+          <div class="also-like-card" onclick="openModal(${origIdx})">
+            <div class="also-like-card-image" style="background-image:url('${item.image}');"></div>
+            <div class="also-like-card-info">
+              <h4>${item.name.length > 22 ? item.name.substring(0,19)+'...' : item.name}</h4>
+              <div class="also-like-price">${item.price}</div>
+            </div>
+          </div>
+        `;
+      }).join('');
+      modal.style.display = 'block';
     document.body.style.overflow = 'hidden';
   }
 
@@ -952,7 +880,8 @@
     if (dots[slideIndex-1]) dots[slideIndex-1].classList.add("active-dot");
     slideInterval = setTimeout(showSlides, 4000);
   }
-function currentSlide(n) {
+
+  function currentSlide(n) {
     clearTimeout(slideInterval);
     const slides = document.getElementsByClassName("slide");
     const dots = document.getElementsByClassName("dot");
@@ -976,4 +905,3 @@ function currentSlide(n) {
 </script>
 </body>
 </html>
-```

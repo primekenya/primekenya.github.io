@@ -100,7 +100,6 @@
       font-family: Arial, sans-serif;
     }
 
-    /* Hero Section with Gallery */
     .hero {
       max-width: 1400px;
       margin: 2rem auto;
@@ -193,6 +192,7 @@
       letter-spacing: 2px;
       transition: all 0.3s;
       font-family: Arial, sans-serif;
+      cursor: pointer;
     }
 
     .btn:hover {
@@ -425,7 +425,6 @@
       100% { transform: translateY(0); }
     }
 
-    /* Modal Styles */
     .modal {
       display: none;
       position: fixed;
@@ -709,7 +708,6 @@
   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
 </a>
 
-<!-- Product Modal -->
 <div id="productModal" class="modal">
   <div class="modal-content">
     <span class="close-modal">&times;</span>
@@ -732,30 +730,29 @@
 </div>
 
 <script>
-  // Product Data with categories
+  // Product Data
   const products = [
-    { name: "The Return of the King T-shirt", desc: "Stylish branded custom printed tee with premium fabric. Perfect for casual wear and gifts.", price: "KSh 1,000", image: "image-32 (1).jpg", category: "t-shirt", waMsg: "Hello Prime Kenya, I want to order the Return of the King T-shirt" },
-    { name: "Custom Printed T-Shirt", desc: "Branded T-shirts for everyday wear. Choose your design and color.", price: "KSh 1,000", image: "file_00000000aebc71fdaedc5c4f02c41f9c.png", category: "t-shirt", waMsg: "Hello Prime Kenya, I want to order a custom printed T-shirt" },
-    { name: "Kids Printed T-Shirt", desc: "Affordable and attractive printed T-shirts for kids with quality finishing.", price: "KSh 650", image: "file_00000000553c71fdb0a4c8874152372a.png", category: "kids", waMsg: "Hello Prime Kenya, I want to order a kids printed T-shirt" },
+    { name: "The Return of the King T-shirt", desc: "Stylish branded custom printed tee. Perfect for casual wear and gifts.", price: "KSh 1,000", image: "image-32 (1).jpg", category: "t-shirt", waMsg: "Hello Prime Kenya, I want to order the Return of the King T-shirt" },
+    { name: "Custom Printed T-Shirt", desc: "Branded T-shirts for everyday wear. Choose your design.", price: "KSh 1,000", image: "file_00000000aebc71fdaedc5c4f02c41f9c.png", category: "t-shirt", waMsg: "Hello Prime Kenya, I want to order a custom printed T-shirt" },
+    { name: "Kids Printed T-Shirt", desc: "Affordable printed T-shirts for kids with quality finishing.", price: "KSh 650", image: "file_00000000553c71fdb0a4c8874152372a.png", category: "kids", waMsg: "Hello Prime Kenya, I want to order a kids printed T-shirt" },
     { name: "Matching Couple T-Shirts", desc: "Perfect for gifts, outings, birthdays and coordinated fashion.", price: "KSh 1,800", image: "file_00000000690871f8b037d35ff0db9e5c (1).png", category: "couple", waMsg: "Hello Prime Kenya, I want to order the matching couple T-shirts" },
-    { name: "Custom Printed Items", desc: "T-shirts, caps, cups, mugs and more. Send your design and we produce it.", price: "Price on Request", image: "Screenshot_20260310_235238.jpg", category: "custom", waMsg: "Hello Prime Kenya, I want a custom printed item" },
-    { name: "Custom Sports Tracksuit", desc: "Premium blue sports tracksuit with logo branding space for teams and gyms.", price: "KSh 5,500", image: "file_000000000700722fb929c122230ae9e5.png", category: "tracksuit", waMsg: "Hello Prime Kenya, I want to order the custom sports tracksuit" },
-    { name: "Manchester United Jersey", desc: "Custom Manchester United style football jersey with name printing.", price: "KSh 2,500", image: "file_00000000765071fda52e16c03cb4818f.png", category: "jersey", waMsg: "Hello Prime Kenya, I want to order the Manchester United jersey" }
+    { name: "Custom Printed Items", desc: "T-shirts, caps, cups, mugs and more. Send your design.", price: "Price on Request", image: "Screenshot_20260310_235238.jpg", category: "custom", waMsg: "Hello Prime Kenya, I want a custom printed item" },
+    { name: "Custom Sports Tracksuit", desc: "Premium sports tracksuit with logo branding space.", price: "KSh 5,500", image: "file_000000000700722fb929c122230ae9e5.png", category: "tracksuit", waMsg: "Hello Prime Kenya, I want to order the custom sports tracksuit" },
+    { name: "Manchester United Jersey", desc: "Custom football jersey with name printing.", price: "KSh 2,500", image: "file_00000000765071fda52e16c03cb4818f.png", category: "jersey", waMsg: "Hello Prime Kenya, I want to order the Manchester United jersey" }
   ];
 
   // Render products
   function renderProducts() {
     const container = document.getElementById('productList');
     if (!container) return;
-    
     container.innerHTML = products.map((p, idx) => `
-      <div class="product-card" data-search="${p.name.toLowerCase()} ${p.desc.toLowerCase()}" data-index="${idx}">
+      <div class="product-card" data-search="${p.name.toLowerCase()} ${p.desc.toLowerCase()}">
         <div class="badge">${p.category === "tracksuit" ? "PREMIUM" : "NEW"}</div>
         <div class="product-image" style="background-image:url('${p.image}'); background-size:cover;" onclick="openModal(${idx})"></div>
         <div class="product-info">
           <h3 onclick="openModal(${idx})">${p.name}</h3>
           <div class="price">${p.price}</div>
-          <a class="btn btn-primary" href="https://wa.me/254769574469?text=${encodeURIComponent(p.waMsg)}" target="_blank" style="font-size:0.7rem; padding:0.4rem 1rem; display:inline-block;">Order via WhatsApp</a>
+          <a class="btn btn-primary" href="https://wa.me/254769574469?text=${encodeURIComponent(p.waMsg)}" target="_blank" style="font-size:0.7rem; padding:0.4rem 1rem;">Order via WhatsApp</a>
           <div class="action-row">
             <button class="action-btn like-btn" onclick="likeProduct(this)">♡ Favorite</button>
             <button class="action-btn share-btn" onclick="shareProduct('${p.name}', '${p.price}')">Share</button>
@@ -765,6 +762,140 @@
     `).join('');
   }
 
-  // Search function
+    // Search
   function runSearch() {
-    const term = document.getElementById('siteS
+    const term = document.getElementById('siteSearch').value.toLowerCase();
+    const cards = document.querySelectorAll('.product-card');
+    let visible = 0;
+    cards.forEach(card => {
+      const searchData = card.getAttribute('data-search') || '';
+      if (searchData.includes(term)) {
+        card.style.display = '';
+        visible++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+    const resultsDiv = document.getElementById('searchResults');
+    if (resultsDiv) {
+      resultsDiv.innerHTML = visible === 0 && term !== '' ? '<p style="text-align:center; padding:1rem; color:#8B7355;">No items found</p>' : '';
+    }
+  }
+
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('show');
+  }
+
+  function toggleCart() {
+    alert('Order via WhatsApp for now.');
+  }
+
+  function likeProduct(btn) {
+    btn.classList.toggle('liked');
+    btn.innerText = btn.classList.contains('liked') ? '❤️ Liked' : '♡ Favorite';
+  }
+
+  function shareProduct(name, price) {
+    if (navigator.share) {
+      navigator.share({ title: name, text: `${name} at ${price} from Prime Kenya!` });
+    } else {
+      alert(`${name} - ${price}\nWhatsApp us to order!`);
+    }
+  }
+
+  // Modal functions
+  const modal = document.getElementById('productModal');
+  const closeModal = document.querySelector('.close-modal');
+
+  function openModal(productIndex) {
+    const p = products[productIndex];
+    if (!p) return;
+    document.getElementById('modalImg').src = p.image;
+    document.getElementById('modalName').innerText = p.name;
+    document.getElementById('modalDesc').innerText = p.desc;
+    document.getElementById('modalPrice').innerText = p.price;
+    document.getElementById('modalWhatsAppBtn').href = `https://wa.me/254769574469?text=${encodeURIComponent(p.waMsg)}`;
+    
+    // Show similar products
+    const similar = products.filter((item, idx) => item.category === p.category && idx !== productIndex);
+    const similarContainer = document.getElementById('similarProducts');
+    if (similar.length === 0) {
+      similarContainer.innerHTML = '<p style="padding:20px; color:#8B7355;">No similar items found.</p>';
+    } else {
+      similarContainer.innerHTML = similar.map((item, idx) => {
+        const origIdx = products.findIndex(prod => prod.name === item.name);
+        return `
+          <div class="similar-card" onclick="openModal(${origIdx})">
+            <div class="similar-card-image" style="background-image:url('${item.image}');"></div>
+            <div class="similar-card-info">
+              <h4>${item.name.length > 25 ? item.name.substring(0,22)+'...' : item.name}</h4>
+              <div class="similar-price">${item.price}</div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+    
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+  }
+
+  closeModal.onclick = function() {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  }
+
+  window.onclick = function(event) {
+    if (event.target === modal) {
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal.style.display === 'block') {
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+  });
+
+  // Slideshow
+  let slideIndex = 0;
+  let slideInterval;
+
+  function showSlides() {
+    const slides = document.getElementsByClassName("slide");
+    const dots = document.getElementsByClassName("dot");
+    for (let i = 0; i < slides.length; i++) slides[i].classList.remove("active");
+    for (let i = 0; i < dots.length; i++) dots[i].classList.remove("active-dot");
+    slideIndex++;
+    if (slideIndex > slides.length) slideIndex = 1;
+    if (slides[slideIndex-1]) slides[slideIndex-1].classList.add("active");
+    if (dots[slideIndex-1]) dots[slideIndex-1].classList.add("active-dot");
+    slideInterval = setTimeout(showSlides, 4000);
+  }
+function currentSlide(n) {
+    clearTimeout(slideInterval);
+    const slides = document.getElementsByClassName("slide");
+    const dots = document.getElementsByClassName("dot");
+    for (let i = 0; i < slides.length; i++) slides[i].classList.remove("active");
+    for (let i = 0; i < dots.length; i++) dots[i].classList.remove("active-dot");
+    slideIndex = n;
+    if (slides[slideIndex-1]) slides[slideIndex-1].classList.add("active");
+    if (dots[slideIndex-1]) dots[slideIndex-1].classList.add("active-dot");
+    slideInterval = setTimeout(showSlides, 4000);
+  }
+
+  // Initialize
+  document.addEventListener('DOMContentLoaded', function() {
+    renderProducts();
+    showSlides();
+  });
+
+  document.getElementById('siteSearch')?.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') runSearch();
+  });
+</script>
+</body>
+</html>
+```

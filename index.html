@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Prime Kenya | Earth-Toned Apparel & Custom Printing</title>
-  <meta name="description" content="Prime Kenya by Vickyoung — slow fashion, custom printed T-shirts, couple sets, and branded apparel in Kisii and Nyamira. Earth tones, quality fabrics, intentional design.">
-  <meta name="keywords" content="Prime Kenya, custom t shirts Kenya, couple sets Kenya, t shirt printing Kisii, t shirt printing Nyamira, cloth printing Kenya, branded clothing Kenya">
+  <meta name="description" content="Prime Kenya by Vickyoung — slow fashion, custom printed T-shirts, couple sets, and branded apparel in Kisii and Nyamira.">
+  <meta name="keywords" content="Prime Kenya, custom t shirts Kenya, couple sets Kenya, t shirt printing Kisii, branded clothing Kenya">
   <meta name="author" content="Prime Kenya by Vickyoung">
   <meta name="google-site-verification" content="B-e167z6UptSNmQsDg-WPPnSQ9WB3738iKKBHpYnSso" />
   <style>
@@ -23,7 +23,6 @@
       line-height: 1.5;
     }
 
-    /* Earth tone palette */
     :root {
       --bg: #FAF7F2;
       --text: #2C2418;
@@ -34,7 +33,6 @@
       --clay: #B77B5A;
     }
 
-    /* Navigation */
     nav {
       display: flex;
       justify-content: space-between;
@@ -102,7 +100,7 @@
       font-family: Arial, sans-serif;
     }
 
-    /* Hero Section */
+    /* Hero Section with Gallery */
     .hero {
       max-width: 1400px;
       margin: 2rem auto;
@@ -113,20 +111,63 @@
       align-items: center;
     }
 
-    .hero-image {
-      background: #D9D0C1;
-      aspect-ratio: 4 / 5;
-      background-image: linear-gradient(145deg, #D6CDBC 0%, #C7BBAA 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #5E5140;
-      font-style: italic;
-      font-size: 0.8rem;
+    .hero-gallery {
+      width: 100%;
+      overflow: hidden;
+      border-radius: 4px;
     }
 
-    .hero-image::after {
-      content: "📸 PRIME KENYA — SS25 LOOK";
+    .slideshow-container {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      background: #D9D0C1;
+    }
+
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 0.8s ease-in-out;
+    }
+
+    .slide.active {
+      opacity: 1;
+      z-index: 1;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .dots-container {
+      position: absolute;
+      bottom: 15px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      z-index: 10;
+    }
+
+    .dot {
+      cursor: pointer;
+      height: 8px;
+      width: 8px;
+      margin: 0 4px;
+      background-color: rgba(255, 255, 255, 0.5);
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+    }
+
+    .dot.active-dot {
+      background-color: white;
     }
 
     .hero-text h1 {
@@ -169,7 +210,6 @@
       background: var(--accent);
     }
 
-    /* Section Titles */
     .section-title {
       font-size: 0.7rem;
       letter-spacing: 4px;
@@ -179,17 +219,6 @@
       text-align: center;
     }
 
-    .category-title {
-      font-size: 1rem;
-      font-weight: 400;
-      letter-spacing: 2px;
-      margin: 2rem 5% 1rem;
-      color: var(--olive);
-      border-left: 3px solid var(--accent);
-      padding-left: 1rem;
-    }
-
-    /* Products Horizontal Scroll */
     .products {
       display: flex;
       gap: 1.5rem;
@@ -229,6 +258,7 @@
       background-size: cover;
       background-position: center;
       background-color: #E8E2D8;
+      cursor: pointer;
     }
 
     .badge {
@@ -241,6 +271,7 @@
       padding: 0.2rem 0.6rem;
       letter-spacing: 1px;
       font-family: Arial, sans-serif;
+      z-index: 2;
     }
 
     .product-info {
@@ -251,13 +282,7 @@
       font-size: 0.95rem;
       font-weight: 500;
       margin-bottom: 0.25rem;
-    }
-
-    .product-desc {
-      font-size: 0.75rem;
-      color: #7A6B58;
-      margin: 0.5rem 0;
-      display: none;
+      cursor: pointer;
     }
 
     .price {
@@ -289,7 +314,6 @@
       color: #c62828;
     }
 
-    /* Search Section */
     .search-section {
       padding: 1rem 5%;
       background: var(--cream);
@@ -320,14 +344,8 @@
       font-family: Arial, sans-serif;
       font-size: 0.75rem;
       letter-spacing: 1px;
-      transition: background 0.2s;
     }
 
-    .search-box button:hover {
-      background: var(--accent);
-    }
-
-    /* Story Section (Selfi inspired) */
     .story {
       background: var(--cream);
       padding: 3rem 5%;
@@ -365,7 +383,6 @@
       color: var(--accent);
     }
 
-    /* Footer */
     footer {
       background: #2C2418;
       color: #D9D0C1;
@@ -375,11 +392,6 @@
       letter-spacing: 1px;
     }
 
-    footer p {
-      margin: 0.3rem 0;
-    }
-
-    /* WhatsApp Float Button - FULLY FIXED with green background and animation */
     .whatsapp-float {
       position: fixed;
       width: 60px;
@@ -413,7 +425,152 @@
       100% { transform: translateY(0); }
     }
 
-    /* Responsive */
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.8);
+      overflow-y: auto;
+    }
+
+    .modal-content {
+      background-color: var(--cream);
+      margin: 30px auto;
+      padding: 0;
+      width: 90%;
+      max-width: 1000px;
+      border-radius: 8px;
+      position: relative;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 15px;
+      right: 25px;
+      font-size: 35px;
+      font-weight: bold;
+      cursor: pointer;
+      color: var(--text);
+      z-index: 10;
+    }
+
+    .close-modal:hover {
+      color: var(--accent);
+    }
+
+    .modal-body {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 30px;
+      gap: 30px;
+    }
+
+    .modal-image {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .modal-image img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
+    .modal-info {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .modal-info h2 {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      font-weight: 400;
+    }
+
+    .modal-info p {
+      color: #5A4D3A;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .modal-price {
+      font-size: 1.5rem;
+      color: var(--olive);
+      margin-bottom: 25px;
+      font-weight: 500;
+    }
+
+    .similar-section {
+      padding: 0 30px 30px 30px;
+      border-top: 1px solid var(--accent-light);
+    }
+
+    .similar-section h3 {
+      margin: 20px 0;
+      font-size: 1.2rem;
+      font-weight: 400;
+      letter-spacing: 1px;
+    }
+
+    .similar-products {
+      display: flex;
+      gap: 15px;
+      overflow-x: auto;
+      padding-bottom: 15px;
+    }
+
+    .similar-products::-webkit-scrollbar {
+      height: 4px;
+    }
+
+    .similar-products::-webkit-scrollbar-thumb {
+      background: var(--accent-light);
+      border-radius: 10px;
+    }
+
+    .similar-card {
+      min-width: 150px;
+      max-width: 150px;
+      background: white;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: transform 0.2s;
+      border: 1px solid var(--accent-light);
+    }
+
+    .similar-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+    }
+
+    .similar-card-image {
+      width: 100%;
+      height: 150px;
+      background-size: cover;
+      background-position: center;
+      background-color: #E8E2D8;
+    }
+
+    .similar-card-info {
+      padding: 10px;
+    }
+
+    .similar-card-info h4 {
+      font-size: 0.8rem;
+      margin-bottom: 4px;
+    }
+
+    .similar-card-info .similar-price {
+      font-size: 0.7rem;
+      color: var(--olive);
+    }
+
     @media (max-width: 800px) {
       .hero {
         grid-template-columns: 1fr;
@@ -449,240 +606,15 @@
         padding-top: 1rem;
         padding-left: 0;
       }
-      /* Gallery Slideshow Styles */
-.hero-gallery {
-    width: 100%;
-    overflow: hidden;
-    border-radius: 4px;
-}
-
-.slideshow-container {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 4 / 5;
-    background: #D9D0C1;
-}
-
-.slide {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    transition: opacity 0.8s ease-in-out;
-}
-
-.slide.active {
-    opacity: 1;
-    z-index: 1;
-}
-
-.slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-.dots-container {
-    position: absolute;
-    bottom: 15px;
-    left: 0;
-    right: 0;
-    text-align: center;
-    z-index: 10;
-}
-
-.dot {
-    cursor: pointer;
-    height: 8px;
-    width: 8px;
-    margin: 0 4px;
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 50%;
-    display: inline-block;
-    transition: background-color 0.3s ease;
-}
-
-.dot.active-dot {
-    background-color: white;
-}
-
-@keyframes fade {
-    from { opacity: 0.4; }
-    to { opacity: 1; }
-}
-    }
-    /* Modal Styles */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.8);
-    overflow-y: auto;
-    animation: fadeIn 0.3s;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-.modal-content {
-    background-color: var(--cream);
-    margin: 30px auto;
-    padding: 0;
-    width: 90%;
-    max-width: 1000px;
-    border-radius: 8px;
-    position: relative;
-    animation: slideDown 0.3s;
-}
-
-@keyframes slideDown {
-    from { transform: translateY(-50px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
-
-.close-modal {
-    position: absolute;
-    top: 15px;
-    right: 25px;
-    font-size: 35px;
-    font-weight: bold;
-    cursor: pointer;
-    color: var(--text);
-    z-index: 10;
-}
-
-.close-modal:hover {
-    color: var(--accent);
-}
-
-.modal-body {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 30px;
-    gap: 30px;
-}
-
-.modal-image {
-    flex: 1;
-    min-width: 250px;
-}
-
-.modal-image img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 4px;
-}
-
-.modal-info {
-    flex: 1;
-    min-width: 250px;
-}
-
-.modal-info h2 {
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-    font-weight: 400;
-}
-
-.modal-info p {
-    color: #5A4D3A;
-    margin-bottom: 20px;
-    line-height: 1.6;
-}
-
-.modal-price {
-    font-size: 1.5rem;
-    color: var(--olive);
-    margin-bottom: 25px;
-    font-weight: 500;
-}
-
-/* Similar Products Section */
-.similar-section {
-    padding: 0 30px 30px 30px;
-    border-top: 1px solid var(--accent-light);
-}
-
-.similar-section h3 {
-    margin: 20px 0;
-    font-size: 1.2rem;
-    font-weight: 400;
-    letter-spacing: 1px;
-}
-
-.similar-products {
-    display: flex;
-    gap: 15px;
-    overflow-x: auto;
-    padding-bottom: 15px;
-}
-
-.similar-products::-webkit-scrollbar {
-    height: 4px;
-}
-
-.similar-products::-webkit-scrollbar-thumb {
-    background: var(--accent-light);
-    border-radius: 10px;
-}
-
-.similar-card {
-    min-width: 150px;
-    max-width: 150px;
-    background: white;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: transform 0.2s;
-    border: 1px solid var(--accent-light);
-}
-
-.similar-card:hover {
-    transform: translateY(-3px);
-    border-color: var(--accent);
-}
-
-.similar-card-image {
-    width: 100%;
-    height: 150px;
-    background-size: cover;
-    background-position: center;
-    background-color: #E8E2D8;
-}
-
-.similar-card-info {
-    padding: 10px;
-}
-
-.similar-card-info h4 {
-    font-size: 0.8rem;
-    margin-bottom: 4px;
-}
-
-.similar-card-info .similar-price {
-    font-size: 0.7rem;
-    color: var(--olive);
-}
-
-@media (max-width: 700px) {
-    .modal-body {
+      .modal-body {
         flex-direction: column;
         padding: 20px;
-    }
-    .similar-card {
+      }
+      .similar-card {
         min-width: 120px;
         max-width: 120px;
+      }
     }
-}
   </style>
 </head>
 <body>
@@ -701,42 +633,43 @@
     </div>
   </nav>
 </header>
+
 <section class="hero">
-    <div class="hero-gallery">
-        <div class="slideshow-container">
-            <div class="slide fade active">
-                <img src="prime 4.jpg" alt="Prime Kenya Collection">
-            </div>
-            <div class="slide fade">
-                <img src="img_1_1777404945233.jpg" alt="Prime Kenya Collection">
-            </div>
-            <div class="slide fade">
-                <img src="image.jpg" alt="Prime Kenya Collection">
-            </div>
-            <div class="slide fade">
-                <img src="prime 6.jpg" alt="Prime Kenya Collection">
-            </div>
-            <div class="slide fade">
-                <img src="prime 5.jpg" alt="Prime Kenya Collection">
-            </div>
-            <div class="slide fade">
-                <img src="prime 3.jpg" alt="Prime Kenya Collection">
-            </div>
-            <div class="dots-container">
-                <span class="dot" onclick="currentSlide(1)"></span>
-                <span class="dot" onclick="currentSlide(2)"></span>
-                <span class="dot" onclick="currentSlide(3)"></span>
-                <span class="dot" onclick="currentSlide(4)"></span>
-                <span class="dot" onclick="currentSlide(5)"></span>
-                <span class="dot" onclick="currentSlide(6)"></span>
-            </div>
-        </div>
+  <div class="hero-gallery">
+    <div class="slideshow-container">
+      <div class="slide active">
+        <img src="prime 4.jpg" alt="Prime Kenya Collection">
+      </div>
+      <div class="slide">
+        <img src="img_1_1777404945233.jpg" alt="Prime Kenya Collection">
+      </div>
+      <div class="slide">
+        <img src="image.jpg" alt="Prime Kenya Collection">
+      </div>
+      <div class="slide">
+        <img src="prime 6.jpg" alt="Prime Kenya Collection">
+      </div>
+      <div class="slide">
+        <img src="prime 5.jpg" alt="Prime Kenya Collection">
+      </div>
+      <div class="slide">
+        <img src="prime 3.jpg" alt="Prime Kenya Collection">
+      </div>
+      <div class="dots-container">
+        <span class="dot active-dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+        <span class="dot" onclick="currentSlide(5)"></span>
+        <span class="dot" onclick="currentSlide(6)"></span>
+      </div>
     </div>
-    <div class="hero-text">
-        <h1>Structures of belonging.<br>Kenyan minimalism.</h1>
-        <p>Prime Kenya — slow fashion rooted in Kisii. Earth-toned fabrics, custom printing, and silhouettes that move between rural and urban.</p>
-        <a href="#shop" class="btn">DISCOVER COLLECTION</a>
-    </div>
+  </div>
+  <div class="hero-text">
+    <h1>Structures of belonging.<br>Kenyan minimalism.</h1>
+    <p>Prime Kenya — slow fashion rooted in Kisii. Earth-toned fabrics, custom printing, and silhouettes that move between rural and urban.</p>
+    <a href="#shop" class="btn">DISCOVER COLLECTION</a>
+  </div>
 </section>
 
 <section class="search-section">
@@ -772,13 +705,34 @@
   <p style="margin-top: 0.8rem;">📍 Ekerenyo, Tazama Cyber | 📞 0745 678 910</p>
 </footer>
 
-<!-- FIXED WhatsApp button - Green with logo and animation -->
 <a href="https://wa.me/254769574469" class="whatsapp-float" target="_blank">
   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
 </a>
 
+<!-- Product Modal -->
+<div id="productModal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <div class="modal-body">
+      <div class="modal-image">
+        <img id="modalImg" src="" alt="Product">
+      </div>
+      <div class="modal-info">
+        <h2 id="modalName"></h2>
+        <p id="modalDesc"></p>
+        <div class="modal-price" id="modalPrice"></div>
+        <a id="modalWhatsAppBtn" class="btn btn-primary" href="#" target="_blank">Order via WhatsApp</a>
+      </div>
+    </div>
+    <div class="similar-section">
+      <h3>Similar Items You Might Like</h3>
+      <div class="similar-products" id="similarProducts"></div>
+    </div>
+  </div>
+</div>
+
 <script>
-  // Product Data (all your original products preserved)
+  // Product Data with categories
   const products = [
     { name: "The Return of the King T-shirt", desc: "Stylish branded custom printed tee with premium fabric. Perfect for casual wear and gifts.", price: "KSh 1,000", image: "image-32 (1).jpg", category: "t-shirt", waMsg: "Hello Prime Kenya, I want to order the Return of the King T-shirt" },
     { name: "Custom Printed T-Shirt", desc: "Branded T-shirts for everyday wear. Choose your design and color.", price: "KSh 1,000", image: "file_00000000aebc71fdaedc5c4f02c41f9c.png", category: "t-shirt", waMsg: "Hello Prime Kenya, I want to order a custom printed T-shirt" },
@@ -787,230 +741,30 @@
     { name: "Custom Printed Items", desc: "T-shirts, caps, cups, mugs and more. Send your design and we produce it.", price: "Price on Request", image: "Screenshot_20260310_235238.jpg", category: "custom", waMsg: "Hello Prime Kenya, I want a custom printed item" },
     { name: "Custom Sports Tracksuit", desc: "Premium blue sports tracksuit with logo branding space for teams and gyms.", price: "KSh 5,500", image: "file_000000000700722fb929c122230ae9e5.png", category: "tracksuit", waMsg: "Hello Prime Kenya, I want to order the custom sports tracksuit" },
     { name: "Manchester United Jersey", desc: "Custom Manchester United style football jersey with name printing.", price: "KSh 2,500", image: "file_00000000765071fda52e16c03cb4818f.png", category: "jersey", waMsg: "Hello Prime Kenya, I want to order the Manchester United jersey" }
-];
+  ];
 
-  function renderProducts() {
+  // Render products
   function renderProducts() {
     const container = document.getElementById('productList');
     if (!container) return;
     
     container.innerHTML = products.map((p, idx) => `
-        <div class="product-card" data-search="${p.name.toLowerCase()} ${p.desc.toLowerCase()}" data-index="${idx}">
-            <div class="badge">${p.category === "tracksuit" ? "PREMIUM" : "NEW"}</div>
-            <div class="product-image" style="background-image:url('${p.image}'); background-size:cover; cursor:pointer;" onclick="openModal(${idx})"></div>
-            <div class="product-info">
-                <h3 onclick="openModal(${idx})" style="cursor:pointer;">${p.name}</h3>
-                <div class="price">${p.price}</div>
-                <a class="btn btn-primary" href="https://wa.me/254769574469?text=${encodeURIComponent(p.waMsg)}" target="_blank" style="font-size:0.7rem; padding:0.4rem 1rem; display:inline-block;">Order via WhatsApp</a>
-                <div class="action-row">
-                    <button class="action-btn like-btn" onclick="likeProduct(this)">♡ Favorite</button>
-                    <button class="action-btn share-btn" onclick="shareProduct('${p.name}', '${p.price}')">Share</button>
-                </div>
-            </div>
+      <div class="product-card" data-search="${p.name.toLowerCase()} ${p.desc.toLowerCase()}" data-index="${idx}">
+        <div class="badge">${p.category === "tracksuit" ? "PREMIUM" : "NEW"}</div>
+        <div class="product-image" style="background-image:url('${p.image}'); background-size:cover;" onclick="openModal(${idx})"></div>
+        <div class="product-info">
+          <h3 onclick="openModal(${idx})">${p.name}</h3>
+          <div class="price">${p.price}</div>
+          <a class="btn btn-primary" href="https://wa.me/254769574469?text=${encodeURIComponent(p.waMsg)}" target="_blank" style="font-size:0.7rem; padding:0.4rem 1rem; display:inline-block;">Order via WhatsApp</a>
+          <div class="action-row">
+            <button class="action-btn like-btn" onclick="likeProduct(this)">♡ Favorite</button>
+            <button class="action-btn share-btn" onclick="shareProduct('${p.name}', '${p.price}')">Share</button>
+          </div>
         </div>
+      </div>
     `).join('');
-}
+  }
 
+  // Search function
   function runSearch() {
-    const term = document.getElementById('siteSearch').value.toLowerCase();
-    const cards = document.querySelectorAll('.product-card');
-    let visibleCount = 0;
-    cards.forEach(card => {
-      const searchData = card.getAttribute('data-search') || '';
-      const name = card.querySelector('h3')?.innerText.toLowerCase() || '';
-      const isVisible = name.includes(term) || searchData.includes(term);
-      card.style.display = isVisible ? '' : 'none';
-      if (isVisible) visibleCount++;
-    });
-    const resultsDiv = document.getElementById('searchResults');
-    if (resultsDiv) {
-      resultsDiv.innerHTML = visibleCount === 0 && term !== '' ? '<p style="text-align:center; padding:1rem; color:#8B7355;">No items found — try "t-shirt" or "jersey"</p>' : '';
-    }
-  }
-
-  function toggleMenu() {
-    const menu = document.getElementById('mobileMenu');
-    menu.classList.toggle('show');
-  }
-
-  function toggleCart() {
-    alert('Cart feature coming soon — order via WhatsApp for now.');
-  }
-
-  function likeProduct(btn) {
-    btn.classList.toggle('liked');
-    btn.innerText = btn.classList.contains('liked') ? '❤️ Liked' : '♡ Favorite';
-  }
-
-  function shareProduct(name, price) {
-    if (navigator.share) {
-      navigator.share({ title: name, text: `Check out ${name} at ${price} from Prime Kenya!` });
-    } else {
-      alert(`Share: ${name} - ${price}\n\nWhatsApp us to order!`);
-    }
-  }
-
-  // Initialize on page load
-  renderProducts();
-
-  // Allow Enter key to search
-  document.getElementById('siteSearch')?.addEventListener('keypress', function(e) {
-    if (e.key === 'Enter') runSearch();
-  });
-  // Auto-changing image gallery
-let slideIndex = 0;
-let slideInterval;
-
-function showSlides() {
-    const slides = document.getElementsByClassName("slide");
-    const dots = document.getElementsByClassName("dot");
-    
-    for (let i = 0; i < slides.length; i++) {
-        slides[i].classList.remove("active");
-    }
-    for (let i = 0; i < dots.length; i++) {
-        dots[i].classList.remove("active-dot");
-    }
-    
-    slideIndex++;
-    if (slideIndex > slides.length) { slideIndex = 1; }
-    
-    if (slides[slideIndex - 1]) {
-        slides[slideIndex - 1].classList.add("active");
-    }
-    if (dots[slideIndex - 1]) {
-        dots[slideIndex - 1].classList.add("active-dot");
-    }
-    
-    slideInterval = setTimeout(showSlides, 4000);
-}
-
-function currentSlide(n) {
-    clearTimeout(slideInterval);
-    const slides = document.getElementsByClassName("slide");
-    const dots = document.getElementsByClassName("dot");
-    
-    for (let i = 0; i < slides.length; i++) {
-        slides[i].classList.remove("active");
-    }
-    for (let i = 0; i < dots.length; i++) {
-        dots[i].classList.remove("active-dot");
-    }
-    
-    slideIndex = n;
-    if (slides[slideIndex - 1]) {
-        slides[slideIndex - 1].classList.add("active");
-    }
-    if (dots[slideIndex - 1]) {
-        dots[slideIndex - 1].classList.add("active-dot");
-    }
-    
-    slideInterval = setTimeout(showSlides, 4000);
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-    showSlides();
-});
-  // Modal functionality
-const modal = document.getElementById('productModal');
-const closeModal = document.querySelector('.close-modal');
-let currentProduct = null;
-
-// Function to open modal with product details
-function openModal(productIndex) {
-    const product = products[productIndex];
-    if (!product) return;
-    
-    currentProduct = product;
-    
-    // Set modal content
-    document.getElementById('modalImg').src = product.image;
-    document.getElementById('modalName').innerText = product.name;
-    document.getElementById('modalDesc').innerText = product.desc;
-    document.getElementById('modalPrice').innerText = product.price;
-    
-    const waLink = `https://wa.me/254769574469?text=${encodeURIComponent(product.waMsg)}`;
-    document.getElementById('modalWhatsAppBtn').href = waLink;
-    
-    // Show similar products
-    showSimilarProducts(product.category, productIndex);
-    
-    // Display modal
-    modal.style.display = 'block';
-    document.body.style.overflow = 'hidden'; // Prevent scrolling behind modal
-}
-
-// Function to show similar products (same category)
-function showSimilarProducts(category, currentIndex) {
-    const similarContainer = document.getElementById('similarProducts');
-    
-    // Filter products with same category, exclude current product
-    const similar = products.filter((p, idx) => p.category === category && idx !== currentIndex);
-    
-    if (similar.length === 0) {
-        similarContainer.innerHTML = '<p style="color:#8B7355; padding:20px;">No similar items found. Check out other collections!</p>';
-        return;
-    }
-    
-    similarContainer.innerHTML = similar.map((p, idx) => {
-        // Find original index of this similar product
-        const originalIndex = products.findIndex(prod => prod.name === p.name);
-        return `
-            <div class="similar-card" onclick="openModal(${originalIndex})">
-                <div class="similar-card-image" style="background-image:url('${p.image}');"></div>
-                <div class="similar-card-info">
-                    <h4>${p.name.length > 25 ? p.name.substring(0, 22) + '...' : p.name}</h4>
-                    <div class="similar-price">${p.price}</div>
-                </div>
-            </div>
-        `;
-    }).join('');
-}
-
-// Close modal when X is clicked
-closeModal.onclick = function() {
-    modal.style.display = 'none';
-    document.body.style.overflow = 'auto';
-}
-
-// Close modal when clicking outside the modal content
-window.onclick = function(event) {
-    if (event.target === modal) {
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    }
-}
-
-// Close modal with Escape key
-document.addEventListener('keydown', function(event) {
-    if (event.key === 'Escape' && modal.style.display === 'block') {
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    }
-});
-</script>
-  <!-- Product Modal Popup -->
-<div id="productModal" class="modal">
-    <div class="modal-content">
-        <span class="close-modal">&times;</span>
-        <div class="modal-body">
-            <div class="modal-image">
-                <img id="modalImg" src="" alt="Product">
-            </div>
-            <div class="modal-info">
-                <h2 id="modalName"></h2>
-                <p id="modalDesc"></p>
-                <div class="modal-price" id="modalPrice"></div>
-                <a id="modalWhatsAppBtn" class="btn btn-primary" href="#" target="_blank">Order via WhatsApp</a>
-            </div>
-        </div>
-        
-        <!-- Similar Products Section -->
-        <div class="similar-section">
-            <h3>Similar Items You Might Like</h3>
-            <div class="similar-products" id="similarProducts"></div>
-        </div>
-    </div>
-</div>
-</body>
-</html>
+    const term = document.getElementById('siteS

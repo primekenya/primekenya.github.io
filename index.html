@@ -3,63 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Prime Kenya | Clothing, Branding & Custom Printing</title>
-  <meta name="description" content="Prime Kenya by Vickyoung offers printed T-shirts, couple sets, and custom clothes printing in Kisii and Nyamira. Quality branding and fashion printing services in Kenya.">
-
-<meta name="keywords" content="
-Prime Kenya,
-Prime Kenya by Vickyoung,
-Vickyoung clothes,
-Mrs Dangote clothes,
-where to print t-shirts,
-t shirt printing Kisii,
-t shirt printing Nyamira,
-cloth printing in Kisii,
-cloth printing in Nyamira,
-best cloth printing Kenya,
-Ekerenyo Tazama Cyber clothes,
-custom t shirts Kenya,
-couple sets Kenya,
-branding and printing Kenya
-">
-
-<meta name="author" content="Prime Kenya by Vickyoung">
+  <title>Prime Kenya | Earth-Toned Apparel & Custom Printing</title>
+  <meta name="description" content="Prime Kenya by Vickyoung — slow fashion, custom printed T-shirts, couple sets, and branded apparel in Kisii and Nyamira. Earth tones, quality fabrics, intentional design.">
+  <meta name="keywords" content="Prime Kenya, custom t shirts Kenya, couple sets Kenya, t shirt printing Kisii, t shirt printing Nyamira, cloth printing Kenya, branded clothing Kenya">
+  <meta name="author" content="Prime Kenya by Vickyoung">
   <meta name="google-site-verification" content="B-e167z6UptSNmQsDg-WPPnSQ9WB3738iKKBHpYnSso" />
   <style>
-    }
-
-    /* WhatsApp Floating Button Style */
-.whatsapp-float {
-  position: fixed;
-  width: 60px;
-  height: 60px;
-  bottom: 20px;
-  right: 20px;
-  background-color: #25D366; /* WhatsApp green */
-  border-radius: 50%;
-  text-align: center;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-  z-index: 100;
-  transition: transform 0.3s;
-  animation: float 2s ease-in-out infinite; /* Smooth float */
-}
-
-.whatsapp-float img {
-  width: 35px;
-  height: 35px;
-  margin-top: 12px;
-}
-
-.whatsapp-float:hover {
-  transform: scale(1.1); /* Slight grow on hover */
-}
-
-/* Floating animation */
-@keyframes float {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
-  100% { transform: translateY(0); }
-}
     * {
       margin: 0;
       padding: 0;
@@ -68,1726 +17,583 @@ branding and printing Kenya
     }
 
     body {
-      font-family: Arial, sans-serif;
-      background: #f7f7f7;
-      color: #222;
-      line-height: 1.6;
+      font-family: 'Georgia', 'Times New Roman', Times, serif;
+      background: #FAF7F2;
+      color: #2C2418;
+      line-height: 1.5;
     }
 
-    header {
-  background: #f68b1e;
-  color: white;
-  padding: 10px 8%;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-}
+    /* Earth tone palette */
+    :root {
+      --bg: #FAF7F2;
+      --text: #2C2418;
+      --accent: #8B7355;
+      --accent-light: #C7B7A3;
+      --cream: #FEFCF8;
+      --olive: #6B5E3A;
+      --clay: #B77B5A;
+    }
 
+    /* Navigation */
     nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding: 1.5rem 5%;
+      max-width: 1400px;
+      margin: 0 auto;
       flex-wrap: wrap;
-      gap: 15px;
+      gap: 1rem;
+      border-bottom: 1px solid #E6DFD5;
+      position: relative;
     }
-.logo {
-  font-size: 1.2rem;
-  font-weight: bold;
-  letter-spacing: 1px;
-  margin-bottom: 8px;
-}
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 400;
+      letter-spacing: 2px;
+      font-family: 'Times New Roman', serif;
+    }
+
+    .logo span {
+      font-weight: 300;
+      font-size: 0.7rem;
+      letter-spacing: 4px;
+      display: block;
+      color: var(--accent);
+    }
+
+    .menu-toggle {
+      background: none;
+      border: none;
+      font-size: 1.6rem;
+      cursor: pointer;
+      color: var(--text);
+      display: none;
+    }
 
     .nav-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px 16px;
-}
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      align-items: center;
+    }
 
     .nav-links a {
-      color: white;
       text-decoration: none;
-      font-size: 0.95rem;
+      color: var(--text);
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      transition: color 0.2s;
+      font-family: Arial, sans-serif;
     }
 
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .cart-toggle {
+      background: none;
+      border: 1px solid var(--accent-light);
+      padding: 0.4rem 0.8rem;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Hero Section */
     .hero {
-      background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-        url('https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1200&q=80') center/cover;
-      color: white;
-      text-align: center;
-      padding: 90px 8% 80px;
+      max-width: 1400px;
+      margin: 2rem auto;
+      padding: 0 5%;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 3rem;
+      align-items: center;
     }
 
-    .hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 15px;
-    }
-
-    .hero p {
-      max-width: 800px;
-      margin: 0 auto 25px;
-      font-size: 1.05rem;
-    }
-
-    .btn-group {
+    .hero-image {
+      background: #D9D0C1;
+      aspect-ratio: 4 / 5;
+      background-image: linear-gradient(145deg, #D6CDBC 0%, #C7BBAA 100%);
       display: flex;
+      align-items: center;
       justify-content: center;
-      flex-wrap: wrap;
-      gap: 15px;
+      color: #5E5140;
+      font-style: italic;
+      font-size: 0.8rem;
+    }
+
+    .hero-image::after {
+      content: "📸 PRIME KENYA — SS25 LOOK";
+    }
+
+    .hero-text h1 {
+      font-size: 2.8rem;
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .hero-text p {
+      color: #5A4D3A;
+      margin-bottom: 2rem;
     }
 
     .btn {
       display: inline-block;
-      padding: 13px 22px;
-      border-radius: 8px;
+      padding: 0.8rem 2rem;
+      border: 1px solid var(--text);
+      background: transparent;
+      color: var(--text);
       text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s ease;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      transition: all 0.3s;
+      font-family: Arial, sans-serif;
+    }
+
+    .btn:hover {
+      background: var(--text);
+      color: var(--bg);
     }
 
     .btn-primary {
-      background: #d4af37;
-      color: #111;
+      background: var(--text);
+      color: var(--bg);
+      border: none;
     }
 
     .btn-primary:hover {
-      background: #c39d26;
+      background: var(--accent);
     }
 
-    .btn-secondary {
-      background: white;
-      color: #111;
-    }
-
-    .btn-secondary:hover {
-      background: #eaeaea;
-    }
-
-    section {
-  padding: 10px 3%;
-}
-
+    /* Section Titles */
     .section-title {
+      font-size: 0.7rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin: 3rem 0 1.5rem;
+      color: var(--accent);
       text-align: center;
-      font-size: 2rem;
-      margin-bottom: 5px;
-      color: #111;
     }
 
-    .section-text {
-      text-align: center;
-      max-width: 850px;
-      margin: 0 auto 35px;
-      color: #555;
-    }
-.category-title {
-  font-size: 1.1rem;
-  font-weight: 700;
-  text-align: left;
-  margin: 6px 0 4px;
-  color: #0A7A35;
-  letter-spacing: 0.5px;
-  border-left: 4px solid #D4AF37;
-  padding-left: 10px;
-}
-    .features,
-    .products,
-    .services,
-    .gallery,
-    .steps,
-    .support-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
+    .category-title {
+      font-size: 1rem;
+      font-weight: 400;
+      letter-spacing: 2px;
+      margin: 2rem 5% 1rem;
+      color: var(--olive);
+      border-left: 3px solid var(--accent);
+      padding-left: 1rem;
     }
 
-    .card {
-      background: white;
-      padding: 22px;
-      border-radius: 14px;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    /* Products Horizontal Scroll */
+    .products {
+      display: flex;
+      gap: 1.5rem;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      padding: 0.5rem 5% 1.5rem;
+      margin-bottom: 2rem;
     }
 
-    .card h3 {
-      margin-bottom: 10px;
-      color: #111;
+    .products::-webkit-scrollbar {
+      height: 4px;
     }
 
-    .card p {
-      color: #555;
-      font-size: 0.95rem;
+    .products::-webkit-scrollbar-thumb {
+      background: var(--accent-light);
+      border-radius: 10px;
     }
 
     .product-card {
-      background: white;
-      border-radius: 14px;
+      min-width: 240px;
+      max-width: 240px;
+      flex: 0 0 auto;
+      background: var(--cream);
+      border-radius: 4px;
       overflow: hidden;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+      transition: transform 0.2s;
+      position: relative;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
     }
 
     .product-image {
-      height: 220px;
-      background: #ddd center/cover no-repeat;
+      width: 100%;
+      height: 280px;
+      background-size: cover;
+      background-position: center;
+      background-color: #E8E2D8;
+    }
+
+    .badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: var(--clay);
+      color: white;
+      font-size: 0.6rem;
+      padding: 0.2rem 0.6rem;
+      letter-spacing: 1px;
+      font-family: Arial, sans-serif;
     }
 
     .product-info {
-      padding: 20px;
+      padding: 1rem;
+    }
+
+    .product-info h3 {
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+    }
+
+    .product-desc {
+      font-size: 0.75rem;
+      color: #7A6B58;
+      margin: 0.5rem 0;
+      display: none;
     }
 
     .price {
-      color: #0a7a35;
-      font-weight: bold;
-      font-size: 1.1rem;
-      margin: 10px 0 15px;
+      color: var(--olive);
+      font-weight: 500;
+      font-size: 0.9rem;
+      margin: 0.5rem 0;
     }
 
-    .gallery-box {
-      background: white;
-      border: 2px dashed #bbb;
-      border-radius: 12px;
-      min-height: 220px;
+    .action-row {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 20px;
-      color: #666;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+      gap: 0.5rem;
+      margin-top: 0.5rem;
     }
 
-    .highlight {
-      background: #111;
+    .action-btn {
+      background: none;
+      border: 1px solid var(--accent-light);
+      padding: 0.2rem 0.6rem;
+      font-size: 0.7rem;
+      cursor: pointer;
+      font-family: Arial, sans-serif;
+      transition: all 0.2s;
+    }
+
+    .action-btn.liked {
+      background: #ffe3e3;
+      border-color: #c62828;
+      color: #c62828;
+    }
+
+    /* Search Section */
+    .search-section {
+      padding: 1rem 5%;
+      background: var(--cream);
+      margin: 1rem 5%;
+      border-radius: 4px;
+    }
+
+    .search-box {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .search-box input {
+      flex: 1;
+      padding: 0.7rem;
+      border: 1px solid var(--accent-light);
+      background: var(--bg);
+      font-family: Arial, sans-serif;
+      outline: none;
+    }
+
+    .search-box button {
+      background: var(--text);
       color: white;
-      border-radius: 18px;
-      padding: 35px;
-      text-align: center;
+      border: none;
+      padding: 0 1.5rem;
+      cursor: pointer;
+      font-family: Arial, sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+      transition: background 0.2s;
     }
 
-    .highlight h2 {
-      margin-bottom: 15px;
-      font-size: 2rem;
+    .search-box button:hover {
+      background: var(--accent);
     }
 
-    .payment-box {
-      background: #fff8e1;
-      border-left: 6px solid #d4af37;
-      padding: 25px;
-      border-radius: 10px;
-      max-width: 900px;
+    /* Story Section (Selfi inspired) */
+    .story {
+      background: var(--cream);
+      padding: 3rem 5%;
+      margin: 3rem 0;
+    }
+
+    .story-container {
+      max-width: 1000px;
       margin: 0 auto;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+      display: flex;
+      gap: 3rem;
+      flex-wrap: wrap;
     }
 
-    .payment-box p {
-      margin: 8px 0;
+    .story-text {
+      flex: 2;
     }
 
+    .story-text h2 {
+      font-size: 1.8rem;
+      font-weight: 400;
+      margin-bottom: 1rem;
+    }
+
+    .story-text p {
+      color: #5A4D3A;
+      margin-bottom: 1rem;
+    }
+
+    .story-quote {
+      flex: 1;
+      border-left: 2px solid var(--accent);
+      padding-left: 1.5rem;
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    /* Footer */
     footer {
-      background: #111;
-      color: white;
-      padding: 35px 8%;
+      background: #2C2418;
+      color: #D9D0C1;
+      padding: 2rem 5%;
       text-align: center;
+      font-size: 0.7rem;
+      letter-spacing: 1px;
     }
 
     footer p {
-      margin: 8px 0;
-      color: #ddd;
+      margin: 0.3rem 0;
     }
 
-    .small {
-      font-size: 0.92rem;
-      color: #ddd;
+    /* WhatsApp Float Button - FULLY FIXED with green background and animation */
+    .whatsapp-float {
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      z-index: 100;
+      transition: transform 0.3s;
+      animation: float 2s ease-in-out infinite;
+      text-decoration: none;
     }
 
-    @media (max-width: 600px) {
-  .hero h1 {
-    font-size: 2rem;
-  }
+    .whatsapp-float img {
+      width: 35px;
+      height: 35px;
+    }
 
-  .section-title {
-    font-size: 1.6rem;
-  }
-}
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+    }
 
-.products {
-  display: flex;
-  gap: 10px;
-  margin-top: 20px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  padding-bottom: 6px;
-}
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+      100% { transform: translateY(0); }
+    }
 
-.products::-webkit-scrollbar {
-  height: 6px;
-}
-
-.products::-webkit-scrollbar-thumb {
-  background: #ccc;
-  border-radius: 10px;
-}
-
-.product-card {
-  min-width: 130px;
-  max-width: 130px;
-  flex: 0 0 auto;
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.product-card:hover {
-  transform: translateY(-5px);
-}
-
-.product-image {
-  width: 100%;
-  height: 140px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: #f5f5f5;
-}
-
-.product-info {
-  padding: 6px;
-}
-
-.product-info h3 {
-  font-size: 0.9rem;
-  margin-bottom: 5px;
-  line-height: 1.2;
-  font-weight: 600;
-  min-height: 32px;
-}
-
-.product-info p {
-  font-size: 0.85rem;
-  color: #555;
-  margin-bottom: 8px;
-  line-height: 1.4;
-}
-.product-desc {
-  display: none;
-  font-size: 0.85rem;
-  margin-top: 6px;
-  color: #555;
-}
-.price {
-  color: #0a7a35;
-  font-weight: bold;
-  font-size: 0.95rem;
-  margin: 6px 0 10px;
-}
-
-.product-info .btn {
-  font-size: 0.85rem;
-  padding: 8px 14px;
-}
-.action-row {
-  display: flex;
-  gap: 6px;
-  margin-top: 3px;
-}
-
-.action-btn {
-  border: none;
-  background: #f1f1f1;
-  padding: 5px 8px;
-  border-radius: 6px;
-  font-size: 0.7rem;
-  cursor: pointer;
-}
-
-.action-btn.liked {
-  background: #ffe3e3;
-  color: #c62828;
-}
-    .menu-toggle {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 1.6rem;
-  cursor: pointer;
-  display: block;
-}
-
-.nav-links {
-  display: none;
-  flex-direction: column;
-  gap: 12px;
-  background: #111;
-  position: absolute;
-  top: 60px;
-  right: 8%;
-  padding: 15px;
-  border-radius: 10px;
-  width: 220px;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.3);
-}
-
-.nav-links.show {
-  display: flex;
-}
-
-nav {
-  position: relative;
-}
-
-.nav-links a {
-  color: white;
-  text-decoration: none;
-  font-size: 0.9rem;
-}
-
-.logo {
-  font-size: 1.2rem;
-  font-weight: bold;
-  letter-spacing: 1px;
-}
-    .preview-modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.75);
-  z-index: 3000;
-  padding: 20px;
-  overflow-y: auto;
-}
-
-.preview-box {
-  background: #fff;
-  max-width: 420px;
-  margin: 40px auto;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-}
-
-.preview-image {
-  width: 100%;
-  height: 320px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: #f7f7f7;
-}
-
-.preview-content {
-  padding: 18px;
-}
-
-.preview-content h3 {
-  font-size: 1.1rem;
-  margin-bottom: 8px;
-  color: #111;
-}
-
-.preview-content p {
-  font-size: 0.92rem;
-  color: #555;
-  line-height: 1.5;
-  margin-bottom: 12px;
-}
-
-.preview-price {
-  color: #0a7a35;
-  font-weight: bold;
-  font-size: 1rem;
-  margin-bottom: 14px;
-}
-
-.close-preview {
-  position: absolute;
-  top: 14px;
-  right: 18px;
-  background: white;
-  border: none;
-  border-radius: 50%;
-  width: 38px;
-  height: 38px;
-  font-size: 1.2rem;
-  cursor: pointer;
-}
-    .about-button{
-  text-align:center;
-  margin:40px 0;
-}
-  .search-section {
-  padding: 20px 8% 10px;
-  background: #f7f7f7;
-}
-
-.search-box {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 12px;
-}
-
-.search-box input {
-  flex: 1;
-  padding: 10px 12px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 0.95rem;
-}
-
-.search-box button {
-  background: #0A7A35;
-  color: white;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 0.9rem;
-}
-
-.search-results {
-  display: none;
-  margin-top: 10px;
-}
-
-.search-results.active {
-  display: block;
-}
-
-.search-results-grid {
-  display: flex;
-  gap: 10px;
-  overflow-x: auto;
-  padding-bottom: 8px;
-}
-
-.search-card {
-  min-width: 160px;
-  max-width: 170px;
-  background: white;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-  flex: 0 0 auto;
-}
-
-.search-card-image {
-  width: 100%;
-  height: 110px;
-  background-size: cover;
-  background-position: center;
-  background-color: #f3f3f3;
-}
-
-.search-card-content {
-  padding: 8px;
-}
-
-.search-card-content h4 {
-  font-size: 0.85rem;
-  margin-bottom: 4px;
-  color: #111;
-  line-height: 1.2;
-}
-
-.search-card-content p {
-  font-size: 0.75rem;
-  color: #555;
-  margin-bottom: 0;
-  line-height: 1.3;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-.luxury-banner{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  padding:12px 8%;
-  background: linear-gradient(135deg, #111, #1a1a1a, #2b2b2b);
-  border-top: 1px solid rgba(212,175,55,0.35);
-  border-bottom: 1px solid rgba(212,175,55,0.35);
-  box-shadow: 0 4px 14px rgba(0,0,0,0.15);
-}
-
-.luxury-shop-btn{
-  background: transparent;
-  color: #d4af37;
-  text-decoration: none;
-  border: 1px solid #d4af37;
-  padding: 7px 14px;
-  border-radius: 999px;
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.4px;
-  font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif;
-  white-space: nowrap;
-  flex-shrink: 0;
-  transition: 0.3s ease;
-}
-
-.luxury-shop-btn:hover{
-  background: #d4af37;
-  color: #111;
-}
-
-.luxury-banner-text{
-  flex:1;
-  text-align:center;
-  color:#f5f1e8;
-  font-family: "Georgia", "Times New Roman", serif;
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 1.2px;
-  text-transform: uppercase;
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.luxury-banner-text.fade-out{
-  opacity:0;
-  transform: translateY(-8px);
-}
-
-.luxury-banner-text.fade-in{
-  opacity:1;
-  transform: translateY(0);
-}
-
-@media (max-width: 600px){
-  .luxury-banner{
-    padding:10px 5%;
-    gap:8px;
-  }
-
-  .luxury-shop-btn{
-    font-size:0.72rem;
-    padding:6px 10px;
-  }
-
-  .luxury-banner-text{
-    font-size:0.82rem;
-    letter-spacing:0.8px;
-  }
-  .badge {
-  position: absolute;
-  top: 10px;
-  left: -5px;
-  background: linear-gradient(45deg, #ff3d00, #ff9800);
-  color: white;
-  font-size: 0.7rem;
-  padding: 5px 12px;
-  font-weight: 700;
-  border-radius: 20px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  transform: rotate(-10deg);
-  letter-spacing: 1px;
-}
-
-/* optional glow animation */
-.badge.hot {
-  animation: pulse 1.5s infinite;
-}
-
-@keyframes pulse {
-  0% { box-shadow: 0 0 0px rgba(255, 87, 34, 0.7); }
-  50% { box-shadow: 0 0 12px rgba(255, 87, 34, 1); }
-  100% { box-shadow: 0 0 0px rgba(255, 87, 34, 0.7); }
-}
-  }
-    
+    /* Responsive */
+    @media (max-width: 800px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+      .menu-toggle {
+        display: block;
+      }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        right: 5%;
+        background: var(--cream);
+        padding: 1rem;
+        border: 1px solid var(--accent-light);
+        width: 200px;
+        gap: 1rem;
+        z-index: 200;
+      }
+      .nav-links.show {
+        display: flex;
+      }
+      .hero-text h1 {
+        font-size: 2rem;
+      }
+      .story-container {
+        flex-direction: column;
+      }
+      .story-quote {
+        border-left: none;
+        border-top: 2px solid var(--accent);
+        padding-top: 1rem;
+        padding-left: 0;
+      }
+    }
   </style>
 </head>
 <body>
-  <header>
+
+<header>
   <nav>
-  <div class="logo">Prime Kenya</div>
+    <div class="logo">PRIME KENYA<span>EARTH + FABRIC</span></div>
+    <button class="cart-toggle" onclick="toggleCart()">🛒 <span id="cartCount">0</span></button>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <div class="nav-links" id="mobileMenu">
+      <a href="#about" onclick="toggleMenu()">About</a>
+      <a href="#shop" onclick="toggleMenu()">Shop</a>
+      <a href="#printing" onclick="toggleMenu()">Printing</a>
+      <a href="#story" onclick="toggleMenu()">Story</a>
+      <a href="#contact" onclick="toggleMenu()">Contact</a>
+    </div>
+  </nav>
+</header>
 
-  <button class="cart-toggle" onclick="toggleCart()">🛒 <span id="cartCount">0</span></button>
-
-  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-
-  <div class="nav-links" id="mobileMenu">
-    <a href="#about" onclick="toggleMenu()">About</a>
-    <a href="#shop" onclick="toggleMenu()">Shop</a>
-    <a href="#printing" onclick="toggleMenu()">Printing</a>
-    <a href="#gallery" onclick="toggleMenu()">Gallery</a>
-    <a href="#order" onclick="toggleMenu()">How to Order</a>
-    <a href="#support" onclick="toggleMenu()">Support</a>
-    <a href="#contact" onclick="toggleMenu()">Contact</a>
+<section class="hero">
+  <div class="hero-image"></div>
+  <div class="hero-text">
+    <h1>Structures of belonging.<br>Kenyan minimalism.</h1>
+    <p>Prime Kenya — slow fashion rooted in Kisii. Earth-toned fabrics, custom printing, and silhouettes that move between rural and urban.</p>
+    <a href="#shop" class="btn">DISCOVER COLLECTION</a>
   </div>
-</nav>
-  </header>
-<div class="luxury-banner" id="luxuryBanner">
-  <a href="#shop" class="luxury-shop-btn">Shop Now</a>
-  <div class="luxury-banner-text" id="luxuryBannerText">
-    PRIME COLLECTION JUST DROPPED
-  </div>
-</div>
-  <section class="search-section">
+</section>
+
+<section class="search-section">
   <div class="search-box">
-    <input type="text" id="siteSearch" placeholder="Search clothes or services...">
+    <input type="text" id="siteSearch" placeholder="Search clothes...">
     <button onclick="runSearch()">Search</button>
   </div>
   <div id="searchResults" class="search-results"></div>
-  </section>
-  
 </section>
 
 <section id="shop">
-  <h3 class="category-title">Prime Collection</h3>
-
-  <div class="products">
-    <div class="product-card" id="cloth1" data-search="printed t shirts kenya custom t shirt branded t shirt casual wear">
-      <div class="badge hot">HOT</div>
-      <div class="product-image" style="background-image:url('image-32 (1).jpg');"></div>
-      <div class="product-info">
-        <h3>The return of the King T-shirt</h3>
-        <p class="product-desc">Stylish branded and custom printed Return of the king T-shirts for everyday wear, events and gifts.</p>
-        <div class="price">KSh 1,000</div>
-        <a class="btn btn-primary" href="https://wa.me/254769574469?text=Hello%20Prime%20Kenya,%20I%20want%20to%20order%20a%20custom%20printed%20T-shirt." target="_blank">Order This</a>
-        <div class="action-row">
-          <button class="action-btn like-btn">♡ Favorite</button>
-          <button class="action-btn share-btn">Share</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="product-card" id="cloth2" data-search="printed t shirts kenya custom t shirt branded t shirt casual wear">
-      <div class="product-image" style="background-image:url('file_00000000aebc71fdaedc5c4f02c41f9c.png');"></div>
-      <div class="product-info">
-        <h3>Custom Printed T-Shirts Kenya</h3>
-        <p class="product-desc">Stylish branded and custom printed T-shirts for everyday wear, events, gifts and business promotion.</p>
-        <div class="price">KSh 1,000</div>
-        <a class="btn btn-primary" href="https://wa.me/254769574469?text=Hello%20Prime%20Kenya,%20I%20want%20to%20order%20a%20custom%20printed%20T-shirt." target="_blank">Order This</a>
-        <div class="action-row">
-          <button class="action-btn like-btn">♡ Favorite</button>
-          <button class="action-btn share-btn">Share</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="product-card" id="cloth3" data-search="kids printed t shirts kenya children t shirts custom kids clothes">
-      <div class="product-image" style="background-image:url('file_00000000553c71fdb0a4c8874152372a.png');"></div>
-      <div class="product-info">
-        <h3>Kids Printed T-Shirts Kenya</h3>
-        <p class="product-desc">Affordable and attractive printed T-shirts for kids with quality finishing and custom options available.</p>
-        <div class="price">KSh 650</div>
-        <a class="btn btn-primary" href="https://wa.me/254769574469?text=Hello%20Prime%20Kenya,%20I%20want%20to%20order%20a%20kids%20printed%20T-shirt." target="_blank">Order This</a>
-        <div class="action-row">
-          <button class="action-btn like-btn">♡ Favorite</button>
-          <button class="action-btn share-btn">Share</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="product-card" id="cloth4" data-search="couple t shirts kenya matching couple shirts mr and mrs shirts">
-      <div class="product-image" style="background-image:url('file_00000000690871f8b037d35ff0db9e5c (1).png');"></div>
-      <div class="product-info">
-        <h3>Matching Couple T-Shirts</h3>
-        <p class="product-desc">Matching couple shirts perfect for gifts, outings, birthdays and coordinated fashion.</p>
-        <div class="price">KSh 1,800</div>
-        <a class="btn btn-primary" href="https://wa.me/254769574469?text=Hello%20Prime%20Kenya,%20I%20want%20to%20order%20the%20matching%20couple%20T-shirts." target="_blank">Order Now</a>
-        <div class="action-row">
-          <button class="action-btn like-btn">♡ Favorite</button>
-          <button class="action-btn share-btn">Share</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="product-card" id="cloth5" data-search="custom printed items kenya caps mugs cups t shirts branding">
-      <div class="product-image" style="background-image:url('Screenshot_20260310_235238.jpg');"></div>
-      <div class="product-info">
-        <h3>Custom Printed Items Kenya</h3>
-        <p class="product-desc">T-shirts, caps, cups, mugs and more. Send your preferred branding or design and we produce it for you.</p>
-        <div class="price">Price on Request</div>
-        <a class="btn btn-primary" href="https://wa.me/254769574469?text=Hello%20Prime%20Kenya,%20I%20want%20a%20custom%20printed%20item." target="_blank">Request Custom Item</a>
-        <div class="action-row">
-          <button class="action-btn like-btn">♡ Favorite</button>
-          <button class="action-btn share-btn">Share</button>
-        </div>
-      </div>
-    </div>
-
-  </div>
+  <div class="section-title">— PRIME COLLECTION —</div>
+  <div class="products" id="productList"></div>
 </section>
 
-
-<section>
-  <h3 class="category-title">Custom Tracksuits & Football Jerseys Kenya</h3>
-
-  <div class="products">
-
-    <div class="product-card" id="cloth6" data-search="custom tracksuit kenya sports tracksuit hoodie tracksuit gym tracksuit">
-      <div class="product-image" style="background-image:url('file_000000000700722fb929c122230ae9e5.png');"></div>
-      <div class="product-info">
-        <h3>Custom Sports Tracksuit Kenya</h3>
-        <p class="product-desc">Premium blue sports tracksuit with logo branding space, ideal for teams, schools, gyms and fashion wear.</p>
-        <div class="price">KSh 5,500</div>
-        <a class="btn btn-primary" href="https://wa.me/254769574469?text=Hello%20Prime%20Kenya,%20I%20want%20to%20order%20the%20custom%20sports%20tracksuit." target="_blank">Order</a>
-        <div class="action-row">
-          <button class="action-btn like-btn">♡ Favorite</button>
-          <button class="action-btn share-btn">Share</button>
-        </div>
-      </div>
+<section class="story" id="story">
+  <div class="story-container">
+    <div class="story-text">
+      <h2>Fabric as memory.<br>Print as identity.</h2>
+      <p>Prime Kenya by Vickyoung was born in Kisii — a response to fast fashion and a celebration of intentional dressing. Every piece is custom-printed, small-batch, and made to last.</p>
+      <p>We work with local printers and source quality materials. From couple sets to custom jerseys, each garment carries a story.</p>
+      <a href="https://wa.me/254769574469" class="btn">Order via WhatsApp →</a>
     </div>
-
-    <div class="product-card" id="cloth7" data-search="manchester united jersey kenya football jersey custom jersey soccer jersey">
-      <div class="product-image" style="background-image:url('file_00000000765071fda52e16c03cb4818f.png');"></div>
-      <div class="product-info">
-        <h3>Manchester United Custom Jersey</h3>
-        <p class="product-desc">Custom Manchester United style football jersey with name printing, ideal for fans, gifts and team wear.</p>
-        <div class="price">KSh 2,500</div>
-        <a class="btn btn-primary" href="https://wa.me/254769574469?text=Hello%20Prime%20Kenya,%20I%20want%20to%20order%20the%20Manchester%20United%20custom%20jersey." target="_blank">Order</a>
-        <div class="action-row">
-          <button class="action-btn like-btn">♡ Favorite</button>
-          <button class="action-btn share-btn">Share</button>
-        </div>
-      </div>
+    <div class="story-quote">
+      "Wear what honors your earth." <br>— Vickyoung
     </div>
-
-    <div class="product-card" id="cloth8" data-search="kids tracksuit kenya children tracksuit custom kids tracksuit">
-      <div class="product-image" style="background-image:url('file_000000004f78722f8a4b4d634801a032.png');"></div>
-      <div class="product-info">
-        <h3>Kids Custom Tracksuit Set</h3>
-        <p class="product-desc">Comfortable kids tracksuit set suitable for school wear, outings and custom logo printing.</p>
-        <div class="price">KSh 4,500</div>
-        <a class="btn btn-primary" href="https://wa.me/254769574469?text=Hello%20Prime%20Kenya,%20I%20want%20to%20order%20the%20kids%20custom%20tracksuit." target="_blank">Order</a>
-        <div class="action-row">
-          <button class="action-btn like-btn">♡ Favorite</button>
-          <button class="action-btn share-btn">Share</button>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
-
-
-<section>
-  <h3 class="category-title">Custom Printed Mugs & Branded Umbrellas Kenya</h3>
-
-  <div class="products">
-
-    <div class="product-card" id="cloth9" data-search="custom mug kenya logo mug printing personalised mug corporate mug">
-      <div class="product-image" style="background-image:url('file_00000000661871fd85bf80ac9f0c55dc (1).png');"></div>
-      <div class="product-info">
-        <h3>Custom Logo Mug Printing</h3>
-        <p class="product-desc">Single custom branded mug for logos, gifts, business promotion and office use.</p>
-        <div class="price">KSh 680</div>
-        <a class="btn btn-primary" href="https://wa.me/254769574469?text=Hello%20Prime%20Kenya,%20I%20want%20to%20order%20a%20custom%20logo%20mug." target="_blank">Order</a>
-        <div class="action-row">
-          <button class="action-btn like-btn">♡ Favorite</button>
-          <button class="action-btn share-btn">Share</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="product-card" id="cloth10" data-search="photo mug kenya personalised photo mug gift mug custom picture mug">
-      <div class="product-image" style="background-image:url('file_000000000def871fd96394205785c79ef (1).png');"></div>
-      <div class="product-info">
-        <h3>Custom Photo Mug Kenya</h3>
-        <p class="product-desc">Printed mug for photos, brand images and gift printing, available in multiple mug color options.</p>
-        <div class="price">KSh 800</div>
-        <a class="btn btn-primary" href="https://wa.me/254769574469?text=Hello%20Prime%20Kenya,%20I%20want%20to%20order%20a%20custom%20photo%20mug." target="_blank">Order</a>
-        <div class="action-row">
-          <button class="action-btn like-btn">♡ Favorite</button>
-          <button class="action-btn share-btn">Share</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="product-card" id="cloth11" data-search="custom umbrella kenya branded umbrella logo umbrella corporate umbrella">
-      <div class="product-image" style="background-image:url('file_0000000009e871fd8e77f130f2ae8bc3 (1) (1).png');"></div>
-      <div class="product-info">
-        <h3>Custom Branded Umbrella Kenya</h3>
-        <p class="product-desc">Branded umbrella for businesses, events, schools and outdoor promotions with logo printing space.</p>
-        <div class="price">KSh 900</div>
-        <a class="btn btn-primary" href="https://wa.me/254769574469?text=Hello%20Prime%20Kenya,%20I%20want%20to%20order%20the%20custom%20branded%20umbrella." target="_blank">Order</a>
-        <div class="action-row">
-          <button class="action-btn like-btn">♡ Favorite</button>
-          <button class="action-btn share-btn">Share</button>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-<section>
-  <h3 class="category-title">Gusii Urban Trend</h3>
-
-  <div class="products">
-
-    <div class="product-card" id="cloth12" data-search="return of the king t shirt kenya branded t shirt urban wear">
-      <div class="product-image" style="background-image:url('file_0000000022a071f596ef598b059afaa7.png');"></div>
-      <div class="product-info">
-        <h3>Return of the King T-Shirt</h3>
-        <p class="product-desc">Stylish branded urban T-shirt for everyday wear, gifts, events and statement fashion.</p>
-        <div class="price">KSh 1,000</div>
-        <a class="btn btn-primary" href="https://wa.me/254769574469?text=Hello%20Prime%20Kenya,%20I%20want%20to%20order%20the%20Return%20of%20the%20King%20T-shirt." target="_blank">Order This</a>
-        <div class="action-row">
-          <button class="action-btn like-btn">♡ Favorite</button>
-          <button class="action-btn share-btn">Share</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="product-card" id="cloth13" data-search="kids printed t shirts kenya children t shirts custom kids clothes">
-      <div class="product-image" style="background-image:url('file_00000000553c71fdb0a4c8874152372a.png');"></div>
-      <div class="product-info">
-        <h3>Kids Printed T-Shirts Kenya</h3>
-        <p class="product-desc">Affordable and attractive printed T-shirts for kids with quality finishing and custom options available.</p>
-        <div class="price">KSh 650</div>
-        <a class="btn btn-primary" href="https://wa.me/254769574469?text=Hello%20Prime%20Kenya,%20I%20want%20to%20order%20a%20kids%20printed%20T-shirt." target="_blank">Order This</a>
-        <div class="action-row">
-          <button class="action-btn like-btn">♡ Favorite</button>
-          <button class="action-btn share-btn">Share</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="product-card" id="cloth14" data-search="couple t shirts kenya matching couple shirts mr and mrs shirts">
-      <div class="product-image" style="background-image:url('file_00000000690871f8b037d35ff0db9e5c (1).png');"></div>
-      <div class="product-info">
-        <h3>Matching Couple T-Shirts</h3>
-        <p class="product-desc">Matching couple shirts perfect for partners, gifts and coordinated fashion.</p>
-        <div class="price">KSh 1,800</div>
-        <a class="btn btn-primary" href="https://wa.me/254769574469?text=Hello%20Prime%20Kenya,%20I%20want%20to%20order%20the%20matching%20couple%20T-shirts." target="_blank">Order Now</a>
-        <div class="action-row">
-          <button class="action-btn like-btn">♡ Favorite</button>
-          <button class="action-btn share-btn">Share</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="product-card" id="cloth15" data-search="custom printed items kenya caps mugs cups t shirts branding">
-      <div class="product-image" style="background-image:url('Screenshot_20260310_235238.jpg');"></div>
-      <div class="product-info">
-        <h3>Custom Printed Items Kenya</h3>
-        <p class="product-desc">T-shirts, caps, cups, mugs and more. Send your preferred branding or design and we produce it for you.</p>
-        <div class="price">Price on Request</div>
-        <a class="btn btn-primary" href="https://wa.me/254769574469?text=Hello%20Prime%20Kenya,%20I%20want%20a%20custom%20printed%20item." target="_blank">Request Custom Item</a>
-        <div class="action-row">
-          <button class="action-btn like-btn">♡ Favorite</button>
-          <button class="action-btn share-btn">Share</button>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-<section>
-  <h3 class="category-title">Kenya Touch</h3>
-
-  <div class="products">
-
-    <div class="product-card" id="cloth16">
-      <div class="product-image" style="background-image:url('89212159c65030c116a828531890b684.jpg');"></div>
-      <div class="product-info">
-        <div class="price">KSh 1000</div>
-        <a class="btn btn-primary" href="https://wa.me/254769574469">Order</a>
-        <div class="action-row">
-          <button class="action-btn like-btn">♡ Favorite</button>
-          <button class="action-btn share-btn">Share</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="product-card" id="cloth17">
-      <div class="product-image" style="background-image:url('17400e11f67ed02327e64f7c45e0f7f1.jpg');"></div>
-      <div class="product-info">
-        <div class="price">KSh 1000</div>
-        <a class="btn btn-primary" href="https://wa.me/254769574469">Order</a>
-        <div class="action-row">
-          <button class="action-btn like-btn">♡ Favorite</button>
-          <button class="action-btn share-btn">Share</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="product-card" id="cloth18">
-      <div class="product-image" style="background-image:url('15d0cc250871a0c23878f9c62750786c.jpg');"></div>
-      <div class="product-info">
-        <div class="price">KSh 1000</div>
-        <a class="btn btn-primary" href="https://wa.me/254769574469">Order</a>
-        <div class="action-row">
-          <button class="action-btn like-btn">♡ Favorite</button>
-          <button class="action-btn share-btn">Share</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="product-card" id="cloth19">
-      <div class="product-image" style="background-image:url('0f2a7481bf63e9d5f3911c71a74d360b.jpg');"></div>
-      <div class="product-info">
-        <div class="price">KSh 1000</div>
-        <a class="btn btn-primary" href="https://wa.me/254769574469">Order</a>
-        <div class="action-row">
-          <button class="action-btn like-btn">♡ Favorite</button>
-          <button class="action-btn share-btn">Share</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="product-card" id="cloth20">
-      <div class="product-image" style="background-image:url('022d99b9785b10c18425a312b0f4b5ba.jpg');"></div>
-      <div class="product-info">
-        <div class="price">KSh 1000</div>
-        <a class="btn btn-primary" href="https://wa.me/254769574469">Order</a>
-        <div class="action-row">
-          <button class="action-btn like-btn">♡ Favorite</button>
-          <button class="action-btn share-btn">Share</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="product-card" id="cloth21">
-      <div class="product-image" style="background-image:url('87dc486cef7da490beebfa3b8ec1d509.jpg');"></div>
-      <div class="product-info">
-        <div class="price">KSh 1000</div>
-        <a class="btn btn-primary" href="https://wa.me/254769574469">Order</a>
-        <div class="action-row">
-          <button class="action-btn like-btn">♡ Favorite</button>
-          <button class="action-btn share-btn">Share</button>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<div class="about-button">
-  <a class="btn btn-secondary" href="#about">Know About Prime</a>
-          </div>
- 
-
-  <section id="printing">
-    <div class="highlight">
-      <h2>All-Type Printing & Branding</h2>
-      <p>
-        We handle all kinds of custom branding and printing including clothes, caps, cups, mugs,
-        promotional items, event wear, business branding, and personalized products.
-      </p>
-      <br />
-      <a class="btn btn-primary" href="https://wa.me/254769574469?text=Hello%20Prime%20Kenya,%20I%20want%20printing%20and%20branding%20services." target="_blank">Talk to Us on WhatsApp</a>
-    </div>
-  </section>
-
-  <section>
-    <h2 class="section-title">Send Us Your Design</h2>
-    <p class="section-text">
-      Already have a logo, artwork, slogan, or sample design? Send it to us on WhatsApp and we will guide you on printing, pricing, and delivery.
-    </p>
-
-    <div class="services">
-      <div class="card">
-        <h3>Upload Through WhatsApp</h3>
-        <p>Send your image, logo, sketch, or design sample directly to our WhatsApp for faster assistance.</p>
-      </div>
-      <div class="card">
-        <h3>Describe Your Idea</h3>
-        <p>If you do not have a finished design, simply explain the concept you want and we will help you bring it to life.</p>
-      </div>
-      <div class="card">
-        <h3>Get a Quick Response</h3>
-        <p>We help you confirm item type, branding style, quantity, payment, and delivery details in a fast and simple way.</p>
-      </div>
-    </div>
-
-    <div style="text-align:center; margin-top:30px;">
-      <a class="btn btn-primary" href="https://wa.me/254769574469?text=Hello%20Prime%20Kenya,%20I%20want%20to%20send%20my%20design%20for%20printing." target="_blank">Send Design on WhatsApp</a>
-    </div>
-  </section>
-
-  <section id="gallery">
-    <h2 class="section-title">Gallery</h2>
-    <p class="section-text">
-      This section will display samples of your clothes, custom prints, and branded items.
-      Send your product photos later and we will place them here professionally.
-    </p>
-
-    <div class="gallery">
-  <img src="1772985693351.jpg" style="width:100%;border-radius:10px;">
-  <img src="1772985699763.jpg" style="width:100%;border-radius:10px;">
-  <img src="1772985707589.jpg" style="width:100%;border-radius:10px;">
-      <img src="IMG-20260204-WA0003.jpg" style="width:100%;max-width:300px;border-radius:10px;margin:10px;">
-<img src="50144dd47ddd45fbbdd0d2f223cd6b13.jpg" style="width:100%;max-width:300px;border-radius:10px;margin:10px;">
-<img src="6cbe72faaeeb4b228639ef47ad9270f8.jpg" style="width:100%;max-width:300px;border-radius:10px;margin:10px;">
-<img src="IMG-20260128-WA0022.jpg" style="width:100%;max-width:300px;border-radius:10px;margin:10px;">
-<img src="IMG-20260128-WA0026.jpg" style="width:100%;max-width:300px;border-radius:10px;margin:10px;">
-<img src="IMG-20260204-WA0004.jpg" style="width:100%;max-width:300px;border-radius:10px;margin:10px;">
-<img src="IMG-20260204-WA0005.jpg" style="width:100%;max-width:300px;border-radius:10px;margin:10px;">
-</div>
-  </section>
-
-  <section id="order">
-    <h2 class="section-title">How to Order</h2>
-    <p class="section-text">
-      We keep everything simple, fast, and easy.
-    </p>
-
-    <div class="steps">
-      <div class="card">
-        <h3>1. Choose Product or Service</h3>
-        <p>Select a ready-made item or tell us the custom printing or branding service you want.</p>
-      </div>
-      <div class="card">
-        <h3>2. Contact on WhatsApp</h3>
-        <p>Send your order details, quantity, size, preferred design, or upload your own artwork through WhatsApp.</p>
-      </div>
-      <div class="card">
-        <h3>3. Pay via M-Pesa</h3>
-        <p>After confirming your order, make payment through M-Pesa using our provided number.</p>
-      </div>
-      <div class="card">
-        <h3>4. Receive Delivery</h3>
-        <p>We process your order and arrange delivery to your location as quickly as possible.</p>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <h2 class="section-title">Payment & Delivery</h2>
-    <div class="payment-box">
-      <p><strong>M-Pesa Number:</strong> 0724325936</p>
-      <p><strong>Payment Method:</strong> M-Pesa after order confirmation</p>
-      <p><strong>Delivery:</strong> Available upon arrangement after payment confirmation</p>
-      <p><strong>Process:</strong> Confirm order → Pay → We prepare → We deliver</p>
-    </div>
-  </section>
-
-  <section id="support">
-    <h2 class="section-title">Support System</h2>
-    <p class="section-text">
-      We support you before, during, and after ordering.
-    </p>
-
-    <div class="support-grid">
-      <div class="card">
-        <h3>Ordering Help</h3>
-        <p>Need help choosing a product, size, design, or quantity? We guide you quickly.</p>
-      </div>
-      <div class="card">
-        <h3>Custom Design Assistance</h3>
-        <p>Not sure how your idea should look? Tell us your concept and we help shape the final product.</p>
-      </div>
-      <div class="card">
-        <h3>Delivery Updates</h3>
-        <p>We communicate with you clearly about your order progress and delivery arrangements.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact">
-    <h2 class="section-title">Contact Prime Kenya</h2>
-    <p class="section-text">
-      Ready to order, print, brand, or customize your item? Reach us directly.
-    </p>
-
-    <div class="features">
-      <div class="card">
-        <h3>WhatsApp</h3>
-        <p>0724325936</p>
-        <a class="btn btn-primary" href="https://wa.me/254724325936" target="_blank">Chat on WhatsApp</a>
-      </div>
-      <div class="card">
-        <h3>M-Pesa</h3>
-        <p>0724325936</p>
-        <p>Use this number after confirming your order details.</p>
-      </div>
-      <div class="card">
-        <h3>Prime Kenya</h3>
-        <p>Clothing, custom printing, branding, and personalized products made simple.</p>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-  <h3>Prime Kenya</h3>
-  <p>Clothes • Branding • Custom Printing • Delivery</p>
-  <p>WhatsApp / M-Pesa: 0724325936</p>
-  <p class="small">© 2026 Prime Kenya. All rights reserved.</p>
-</footer>
-
-<script>
-document.querySelectorAll('.like-btn').forEach(function(btn) {
-  btn.addEventListener('click', function() {
-    this.classList.toggle('liked');
-    this.textContent = this.classList.contains('liked') ? '♥ Favorite' : '♡ Favorite';
-  });
-});
-
-document.querySelectorAll('.share-btn').forEach(function(btn) {
-  btn.addEventListener('click', function() {
-    const card = this.closest('.product-card');
-    const id = card.id;
-    const titleEl = card.querySelector('h3');
-    const title = titleEl ? titleEl.innerText : 'Prime Kenya product';
-    const url = window.location.origin + window.location.pathname + '#' + id;
-
-    if (navigator.share) {
-      navigator.share({
-        title: title,
-        text: 'Check out this product on Prime Kenya',
-        url: url
-      });
-    } else {
-      navigator.clipboard.writeText(url);
-      alert('Product link copied');
-    }
-  });
-});
-  </script>
- 
-  <script>
-window.addEventListener('load', function() {
-  if (window.location.hash) {
-    const target = document.querySelector(window.location.hash);
-    if (target) {
-      target.scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-        inline: "center"
-      });
-
-      target.style.boxShadow = "0 0 0 3px gold";
-
-      setTimeout(function() {
-        target.style.boxShadow = "";
-      }, 2000);
-    }
-  }
-});
-  </script>
-  
-  <script>
-function toggleMenu() {
-  document.getElementById('mobileMenu').classList.toggle('show');
-}
-  </script>
-  <div class="preview-modal" id="previewModal">
-  <button class="close-preview" onclick="closePreview()">×</button>
-  <div class="preview-box">
-    <div class="preview-image" id="previewImage"></div>
-    <div class="preview-content">
-      <h3 id="previewTitle"></h3>
-      <p id="previewDesc"></p>
-      <div class="preview-price" id="previewPrice"></div>
-      <a class="btn btn-primary" id="previewOrderBtn" href="#" target="_blank">Order This</a>
-    </div>
-  </div>
-  </div>
-  <script>
-document.querySelectorAll('.product-image').forEach(function(img) {
-  img.addEventListener('click', function() {
-    const card = this.closest('.product-card');
-    const title = card.querySelector('h3') ? card.querySelector('h3').innerText : 'Prime Kenya Product';
-    const desc = card.querySelector('.product-desc') ? card.querySelector('.product-desc').innerText : '';
-    const price = card.querySelector('.price') ? card.querySelector('.price').innerText : '';
-    const orderBtn = card.querySelector('.btn.btn-primary');
-    const bg = this.style.backgroundImage;
-
-    document.getElementById('previewTitle').innerText = title;
-    document.getElementById('previewDesc').innerText = desc;
-    document.getElementById('previewPrice').innerText = price;
-    document.getElementById('previewImage').style.backgroundImage = bg;
-    document.getElementById('previewOrderBtn').href = orderBtn ? orderBtn.href : '#';
-
-    document.getElementById('previewModal').style.display = 'block';
-  });
-});
-
-function closePreview() {
-  document.getElementById('previewModal').style.display = 'none';
-}
-
-window.addEventListener('click', function(e) {
-  const modal = document.getElementById('previewModal');
-  if (e.target === modal) {
-    closePreview();
-  }
-});
-  </script>  
-  
-  <script>
-<section id="about">
-  <h2 class="section-title">About Prime Kenya</h2>
-
-  <p class="section-text">
-  Prime Kenya by Vickyoung is a clothing and branding brand offering
-  printed T-shirts, couple sets, and custom clothes printing services.
-  If you are looking for where to print T-shirts in Kisii, Nyamira,
-  Ekerenyo or surrounding areas, Prime Kenya provides quality printing,
-  branding and stylish fashion apparel.
-  </p>
-  </section>
-  <script>
-<footer>
-  <h3>Prime Kenya</h3>
-  <p>Clothes • Branding • Custom Printing • Delivery</p>
-  <p>WhatsApp / M-Pesa: 0724325936</p>
-  <p class="small">© 2026 Prime Kenya. All rights reserved.</p>
-</footer>
-<script>
-document.querySelectorAll('.like-btn').forEach(function(btn) {
-  btn.addEventListener('click', function() {
-    this.classList.toggle('liked');
-    this.textContent = this.classList.contains('liked') ? '♥ Favorite' : '♡ Favorite';
-  });
-});
-
-document.querySelectorAll('.share-btn').forEach(function(btn) {
-  btn.addEventListener('click', function() {
-    const card = this.closest('.product-card');
-    const id = card.id;
-    const titleEl = card.querySelector('h3');
-    const title = titleEl ? titleEl.innerText : 'Prime Kenya product';
-    const url = window.location.origin + window.location.pathname + '#' + id;
-
-    if (navigator.share) {
-      navigator.share({
-        title: title,
-        text: 'Check out this product on Prime Kenya',
-        url: url
-      });
-    } else {
-      navigator.clipboard.writeText(url);
-      alert('Product link copied');
-    }
-  });
-});
-</script>
-
-<script>
-window.addEventListener('load', function() {
-  if (window.location.hash) {
-    const target = document.querySelector(window.location.hash);
-    if (target) {
-      target.scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-        inline: "center"
-      });
-
-      target.style.boxShadow = "0 0 0 3px gold";
-
-      setTimeout(function() {
-        target.style.boxShadow = "";
-      }, 2000);
-    }
-  }
-});
-</script>
-
-<script>
-function toggleMenu() {
-  document.getElementById('mobileMenu').classList.toggle('show');
-}
-</script>
-
-<script>
-document.querySelectorAll('.product-image').forEach(function(img) {
-  img.addEventListener('click', function() {
-    const card = this.closest('.product-card');
-    const title = card.querySelector('h3') ? card.querySelector('h3').innerText : 'Prime Kenya Product';
-    const desc = card.querySelector('.product-desc') ? card.querySelector('.product-desc').innerText : '';
-    const price = card.querySelector('.price') ? card.querySelector('.price').innerText : '';
-    const orderBtn = card.querySelector('.btn.btn-primary');
-    const bg = this.style.backgroundImage;
-
-    document.getElementById('previewTitle').innerText = title;
-    document.getElementById('previewDesc').innerText = desc;
-    document.getElementById('previewPrice').innerText = price;
-    document.getElementById('previewImage').style.backgroundImage = bg;
-    document.getElementById('previewOrderBtn').href = orderBtn ? orderBtn.href : '#';
-
-    document.getElementById('previewModal').style.display = 'block';
-  });
-});
-
-function closePreview() {
-  document.getElementById('previewModal').style.display = 'none';
-}
-
-window.addEventListener('click', function(e) {
-  const modal = document.getElementById('previewModal');
-  if (e.target === modal) {
-    closePreview();
-  }
-});
-</script>
-
-<script>
-document.querySelectorAll('.like-btn').forEach(function(btn) {
-  btn.addEventListener('click', function() {
-    this.classList.toggle('liked');
-    this.textContent = this.classList.contains('liked') ? '♥ Favorite' : '♡ Favorite';
-  });
-});
-</script>
-
-<script>
-document.querySelectorAll('.share-btn').forEach(function(btn) {
-  btn.addEventListener('click', function() {
-    const card = this.closest('.product-card');
-    if (!card) return;
-
-    const id = card.id;
-    const titleEl = card.querySelector('h3');
-    const title = titleEl ? titleEl.innerText : 'Prime Kenya product';
-    const url = window.location.origin + window.location.pathname + '#' + id;
-
-    if (navigator.share) {
-      navigator.share({
-        title: title,
-        text: 'Check out this product on Prime Kenya',
-        url: url
-      });
-    } else {
-      navigator.clipboard.writeText(url);
-      alert('Product link copied');
-    }
-  });
-});
-</script>
-
-<script>
-window.addEventListener('load', function() {
-  if (window.location.hash) {
-    const target = document.querySelector(window.location.hash);
-    if (target) {
-      target.scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-        inline: "center"
-      });
-
-      target.style.boxShadow = "0 0 0 3px gold";
-
-      setTimeout(function() {
-        target.style.boxShadow = "";
-      }, 2000);
-    }
-  }
-});
-</script>
-
-<script>
-function toggleMenu() {
-  document.getElementById('mobileMenu').classList.toggle('show');
-}
-</script>
-
-<script>
-document.querySelectorAll('.product-image').forEach(function(img) {
-  img.addEventListener('click', function() {
-    const card = this.closest('.product-card');
-    const title = card.querySelector('h3') ? card.querySelector('h3').innerText : 'Prime Kenya Product';
-    const desc = card.querySelector('.product-desc') ? card.querySelector('.product-desc').innerText : '';
-    const price = card.querySelector('.price') ? card.querySelector('.price').innerText : '';
-    const orderBtn = card.querySelector('.btn.btn-primary');
-    const bg = this.style.backgroundImage;
-
-    document.getElementById('previewTitle').innerText = title;
-    document.getElementById('previewDesc').innerText = desc;
-    document.getElementById('previewPrice').innerText = price;
-    document.getElementById('previewImage').style.backgroundImage = bg;
-    document.getElementById('previewOrderBtn').href = orderBtn ? orderBtn.href : '#';
-
-    document.getElementById('previewModal').style.display = 'block';
-  });
-});
-
-function closePreview() {
-  document.getElementById('previewModal').style.display = 'none';
-}
-
-window.addEventListener('click', function(e) {
-  const modal = document.getElementById('previewModal');
-  if (e.target === modal) {
-    closePreview();
-  }
-});
-</script>
 
 <footer>
-  <h3>Prime Kenya</h3>
-  <p>Clothes • Branding • Custom Printing • Delivery</p>
-  <p>WhatsApp / M-Pesa: 0724325936</p>
-  <p class="small">© 2026 Prime Kenya. All rights reserved.</p>
+  <p>© PRIME KENYA — Slow Fashion, Kisii & Nyamira</p>
+  <p>Custom printing | Couple sets | Tracksuits | Jerseys</p>
+  <p style="margin-top: 0.8rem;">📍 Ekerenyo, Tazama Cyber | 📞 0745 678 910</p>
 </footer>
 
-<script>
-document.querySelectorAll('.like-btn').forEach(function(btn) {
-  btn.addEventListener('click', function() {
-    this.classList.toggle('liked');
-    this.textContent = this.classList.contains('liked') ? '♥ Favorite' : '♡ Favorite';
-  });
-});
-</script>
-
-<script>
-document.querySelectorAll('.share-btn').forEach(function(btn) {
-  btn.addEventListener('click', function() {
-    const card = this.closest('.product-card');
-    if (!card) return;
-
-    const id = card.id;
-    const titleEl = card.querySelector('h3');
-    const title = titleEl ? titleEl.innerText : 'Prime Kenya product';
-    const url = window.location.origin + window.location.pathname + '#' + id;
-
-    if (navigator.share) {
-      navigator.share({
-        title: title,
-        text: 'Check out this product on Prime Kenya',
-        url: url
-      });
-    } else {
-      navigator.clipboard.writeText(url);
-      alert('Product link copied');
-    }
-  });
-});
-</script>
-
-<script>
-window.addEventListener('load', function() {
-  if (window.location.hash) {
-    const target = document.querySelector(window.location.hash);
-    if (target) {
-      target.scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-        inline: "center"
-      });
-
-      target.style.boxShadow = "0 0 0 3px gold";
-      setTimeout(function() {
-        target.style.boxShadow = "";
-      }, 2000);
-    }
-  }
-});
-</script>
-
-<script>
-function toggleMenu() {
-  document.getElementById('mobileMenu').classList.toggle('show');
-}
-</script>
-
-<script>
-document.querySelectorAll('.product-image').forEach(function(img) {
-  img.addEventListener('click', function() {
-    const card = this.closest('.product-card');
-    const title = card.querySelector('h3') ? card.querySelector('h3').innerText : 'Prime Kenya Product';
-    const desc = card.querySelector('.product-desc') ? card.querySelector('.product-desc').innerText : '';
-    const price = card.querySelector('.price') ? card.querySelector('.price').innerText : '';
-    const orderBtn = card.querySelector('.btn.btn-primary');
-    const bg = this.style.backgroundImage;
-
-    document.getElementById('previewTitle').innerText = title;
-    document.getElementById('previewDesc').innerText = desc;
-    document.getElementById('previewPrice').innerText = price;
-    document.getElementById('previewImage').style.backgroundImage = bg;
-    document.getElementById('previewOrderBtn').href = orderBtn ? orderBtn.href : '#';
-
-    document.getElementById('previewModal').style.display = 'block';
-  });
-});
-
-function closePreview() {
-  document.getElementById('previewModal').style.display = 'none';
-}
-
-window.addEventListener('click', function(e) {
-  const modal = document.getElementById('previewModal');
-  if (e.target === modal) {
-    closePreview();
-  }
-});
-</script>
-
-  <script>
-function runSearch() {
-  const input = document.getElementById("siteSearch");
-  const resultsBox = document.getElementById("searchResults");
-  const query = input.value.trim().toLowerCase();
-
-  if (!query) {
-    resultsBox.classList.remove("active");
-    resultsBox.innerHTML = "";
-    return;
-  }
-
-  const productCards = Array.from(document.querySelectorAll(".product-card"));
-  const serviceCards = Array.from(document.querySelectorAll(".service-card"));
-  const allCards = [...productCards, ...serviceCards];
-
-  const matches = allCards.filter(card => {
-    const dataSearch = (card.getAttribute("data-search") || "").toLowerCase();
-    const titleEl = card.querySelector("h3, h4");
-    const titleText = titleEl ? titleEl.innerText.toLowerCase() : "";
-    return dataSearch.includes(query) || titleText.includes(query);
-  });
-
-  if (matches.length === 0) {
-    resultsBox.classList.add("active");
-    resultsBox.innerHTML = `<div class="search-empty">No results found for "${query}".</div>`;
-    return;
-  }
-
-  let html = `<div class="search-results-grid">`;
-
-  matches.forEach(card => {
-    const titleEl = card.querySelector("h3, h4");
-    const title = titleEl ? titleEl.innerText : "Prime Kenya item";
-
-    let desc = "";
-    const descEl = card.querySelector(".product-desc, p");
-    if (descEl) desc = descEl.innerText;
-
-    let image = "";
-    const productImage = card.querySelector(".product-image");
-    if (productImage) {
-      image = productImage.style.backgroundImage.replace(/^url\(["']?/, '').replace(/["']?\)$/, '');
-    }
-
-    if (!image) {
-      html += `
-  <div class="search-card">
-    <div class="search-card-image" style="background-image:url('${image}')"></div>
-    <div class="search-card-content">
-      <h4>${title}</h4>
-    </div>
-  </div>
-`;
-    } else {
-      html += `
-        <div class="search-card">
-          <div class="search-card-image" style="background-image:url('${image}')"></div>
-          <div class="search-card-content">
-            <h4>${title}</h4>
-            <p>${desc}</p>
-          </div>
-        </div>
-      `;
-    }
-  });
-
-  html += `</div>`;
-  resultsBox.classList.add("active");
-  resultsBox.innerHTML = html;
-}
-
-document.getElementById("siteSearch").addEventListener("keypress", function(e) {
-  if (e.key === "Enter") {
-    runSearch();
-  }
-});
-    </script>
-<script>
-
-const luxuryMessages = [
-"PRIME COLLECTION JUST DROPPED",
-"FREE DELIVERY IN KISII & NYAMIRA TOWN",
-"CUSTOM PRINTING WITH A PREMIUM TOUCH",
-"COUPLE SETS NOW AVAILABLE",
-"STYLE. IDENTITY. PRIME KENYA."
-];
-
-const luxuryBackgrounds = [
-"linear-gradient(135deg,#111,#1a1a1a,#2b2b2b)",
-"linear-gradient(135deg,#0A7A35,#1f8c4d,#133d24)",
-"linear-gradient(135deg,#111,#3a2b08,#1a1a1a)",
-"linear-gradient(135deg,#181818,#4b1024,#1f1f1f)",
-"linear-gradient(135deg,#111,#222,#111)"
-];
-
-let luxuryIndex = 0;
-
-const luxuryText = document.getElementById("luxuryBannerText");
-const luxuryBanner = document.getElementById("luxuryBanner");
-
-function rotateLuxuryBanner(){
-
-luxuryText.style.opacity = "0";
-luxuryText.style.transform = "translateY(-6px)";
-
-setTimeout(() => {
-
-luxuryIndex++;
-
-if(luxuryIndex >= luxuryMessages.length){
-luxuryIndex = 0;
-}
-
-luxuryText.innerText = luxuryMessages[luxuryIndex];
-
-luxuryBanner.style.background = luxuryBackgrounds[luxuryIndex];
-
-luxuryText.style.opacity = "1";
-luxuryText.style.transform = "translateY(0)";
-
-},400);
-
-}
-
-setInterval(rotateLuxuryBanner,5000);
-
-</script>
-  <div id="cartNotification">✔ Added to cart</div>
-  <script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
-    import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyD1xMY4KTa3BlME1ZuJ6HryWOrp8Qb8dIw",
-    authDomain: "prime-kenya.firebaseapp.com",
-    projectId: "prime-kenya",
-    storageBucket: "prime-kenya.firebasestorage.app",
-    messagingSenderId: "404361224682",
-    appId: "1:404361224682:web:1c6ee627924381e4a61293",
-    measurementId: "G-7YBBC5CC7M"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-const analytics = getAnalytics(app);
-async function saveOrder(orderData) {
-  try {
-    await addDoc(collection(db, "orders"), {
-      items: orderData.items,
-      town: orderData.town,
-      total: orderData.total,
-      status: "pending",
-      createdAt: new Date()
-    });
-    console.log("Order saved");
-  } catch (error) {
-    console.error("Error saving order:", error);
-  }
-}
-
-window.saveOrder = saveOrder;
-</script>
-  <!-- WhatsApp Floating Button -->
-<a href="https://wa.me/254769574469?text=Hello%20I%20want%20to%20know%20more" 
-   class="whatsapp-float" target="_blank" rel="noopener">
-   <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png" alt="WhatsApp" />
+<!-- FIXED WhatsApp button - Green with logo and animation -->
+<a href="https://wa.me/254769574469" class="whatsapp-float" target="_blank">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
 </a>
+
+<script>
+  // Product Data (all your original products preserved)
+  const products = [
+    { name: "The Return of the King T-shirt", desc: "Stylish branded custom printed tee.", price: "KSh 1,000", image: "image-32 (1).jpg", waMsg: "Hello Prime Kenya, I want to order the Return of the King T-shirt" },
+    { name: "Custom Printed T-Shirt", desc: "Branded T-shirts for everyday wear.", price: "KSh 1,000", image: "file_00000000aebc71fdaedc5c4f02c41f9c.png", waMsg: "Hello Prime Kenya, I want to order a custom printed T-shirt" },
+    { name: "Kids Printed T-Shirt", desc: "Affordable kids custom wear.", price: "KSh 650", image: "file_00000000553c71fdb0a4c8874152372a.png", waMsg: "Hello Prime Kenya, I want to order a kids printed T-shirt" },
+    { name: "Matching Couple T-Shirts", desc: "Perfect for gifts and outings.", price: "KSh 1,800", image: "file_00000000690871f8b037d35ff0db9e5c (1).png", waMsg: "Hello Prime Kenya, I want to order the matching couple T-shirts" },
+    { name: "Custom Printed Items", desc: "Caps, mugs, t-shirts, branding.", price: "Price on Request", image: "Screenshot_20260310_235238.jpg", waMsg: "Hello Prime Kenya, I want a custom printed item" },
+    { name: "Custom Sports Tracksuit", desc: "Premium tracksuit with logo space.", price: "KSh 5,500", image: "file_000000000700722fb929c122230ae9e5.png", waMsg: "Hello Prime Kenya, I want to order the custom sports tracksuit" },
+    { name: "Manchester United Jersey", desc: "Custom football jersey with name printing.", price: "KSh 2,500", image: "file_00000000765071fda52e16c03cb4818f.png", waMsg: "Hello Prime Kenya, I want to order the Manchester United jersey" }
+  ];
+
+  function renderProducts() {
+    const container = document.getElementById('productList');
+    if (!container) return;
+    container.innerHTML = products.map((p, idx) => `
+      <div class="product-card" data-search="${p.name.toLowerCase()} ${p.desc.toLowerCase()}">
+        <div class="badge">NEW</div>
+        <div class="product-image" style="background-image:url('${p.image}'); background-size:cover;"></div>
+        <div class="product-info">
+          <h3>${p.name}</h3>
+          <div class="price">${p.price}</div>
+          <a class="btn btn-primary" href="https://wa.me/254769574469?text=${encodeURIComponent(p.waMsg)}" target="_blank" style="font-size:0.7rem; padding:0.4rem 1rem; display:inline-block;">Order via WhatsApp</a>
+          <div class="action-row">
+            <button class="action-btn like-btn" onclick="likeProduct(this)">♡ Favorite</button>
+            <button class="action-btn share-btn" onclick="shareProduct('${p.name}', '${p.price}')">Share</button>
+          </div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function runSearch() {
+    const term = document.getElementById('siteSearch').value.toLowerCase();
+    const cards = document.querySelectorAll('.product-card');
+    let visibleCount = 0;
+    cards.forEach(card => {
+      const searchData = card.getAttribute('data-search') || '';
+      const name = card.querySelector('h3')?.innerText.toLowerCase() || '';
+      const isVisible = name.includes(term) || searchData.includes(term);
+      card.style.display = isVisible ? '' : 'none';
+      if (isVisible) visibleCount++;
+    });
+    const resultsDiv = document.getElementById('searchResults');
+    if (resultsDiv) {
+      resultsDiv.innerHTML = visibleCount === 0 && term !== '' ? '<p style="text-align:center; padding:1rem; color:#8B7355;">No items found — try "t-shirt" or "jersey"</p>' : '';
+    }
+  }
+
+  function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    menu.classList.toggle('show');
+  }
+
+  function toggleCart() {
+    alert('Cart feature coming soon — order via WhatsApp for now.');
+  }
+
+  function likeProduct(btn) {
+    btn.classList.toggle('liked');
+    btn.innerText = btn.classList.contains('liked') ? '❤️ Liked' : '♡ Favorite';
+  }
+
+  function shareProduct(name, price) {
+    if (navigator.share) {
+      navigator.share({ title: name, text: `Check out ${name} at ${price} from Prime Kenya!` });
+    } else {
+      alert(`Share: ${name} - ${price}\n\nWhatsApp us to order!`);
+    }
+  }
+
+  // Initialize on page load
+  renderProducts();
+
+  // Allow Enter key to search
+  document.getElementById('siteSearch')?.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') runSearch();
+  });
+</script>
 </body>
 </html>

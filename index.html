@@ -814,37 +814,38 @@
   const closeModal = document.querySelector('.close-modal');
 
   function openModal(productIndex) {
-    const p = products[productIndex];
-    if (!p) return;
-    
-    document.getElementById('modalImg').src = p.image;
-    document.getElementById('modalName').innerText = p.name;
-    document.getElementById('modalDesc').innerText = p.desc;
-    document.getElementById('modalPrice').innerText = p.price;
-    document.getElementById('modalWhatsAppBtn').href = `https://wa.me/254769574469?text=${encodeURIComponent(p.waMsg)}`;
-    
-    // Show "You may also like" - products from SAME category, excluding current
-    const alsoLike = products.filter((item, idx) => item.category === p.category && idx !== productIndex);
-    const alsoContainer = document.getElementById('alsoLikeProducts');
-    
-    if (alsoLike.length === 0) {
-      alsoContainer.innerHTML = '<p style="padding:15px; color:#8B7355; font-size:0.8rem;">More styles coming soon.</p>';
-    } else {
-      alsoContainer.innerHTML = alsoLike.map((item) => {
-        const origIdx = products.findIndex(prod => prod.name === item.name);
-        return `
-          <div class="also-like-card" onclick="openModal(${origIdx})">
-            <div class="also-like-card-image" style="background-image:url('${item.image}');"></div>
-            <div class="also-like-card-info">
-              <h4>${item.name.length > 22 ? item.name.substring(0,19)+'...' : item.name}</h4>
-              <div class="also-like-price">${item.price}</div>
-            </div>
+  const p = products[productIndex];
+  if (!p) return;
+  
+  document.getElementById('modalImg').src = p.image;
+  document.getElementById('modalName').innerText = p.name;
+  document.getElementById('modalDesc').innerText = p.desc;
+  document.getElementById('modalPrice').innerText = p.price;
+  document.getElementById('modalWhatsAppBtn').href = `https://wa.me/254769574469?text=${encodeURIComponent(p.waMsg)}`;
+  
+  const alsoLike = products.filter((item, idx) => item.category === p.category && idx !== productIndex);
+  const alsoContainer = document.getElementById('alsoLikeProducts');
+  
+  if (alsoLike.length === 0) {
+    alsoContainer.innerHTML = '<p style="padding:15px; color:#8B7355; font-size:0.8rem;">More styles coming soon.</p>';
+  } else {
+    alsoContainer.innerHTML = alsoLike.map((item) => {
+      const origIdx = products.findIndex(prod => prod.name === item.name);
+      return `
+        <div class="also-like-card" onclick="openModal(${origIdx})">
+          <div class="also-like-card-image" style="background-image:url('${item.image}');"></div>
+          <div class="also-like-card-info">
+            <h4>${item.name.length > 22 ? item.name.substring(0,19)+'...' : item.name}</h4>
+            <div class="also-like-price">${item.price}</div>
           </div>
-        `;
-      }).join('');
-      modal.style.display = 'block';
-    document.body.style.overflow = 'hidden';
+        </div>
+      `;
+    }).join('');
   }
+  
+  modal.style.display = 'block';
+  document.body.style.overflow = 'hidden';
+}
 
   closeModal.onclick = function() {
     modal.style.display = 'none';

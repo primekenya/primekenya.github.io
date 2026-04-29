@@ -449,6 +449,70 @@
         padding-top: 1rem;
         padding-left: 0;
       }
+      /* Gallery Slideshow Styles */
+.hero-gallery {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.slideshow-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    background: #D9D0C1;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.dots-container {
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 10;
+}
+
+.dot {
+    cursor: pointer;
+    height: 8px;
+    width: 8px;
+    margin: 0 4px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.dot.active-dot {
+    background-color: white;
+}
+
+@keyframes fade {
+    from { opacity: 0.4; }
+    to { opacity: 1; }
+}
     }
   </style>
 </head>
@@ -468,14 +532,42 @@
     </div>
   </nav>
 </header>
-
 <section class="hero">
-  <div class="hero-image"></div>
-  <div class="hero-text">
-    <h1>Structures of belonging.<br>Kenyan minimalism.</h1>
-    <p>Prime Kenya — slow fashion rooted in Kisii. Earth-toned fabrics, custom printing, and silhouettes that move between rural and urban.</p>
-    <a href="#shop" class="btn">DISCOVER COLLECTION</a>
-  </div>
+    <div class="hero-gallery">
+        <div class="slideshow-container">
+            <div class="slide fade active">
+                <img src="prime 4.jpg" alt="Prime Kenya Collection">
+            </div>
+            <div class="slide fade">
+                <img src="img_1_1777404945233.jpg" alt="Prime Kenya Collection">
+            </div>
+            <div class="slide fade">
+                <img src="image.jpg" alt="Prime Kenya Collection">
+            </div>
+            <div class="slide fade">
+                <img src="prime 6.jpg" alt="Prime Kenya Collection">
+            </div>
+            <div class="slide fade">
+                <img src="prime 5.jpg" alt="Prime Kenya Collection">
+            </div>
+            <div class="slide fade">
+                <img src="prime 3.jpg" alt="Prime Kenya Collection">
+            </div>
+            <div class="dots-container">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+                <span class="dot" onclick="currentSlide(4)"></span>
+                <span class="dot" onclick="currentSlide(5)"></span>
+                <span class="dot" onclick="currentSlide(6)"></span>
+            </div>
+        </div>
+    </div>
+    <div class="hero-text">
+        <h1>Structures of belonging.<br>Kenyan minimalism.</h1>
+        <p>Prime Kenya — slow fashion rooted in Kisii. Earth-toned fabrics, custom printing, and silhouettes that move between rural and urban.</p>
+        <a href="#shop" class="btn">DISCOVER COLLECTION</a>
+    </div>
 </section>
 
 <section class="search-section">
@@ -594,6 +686,60 @@
   document.getElementById('siteSearch')?.addEventListener('keypress', function(e) {
     if (e.key === 'Enter') runSearch();
   });
+  // Auto-changing image gallery
+let slideIndex = 0;
+let slideInterval;
+
+function showSlides() {
+    const slides = document.getElementsByClassName("slide");
+    const dots = document.getElementsByClassName("dot");
+    
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].classList.remove("active");
+    }
+    for (let i = 0; i < dots.length; i++) {
+        dots[i].classList.remove("active-dot");
+    }
+    
+    slideIndex++;
+    if (slideIndex > slides.length) { slideIndex = 1; }
+    
+    if (slides[slideIndex - 1]) {
+        slides[slideIndex - 1].classList.add("active");
+    }
+    if (dots[slideIndex - 1]) {
+        dots[slideIndex - 1].classList.add("active-dot");
+    }
+    
+    slideInterval = setTimeout(showSlides, 4000);
+}
+
+function currentSlide(n) {
+    clearTimeout(slideInterval);
+    const slides = document.getElementsByClassName("slide");
+    const dots = document.getElementsByClassName("dot");
+    
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].classList.remove("active");
+    }
+    for (let i = 0; i < dots.length; i++) {
+        dots[i].classList.remove("active-dot");
+    }
+    
+    slideIndex = n;
+    if (slides[slideIndex - 1]) {
+        slides[slideIndex - 1].classList.add("active");
+    }
+    if (dots[slideIndex - 1]) {
+        dots[slideIndex - 1].classList.add("active-dot");
+    }
+    
+    slideInterval = setTimeout(showSlides, 4000);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    showSlides();
+});
 </script>
 </body>
 </html>
